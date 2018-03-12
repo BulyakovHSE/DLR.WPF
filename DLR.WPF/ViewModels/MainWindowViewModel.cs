@@ -1,12 +1,22 @@
-﻿namespace DLR.WPF.ViewModels
+﻿using Catel.Services;
+using DLR.WPF.DlrServer;
+using DLR.WPF.Views;
+
+namespace DLR.WPF.ViewModels
 {
     using Catel.MVVM;
     using System.Threading.Tasks;
 
     public class MainWindowViewModel : ViewModelBase
     {
-        public MainWindowViewModel()
+        private readonly IMessageService _messageService;
+        private readonly IPleaseWaitService _pleaseWaitService;
+
+        public MainWindowViewModel(IMessageService messageService, IPleaseWaitService pleaseWaitService)
         {
+            _messageService = messageService;
+            _pleaseWaitService = pleaseWaitService;
+            AuthenticateCommand = new Command(Authenticate, () => true);
         }
 
         public override string Title { get { return "DLR.WPF"; } }
@@ -28,5 +38,27 @@
 
             await base.CloseAsync();
         }
+
+        private void Authenticate()
+        {
+            Token token;
+            var authWindow = new AuthWindow();
+            //_pleaseWaitService.Show("Авторизация");
+            var result = authWindow.ShowDialog();
+            if (result.HasValue && result.Value)
+            {
+                var authServiceClient = new AuthServiceClient("BasicHttpBinding_IAuthService");
+                if (authWindow.DataContext is AuthWindowViewModel authVm)
+                {
+                    token = authServiceClient.Authenticate(authVm.Login, authVm.Password);
+                    _messageService.ShowAsync("Авторизован");
+                }
+                
+            }
+            _messageService.ShowAsync("Не авторизован");
+            //_pleaseWaitService.Hide();
+        }
+
+        public Command AuthenticateCommand { get; set; }
     }
 }
