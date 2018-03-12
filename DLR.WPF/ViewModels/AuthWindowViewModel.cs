@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Catel.Data;
-using DLR.WPF.Models;
 
 namespace DLR.WPF.ViewModels
 {

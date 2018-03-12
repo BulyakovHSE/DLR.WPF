@@ -3,16 +3,93 @@
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
               xmlns:catel="http://schemas.catelproject.com"
               ResizeMode="CanResize">
-
-     <Grid x:Name="LayoutRoot">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        
-        <Label Grid.Row="0" Grid.Column="0" Content="{Binding Title}" />
-        <Label Grid.Row="1" Grid.Column="0" Content="Here goes your real content" />
-        <Button Content="Authenticate" Command="{Binding AuthenticateCommand}"/>
+        <ScrollViewer>
+            <StackPanel x:Name="LayoutRoot">
+                <StackPanel x:Name="AuthStack" Orientation="Horizontal">
+                    <Button Content="Войти" Command="{Binding AuthenticateCommand}" Margin="0 0 10 0"/>
+                    <TextBlock Text="{Binding UserRegion}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" IsEnabled="{Binding Authenticated}">
+                    <Button Content="Создать новое дело"/>
+                    <Label Content="№ общего дела: "/>
+                    <TextBlock Text="123456" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                    <Button Content="Загрузить сторое дело"/>
+                </StackPanel>
+                <StackPanel IsEnabled="{Binding EditingEnabled}">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Тип акта: "/>
+                        <ComboBox ItemsSource="{Binding ActTypes}" SelectedIndex="{Binding SelectedActIndex}"/>
+                    </StackPanel>
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <StackPanel Orientation="Vertical">
+                            <Label Content="Информация о деле" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Номер акта" Grid.Column="0" Grid.Row="0"/>
+                                <TextBox Text="" Grid.Column="1" Grid.Row="0"/>
+                                <Label Content="Время и дата начала создания" Grid.Column="0" Grid.Row="1"/>
+                                <TextBox Text="" Grid.Column="1" Grid.Row="1"/>
+                                <Label Content="Время и дата конца создания" Grid.Column="0" Grid.Row="2"/>
+                                <TextBox Text="" Grid.Column="1" Grid.Row="2"/>
+                                <Label Content="Продолжительность создания" Grid.Column="0" Grid.Row="3"/>
+                                <TextBox Text="" Grid.Column="1" Grid.Row="3"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                    <Border BorderThickness="1" BorderBrush="Black">
+                        <StackPanel Orientation="Vertical">
+                            <Label Content="Информация о проверяющих" HorizontalAlignment="Center"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="ФИО, должность и т.д."/>
+                                <TextBox Text="" TextWrapping="Wrap" Grid.Column="1"/>
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Button Content="Сохранить информацию" Margin="10 5 10 5"/>
+                                <Button Content="Выбрать из сохраненного" Grid.Column="1" Margin="10 5 10 5"/>
+                            </Grid>
+                            <StackPanel Orientation="Horizontal">
+
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+
+
+            </StackPanel>
+        </ScrollViewer>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Сохранить"/>
+            <Button Content="Создать акт" Grid.Column="1"/>
+            <Button Content="Журнал" Grid.Column="2"/>
+        </Grid>
     </Grid>
-    
+
 </catel:Window>
