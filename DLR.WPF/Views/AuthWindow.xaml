@@ -1,20 +1,29 @@
-﻿<catel:DataWindow x:Class="DLR.WPF.Views.AuthWindow"
+﻿<catel:Window x:Class="DLR.WPF.Views.AuthWindow"
                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                   xmlns:catel="http://schemas.catelproject.com"
-                  Title="Авторизация и вход">
+                  Title="Авторизация и вход"
+              Width="500" Height="500"
+              ResizeMode="NoResize">
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
+            <Label Content="Авторизация" HorizontalAlignment="Center" Margin="0 0 0 30" FontSize="16"/>
+            <Grid Width="200">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
                 <Label Content="Логин: "/>
-                <TextBox Width="108" Text="{Binding Login}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Пароль: "/>
-                <TextBox Width="100" Text="{Binding Password}"/>
-            </StackPanel>
+                <TextBox Text="{Binding Login}" Grid.Row="0" Grid.Column="1"/>
+                <Label Content="Пароль: " Grid.Row="1" Grid.Column="0"/>
+                <TextBox Text="{Binding Password}" Grid.Row="1" Grid.Column="1"/>
+            </Grid>
+            <Button Content="Войти" Width="150" Margin="0 20 0 0" Command="{Binding AuthenticateCommand}" IsDefault="True"/>
         </StackPanel>
     </Grid>
-    
-</catel:DataWindow>
+</catel:Window>

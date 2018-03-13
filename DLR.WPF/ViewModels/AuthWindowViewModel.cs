@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using Catel.Data;
+using Catel.Services;
+using Catel.Windows;
+using DLR.WPF.DlrServer;
 
 namespace DLR.WPF.ViewModels
 {
@@ -8,12 +11,18 @@ namespace DLR.WPF.ViewModels
 
     public class AuthWindowViewModel : ViewModelBase
     {
-        public AuthWindowViewModel()
+        private readonly IMessageService _messageService;
+
+        public AuthWindowViewModel(IMessageService messageService)
         {
+            _messageService = messageService;
         }
 
         public override string Title { get { return "View model title"; } }
 
+        public Token Token { get; set; }
+
+        public Window Window { get;set; }
 
         // TODO: Register models with the vmpropmodel codesnippet
         // TODO: Register view model properties with the vmprop or vmpropviewmodeltomodel codesnippets
@@ -36,6 +45,35 @@ namespace DLR.WPF.ViewModels
         }
 
         public static readonly PropertyData PasswordProperty = RegisterProperty(nameof(Password), typeof(string), string.Empty);
+
+        public Command AuthenticateCommand => new Command(async () =>
+        {
+            var authClient = new AuthServiceClient("BasicHttpBinding_IAuthService");
+            try
+            {
+                var token = await authClient.AuthenticateAsync(Login, Password);
+                if (token != null)
+                {
+                    Token = token;
+                    Window?.Close();
+                }
+                else
+                {
+                    await _messageService.ShowWarningAsync("Неудачная попытка авторизации");
+                }
+            }
+            catch
+            {
+                await _messageService.ShowErrorAsync("Не удалось установить соединение с сервером.");
+            }
+
+            
+        });
+
+        public bool CanAuthenicate()
+        {
+            return string.IsNullOrEmpty(Login) && string.IsNullOrEmpty(Password);
+        }
 
         protected override async Task InitializeAsync()
         {

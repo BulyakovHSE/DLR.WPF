@@ -16,15 +16,17 @@ namespace DLR.WPF.ViewModels
     {
         private readonly IMessageService _messageService;
         private readonly IPleaseWaitService _pleaseWaitService;
+        private readonly IUIVisualizerService _uiVisualizerService;
         private Token _token;
 
-        public MainWindowViewModel(IMessageService messageService, IPleaseWaitService pleaseWaitService)
+        public MainWindowViewModel(IMessageService messageService, IPleaseWaitService pleaseWaitService, IUIVisualizerService uiVisualizerService)
         {
             _messageService = messageService;
             _pleaseWaitService = pleaseWaitService;
+            _uiVisualizerService = uiVisualizerService;
             AuthenticateCommand = new Command(Authenticate, () => true);
             UserRegion = "Не авторизовано";
-            EditingEnabled = false;
+            EditingEnabled = true;
             ActTypes = new ObservableCollection<string>();
             ActTypes.AddRange(Enum.GetNames(typeof(ActType)));
             ActTypes.Add("Не выбрано");
@@ -62,30 +64,18 @@ namespace DLR.WPF.ViewModels
             await base.CloseAsync();
         }
 
-        private void Authenticate()
+        private async void Authenticate()
         {
-            
-            var authWindow = new AuthWindow();
-            //_pleaseWaitService.Show("Авторизация");
-            var result = authWindow.ShowDialog();
-            if (result.HasValue && result.Value)
+            var authVm = new AuthWindowViewModel(_messageService);
+            await _uiVisualizerService.ShowDialogAsync(authVm, (o, e) =>
             {
-                var authServiceClient = new AuthServiceClient("BasicHttpBinding_IAuthService");
-                if (authWindow.DataContext is AuthWindowViewModel authVm)
+                if (e.Result.HasValue && authVm.Token!=null)
                 {
-                    _token = authServiceClient.Authenticate(authVm.Login, authVm.Password);
-                    if (_token != null)
-                    {
-                        _messageService.ShowAsync("Авторизован");
-                        UserRegion = GetRegionName(_token.UserRegion);
-                        Authenticated = true;
-                    }
+                    _token = authVm.Token;
+                    UserRegion = GetRegionName(_token.UserRegion);
+                    Authenticated = true;
                 }
-                
-            }
-            else
-            _messageService.ShowAsync("Не авторизован");
-            //_pleaseWaitService.Hide();
+            });
         }
 
         private string GetRegionName(Region region)
