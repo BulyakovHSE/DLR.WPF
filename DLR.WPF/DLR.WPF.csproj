@@ -93,6 +93,50 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\Acts\ActInspectionFl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Acts\ActInspectionUlIp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Acts\AgreementStatement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Acts\AreaMeasurement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Acts\CheckingJournal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Acts\CitizensCheckPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Acts\Inspection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Acts\OrderUlInspection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Acts\PhotoTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Acts\Protocol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Acts\Regulation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AuthWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +154,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Models\ActType.cs" />
     <Compile Include="Services\ActTypeTemplateSelector.cs" />
     <Compile Include="ViewModels\AuthWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -146,6 +191,45 @@
     <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.ActBase.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.ActCommon1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.ActIndividual1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.ActInpectationFl1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.ActInspectationUlIp1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.ActInspection1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.AgreementStatement1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.AreaMeasurement1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.CheckingJournal1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.CitizensCheckPlan1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.OrderInspectionUlIp1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.PhotoTable1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.Protocol1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.Regulation1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.Token.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -164,6 +248,9 @@
     <None Include="Connected Services\DlrServer\item4.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\DlrServer\item5.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Readme.txt" />
     <None Include="Properties\Settings.settings">
@@ -173,8 +260,8 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Services\Interfaces\" />
+    <Folder Include="Views\Styles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FodyWeavers.xml" />

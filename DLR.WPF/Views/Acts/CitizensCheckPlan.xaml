@@ -1,0 +1,72 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DataTemplate x:Key="CitizensCheckPlanTemplate">
+        <StackPanel x:Name="CitizensCheckPlan" Visibility="Visible">
+            <TextBlock TextWrapping="Wrap" Text="План проверки граждан:"/>
+            <Border x:Name="CitizensCheckPlanDescription"  BorderThickness="1" BorderBrush="Black">
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap" Text="Описание проверки" HorizontalAlignment="Center" FontSize="15"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="Wrap" Text="Наименование органа муниципального земельного контроля" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="Дата от" Grid.Row="1" Grid.Column="0"/>
+                        <DatePicker Grid.Row="1" Grid.Column="1"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="План проведения проверок на (20__ год)" Grid.Row="2" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="Объект земельных отношений, подлежащий проверке кадастровый номер земельного участка, его площадь, категория, вид разрешенного использования и местоположение" Grid.Row="3" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="ФИО гражданина" Grid.Row="4" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <Border x:Name="CitizensCheckPlanRequirements"  BorderThickness="1" BorderBrush="Black">
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap" Text="Требования проверки" HorizontalAlignment="Center" FontSize="15"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="Wrap" Text="Цель проведения проверки" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="Основание проведения проверки" Grid.Row="1" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="Дата начала проведения проверки (Указывается календарный месяц начала проведения проверки.)" Grid.Row="2" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="Срок проведения плановой проверки (рабочих дней)" Grid.Row="3" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="Наименование федерального органа государственного земельного надзора, с которым проверка проводится совместно" Grid.Row="4" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>

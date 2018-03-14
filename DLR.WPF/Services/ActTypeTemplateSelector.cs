@@ -42,6 +42,7 @@ namespace DLR.WPF.Services
             if (type == typeof(OrderInspectionUlIp)) return OrderInspectionUlipTemplate;
             if (type == typeof(Protocol)) return ProtocolTemplate;
             if (type == typeof(Regulation)) return RegulationTemplate;
+            if (type == typeof(PhotoTable)) return PhotoTableTemplate;
             return base.SelectTemplate(item, container);
         }
     }

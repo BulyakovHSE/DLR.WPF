@@ -1,8 +1,23 @@
 ﻿<Application x:Class="DLR.WPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:services="clr-namespace:DLR.WPF.Services"
              StartupUri="/Views/MainWindow.xaml">
     <Application.Resources>
-        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Views/Acts/ActInspectionFl.xaml"/>
+                <ResourceDictionary Source="Views/Acts/ActInspectionUlIp.xaml"/>
+                <ResourceDictionary Source="Views/Acts/AgreementStatement.xaml"/>
+                <ResourceDictionary Source="Views/Acts/AreaMeasurement.xaml"/>
+                <ResourceDictionary Source="Views/Acts/CheckingJournal.xaml"/>
+                <ResourceDictionary Source="Views/Acts/CitizensCheckPlan.xaml"/>
+                <ResourceDictionary Source="Views/Acts/Inspection.xaml"/>
+                <ResourceDictionary Source="Views/Acts/OrderUlInspection.xaml"/>
+                <ResourceDictionary Source="Views/Acts/PhotoTable.xaml"/>
+                <ResourceDictionary Source="Views/Acts/Protocol.xaml"/>
+                <ResourceDictionary Source="Views/Acts/Regulation.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

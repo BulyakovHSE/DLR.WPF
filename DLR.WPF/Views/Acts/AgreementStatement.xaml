@@ -1,0 +1,73 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+    <DataTemplate x:Key="AgreementStatementTemplate">
+        <StackPanel x:Name="AgreementStatement" Visibility="Visible">
+            <TextBlock TextWrapping="Wrap" Text="Заявление о согласовании проверки:"/>
+            <Border x:Name="AgreementStatementTarget"  BorderThickness="1" BorderBrush="Black">
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap" Text="Цель проверки" HorizontalAlignment="Center" FontSize="15"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="Wrap" Text="Проверка в отношении (наименование, адрес (место нахождения) постоянно действующего исполнительного органа юридического лица, государственный регистрационный номер записи о государственной регистрации юридического лица/фамилия, имя и (в случае, если имеется) отчество, место жительства индивидуального предпринимателя, государственный регистрационный номер записи о государственной регистрации индивидуального предпринимателя, идентификационный номер налогоплательщика)" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="По адресу" Grid.Row="1" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <Border x:Name="AgreementStatementCheck"  BorderThickness="1" BorderBrush="Black">
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap" Text="Проведение проверки" HorizontalAlignment="Center" FontSize="15"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="Wrap" Text="Основание проведения проверки:(ссылка на положение Федерального закона от 26 декабря 2008 г. № 294-ФЗ О защите прав юридических лиц и индивидуальных предпринимателей при осуществлении государственного контроля (надзора) и муниципального контроля)" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="Дата начала проведения проверки" Grid.Row="1" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="Время начала проведения проверки" Grid.Row="2" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <Border x:Name="AgreementStatementOther"  BorderThickness="1" BorderBrush="Black">
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap" Text="Другое" HorizontalAlignment="Center" FontSize="15"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="Wrap" Text="Приложения: (копия распоряжения или приказа руководителя, заместителя руководителя органа государственного контроля (надзора), органа муниципального контроля о проведении внеплановой выездной проверки. Документы, содержащие сведения, послужившие основанием для проведения внеплановой проверки)" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="Дата и время составления документа" Grid.Row="1" Grid.Column="0"/>
+                        <xctk:DateTimePicker Grid.Row="1" Grid.Column="1"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>

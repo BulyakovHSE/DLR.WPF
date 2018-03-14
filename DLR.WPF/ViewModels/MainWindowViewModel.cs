@@ -6,6 +6,7 @@ using Catel.Data;
 using Catel.Services;
 using Catel.Windows.Interactivity;
 using DLR.WPF.DlrServer;
+using DLR.WPF.Models;
 using DLR.WPF.Views;
 
 namespace DLR.WPF.ViewModels
@@ -32,7 +33,7 @@ namespace DLR.WPF.ViewModels
             ActTypes.AddRange(Enum.GetNames(typeof(ActType)));
             ActTypes.Add("Не выбрано");
             SelectedActIndex = ActTypes.IndexOf("Не выбрано");
-            
+            SelectedAct = new ObservableCollection<ActBase>();
         }
 
         public override string Title { get { return "DLR.WPF"; } }
@@ -47,6 +48,8 @@ namespace DLR.WPF.ViewModels
         public bool EditingEnabled { get; set; }
 
         public string UserRegion { get; set; }
+
+        public ObservableCollection<ActBase> SelectedAct { get; set; }
 
         public ObservableCollection<string> ActTypes { get; set; }
 
@@ -102,8 +105,71 @@ namespace DLR.WPF.ViewModels
         public Command CreateNewCommand => new Command(() =>
         {
             if(!Enum.TryParse(SelectedActIndex.ToString(), out ActType actType)) return;
-            
+            switch (actType)
+            {
+                case ActType.АктОбследования:
+                {
+                    ShowAct(new ActInspection());
+                    break;
+                }
+                case ActType.АктПроверкиФизЛица:
+                {
+                    ShowAct(new ActInpectationFl());
+                    break;
+                }
+                case ActType.АктПроверкиЮл:
+                {
+                    ShowAct(new ActInspectationUlIp());
+                    break;
+                }
+                case ActType.ЖурналУчетаПроверокЮл:
+                {
+                    ShowAct(new CheckingJournal());
+                    break;
+                }
+                case ActType.ЗаявлениеСоглВнеплВыездПроверки:
+                {
+                    ShowAct(new AgreementStatement());
+                    break;
+                }
+                case ActType.ОбмерПлощадиЗу:
+                {
+                    ShowAct(new AreaMeasurement());
+                    break;
+                }
+                case ActType.ПланПроверокГраждан:
+                {
+                    ShowAct(new CitizensCheckPlan());
+                    break;
+                }
+                case ActType.ПредписаниеУтсрНарушЗемЗакона:
+                {
+                    ShowAct(new OrderInspectionUlIp());
+                    break;
+                }
+                case ActType.ПротоколАдмПравонарушения:
+                {
+                    ShowAct(new Protocol());
+                    break;
+                }
+                case ActType.РаспоряжениеПроверкиЮл:
+                {
+                    ShowAct(new Regulation());
+                    break;
+                }
+                case ActType.ФотоТаблица:
+                {
+                    ShowAct(new PhotoTable());
+                    break;
+                }
+            }
 
         });
+
+        private void ShowAct(ActBase act)
+        {
+            SelectedAct.Clear();
+            SelectedAct.Add(act);
+        } 
     }
 }
