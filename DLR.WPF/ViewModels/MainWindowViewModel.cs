@@ -96,5 +96,12 @@ namespace DLR.WPF.ViewModels
         }
 
         public Command AuthenticateCommand { get; set; }
+
+        public Command CreateNewCommand => new Command(() =>
+        {
+            if(!Enum.TryParse(SelectedActIndex.ToString(), out ActType actType)) return;
+            
+
+        });
     }
 }

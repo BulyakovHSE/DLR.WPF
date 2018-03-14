@@ -23,68 +23,41 @@
                     <TextBlock Text="123456" VerticalAlignment="Center" Margin="0 0 10 0"/>
                     <Button Content="Загрузить сторое дело"/>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Тип акта: "/>
+                    <ComboBox ItemsSource="{Binding ActTypes}" SelectedIndex="{Binding SelectedActIndex}"/>
+                </StackPanel>
                 <StackPanel IsEnabled="{Binding EditingEnabled}">
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Тип акта: "/>
-                        <ComboBox ItemsSource="{Binding ActTypes}" SelectedIndex="{Binding SelectedActIndex}"/>
-                    </StackPanel>
-                    <Border BorderBrush="Black" BorderThickness="1">
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock TextWrapping="Wrap" Text="Информация о деле" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                    <StackPanel x:Name="Inspection" Visibility="Collapsed">
+                        <TextBlock TextWrapping="Wrap" Text="Акт обследования:"/>
+                        <Border x:Name="InspectionAct"  BorderThickness="1" BorderBrush="Black">
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap" Text="Информация об акте проверки" HorizontalAlignment="Center" FontSize="15"/>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                    <RowDefinition />
+                                    <RowDefinition />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="2*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock TextWrapping="Wrap" Text="Номер акта" Grid.Column="0" Grid.Row="0"/>
-                                <TextBox Text="" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap"/>
-                                <TextBlock TextWrapping="Wrap" Text="Время и дата начала создания" Grid.Column="0" Grid.Row="1"/>
-                                <xctk:DateTimePicker Grid.Column="1" Grid.Row="1"/>
-                                <TextBlock TextWrapping="Wrap" Text="Время и дата конца создания" Grid.Column="0" Grid.Row="2"/>
-                                <xctk:DateTimePicker Grid.Column="1" Grid.Row="2"/>
-                                <TextBlock TextWrapping="Wrap" Text="Продолжительность создания" Grid.Column="0" Grid.Row="3"/>
-                                <TextBox Text="" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap"/>
-                                <TextBlock TextWrapping="Wrap" Text="Имя территориального органа" Grid.Column="0" Grid.Row="4"/>
-                                <TextBox Text="" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap"/>
-                                <TextBlock TextWrapping="Wrap" Text="Место составления" Grid.Column="0" Grid.Row="5"/>
-                                <TextBox Text="" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap"/>
-                            </Grid>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="Black">
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock TextWrapping="Wrap" Text="Информация о проверяющих" HorizontalAlignment="Center" FontSize="15"/>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="2*"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock TextWrapping="Wrap" Text="ФИО, должность и т.д."/>
-                                <TextBox Text="" TextWrapping="Wrap" Grid.Column="1"/>
-                            </Grid>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="Сохранить информацию" Margin="10 5 10 5"/>
-                                <Button Content="Выбрать из сохраненного" Grid.Column="1" Margin="10 5 10 5"/>
-                            </Grid>
-                            <StackPanel Orientation="Horizontal">
+                                    <TextBlock TextWrapping="Wrap" Text="Дата составления акта" Grid.Row="0" Grid.Column="0"/>
+                                <DatePicker Grid.Row="0" Grid.Column="1"/>
 
-                            </StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Наименование органа муниципального земельного контроля" Grid.Row="1" Grid.Column="0"/>
+                                <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                <TextBlock TextWrapping="Wrap" Text="Номер акта" Grid.Row="2" Grid.Column="0"/>
+                                <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                <TextBlock TextWrapping="Wrap" Text="Место составления и время" Grid.Row="3" Grid.Column="0"/>
+                                <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
                         </StackPanel>
-                    </Border>
-                    <StackPanel x:Name="Inspection" Visibility="Collapsed">
-                        <TextBlock TextWrapping="Wrap" Text="Акт обследования:"/>
+                        </Border>
                         <Border x:Name="InspectionEarthAreaObservation"  BorderThickness="1" BorderBrush="Black">
                             <StackPanel>
                                 <TextBlock TextWrapping="Wrap" Text="Обследование земельного участка" HorizontalAlignment="Center" FontSize="15"/>
@@ -92,6 +65,7 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
                                         <RowDefinition/>
+                                        <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -100,8 +74,11 @@
                                     <TextBlock TextWrapping="Wrap" Text="Основание проведения (указываются реквизиты основания для проведения обследования)" Grid.Row="0" Grid.Column="0"/>
                                     <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
 
-                                    <TextBlock TextWrapping="Wrap" Text="Лицо(а), участвовавшее(ие) в обследовании (фамилия, имя, отчество, должность участвующего(их) в обследовании земельного участка)" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBlock TextWrapping="Wrap" Text="Обследование земельного участка провели: (должность, фамилия, имя, отчество, должность должностного лица(должностных лиц), проводившего обследование)" Grid.Row="1" Grid.Column="0"/>
                                     <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Лицо(а), участвовавшее(ие) в обследовании (фамилия, имя, отчество, должность участвующего(их) в обследовании земельного участка)" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
                                 </Grid>
                             </StackPanel>
                         </Border>
@@ -178,6 +155,30 @@
                     </StackPanel>
                     <StackPanel x:Name="AreaMeasurement" Visibility="Collapsed">
                         <TextBlock TextWrapping="Wrap" Text="Акт обмера площади земельного участка:"/>
+                        <Border x:Name="AreaMeasurementAct"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Информация об акте проверки" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Приложение к акту проверки от" Grid.Row="0" Grid.Column="0"/>
+                                    <DatePicker Grid.Row="0" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Наименование органа муниципального земельного контроля" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Номер акта проверки" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
                         <Border x:Name="AreaMeasurementPersons"  BorderThickness="1" BorderBrush="Black">
                             <StackPanel>
                                 <TextBlock TextWrapping="Wrap" Text="Лица, учавствовавшие в обмере" HorizontalAlignment="Center" FontSize="15"/>
@@ -240,6 +241,7 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
                                         <RowDefinition/>
+                                        <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -250,6 +252,9 @@
 
                                     <TextBlock TextWrapping="Wrap" Text="Наименование органа муниципального земельного контроля" Grid.Row="1" Grid.Column="0"/>
                                     <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Номер акта проверки" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
                                 </Grid>
                             </StackPanel>
                         </Border>
@@ -315,6 +320,33 @@
                     </StackPanel>
                     <StackPanel x:Name="Protocol" Visibility="Collapsed">
                         <TextBlock TextWrapping="Wrap" Text="Протокол:"/>
+                        <Border x:Name="ProtocolDescription"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Описание протокола" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Дата и время" Grid.Row="0" Grid.Column="0"/>
+                                    <DatePicker Grid.Row="0" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Номер протокола" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="должность, Ф.И.О. должностного лица, составившего предписание" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Место составления" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
                         <Border x:Name="ProtocolPresense"  BorderThickness="1" BorderBrush="Black">
                             <StackPanel>
                                 <TextBlock TextWrapping="Wrap" Text="В присутствии" HorizontalAlignment="Center" FontSize="15"/>
@@ -386,6 +418,30 @@
                     </StackPanel>
                     <StackPanel x:Name="Regulation" Visibility="Collapsed">
                         <TextBlock TextWrapping="Wrap" Text="Предписание:"/>
+                        <Border x:Name="RegulationDescription"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Описание предписания" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Дата от" Grid.Row="0" Grid.Column="0"/>
+                                    <DatePicker Grid.Row="0" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Номер предписания" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="должность, Ф.И.О. должностного лица, составившего предписание" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
                         <Border x:Name="RegulationEarthArea"  BorderThickness="1" BorderBrush="Black">
                             <StackPanel>
                                 <TextBlock TextWrapping="Wrap" Text="Земельный участок" HorizontalAlignment="Center" FontSize="15"/>
@@ -472,28 +528,32 @@
                                         <RowDefinition/>
                                         <RowDefinition/>
                                         <RowDefinition/>
+                                        <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="2*"/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock TextWrapping="Wrap" Text="Тип проверки (плановой/внеплановой, документарной/выездной)" Grid.Row="0" Grid.Column="0"/>
-                                    <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
-
-                                    <TextBlock TextWrapping="Wrap" Text="Номер приказа" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBlock TextWrapping="Wrap" Text="Наименование территориального органа администрации Перми, уполномоченного на осуществеление муницип. зем. ко" Grid.Row="1" Grid.Column="0"/>
                                     <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
 
-                                    <TextBlock TextWrapping="Wrap" Text="Проверка в отношении (наименование юридического лица, фамилия, имя, отчество (последнее – при наличии) индивидуального предпринимателя)" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBlock TextWrapping="Wrap" Text="Тип проверки (плановой/внеплановой, документарной/выездной)" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Номер приказа" Grid.Row="2" Grid.Column="0"/>
                                     <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
 
-                                    <TextBlock TextWrapping="Wrap" Text="Место нахождения (юридического лица (филиалов, представительств, обособленных структурных подразделений), места фактического осуществления деятельности индивидуальным предпринимателем и (или) используемых ими производственных объектов)" Grid.Row="3" Grid.Column="0"/>
+                                    <TextBlock TextWrapping="Wrap" Text="Проверка в отношении (наименование юридического лица, фамилия, имя, отчество (последнее – при наличии) индивидуального предпринимателя)" Grid.Row="3" Grid.Column="0"/>
                                     <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
 
-                                    <TextBlock TextWrapping="Wrap" Text="Назначить лицом(ами), уполномоченным(и) на проведение проверки: (фамилия, имя, отчество (последнее – при наличии), должность должностного лица (должностных лиц), уполномоченного(ых) на проведение проверки)" Grid.Row="4" Grid.Column="0"/>
+                                    <TextBlock TextWrapping="Wrap" Text="Место нахождения (юридического лица (филиалов, представительств, обособленных структурных подразделений), места фактического осуществления деятельности индивидуальным предпринимателем и (или) используемых ими производственных объектов)" Grid.Row="4" Grid.Column="0"/>
                                     <TextBox Text="" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
 
-                                    <TextBlock TextWrapping="Wrap" Text="Эксперты (фамилия, имя, отчество (последнее – при наличии), должности привлекаемых к проведению проверки экспертов и(или) наименование экспертной организации с указанием реквизитов свидетельства об аккредитации и наименования органа по аккредитации, выдавшего свидетельство об аккредитации)" Grid.Row="5" Grid.Column="0"/>
+                                    <TextBlock TextWrapping="Wrap" Text="Назначить лицом(ами), уполномоченным(и) на проведение проверки: (фамилия, имя, отчество (последнее – при наличии), должность должностного лица (должностных лиц), уполномоченного(ых) на проведение проверки)" Grid.Row="5" Grid.Column="0"/>
                                     <TextBox Text="" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Эксперты (фамилия, имя, отчество (последнее – при наличии), должности привлекаемых к проведению проверки экспертов и(или) наименование экспертной организации с указанием реквизитов свидетельства об аккредитации и наименования органа по аккредитации, выдавшего свидетельство об аккредитации)" Grid.Row="6" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap"/>
                                 </Grid>
                             </StackPanel>
                         </Border>
@@ -602,22 +662,26 @@
                                         <RowDefinition/>
                                         <RowDefinition/>
                                         <RowDefinition/>
+                                        <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="2*"/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock TextWrapping="Wrap" Text="Дата от" Grid.Row="0" Grid.Column="0"/>
-                                    <DatePicker Grid.Row="0" Grid.Column="1"/>
-
-                                    <TextBlock TextWrapping="Wrap" Text="План проведения проверок на (20__ год)" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBlock TextWrapping="Wrap" Text="Наименование органа муниципального земельного контроля" Grid.Row="1" Grid.Column="0"/>
                                     <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
 
-                                    <TextBlock TextWrapping="Wrap" Text="Объект земельных отношений, подлежащий проверке кадастровый номер земельного участка, его площадь, категория, вид разрешенного использования и местоположение" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBlock TextWrapping="Wrap" Text="Дата от" Grid.Row="1" Grid.Column="0"/>
+                                    <DatePicker Grid.Row="1" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="План проведения проверок на (20__ год)" Grid.Row="2" Grid.Column="0"/>
                                     <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
 
-                                    <TextBlock TextWrapping="Wrap" Text="ФИО гражданина" Grid.Row="3" Grid.Column="0"/>
+                                    <TextBlock TextWrapping="Wrap" Text="Объект земельных отношений, подлежащий проверке кадастровый номер земельного участка, его площадь, категория, вид разрешенного использования и местоположение" Grid.Row="3" Grid.Column="0"/>
                                     <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="ФИО гражданина" Grid.Row="4" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
                                 </Grid>
                             </StackPanel>
                         </Border>
@@ -650,6 +714,459 @@
 
                                     <TextBlock TextWrapping="Wrap" Text="Наименование федерального органа государственного земельного надзора, с которым проверка проводится совместно" Grid.Row="4" Grid.Column="0"/>
                                     <TextBox Text="" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel x:Name="ActInspectionUl" Visibility="Collapsed">
+                        <TextBlock TextWrapping="Wrap" Text="Акт проверки юр лиц и ип:"/>
+                        <Border x:Name="ActInspectionUlActDescription"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Описание акта" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Наименование территориального органа администрации Перми, уполномоченного на осуществеление муницип. зем. контроля" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Место составления" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Дата и время составления акта" Grid.Row="2" Grid.Column="0"/>
+                                    <xctk:DateTimePicker Grid.Row="2" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Номер акта проверки" Grid.Row="3" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="ActInspectionUlDescription"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Описание акта" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Место проведения проверки" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Основание проведения пороверки (вид документа с указанием реквизитов (номер, дата))" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Тип проверки (плановая/внеплановая, документарная/выездная)" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="В отношении кого (наименование юридического лица, фамилия, имя, отчество (последнее – при наличии) индивидуального предпринимателя)" Grid.Row="3" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Дата и время проведения проверки: (заполняется в случае проведения проверок филиалов, представительств,  обособленных структурных подразделений юридического лица или  при осуществлении деятельности индивидуального предпринимателя по нескольким адресам)" Grid.Row="4" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Общая продолжительность проверки: (рабочих дней/часов)" Grid.Row="5" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Кем составлен (наименование органа государственного контроля (надзора) или органа муниципального контроля)" Grid.Row="6" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="ActInspectionUlNotRequired"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Необязательное" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Дата и номер решения прокурора (его заместителя) о согласовании проведения проверки: ((заполняется в случае необходимости согласования проверки с органами прокуратуры)" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="ActInspectionUlPersons"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Кто учавствовал в проверка" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Лицо(а), проводившее проверку: (фамилия, имя, отчество (последнее – при наличии), должность должностного лица (должностных лиц), проводившего(их) проверку; в случае привлечения к участию в проверке экспертов, экспертных организаций указываются фамилии, имена, отчества (последнее – при наличии), должности экспертов и/или наименования экспертных организаций с указанием реквизитов свидетельства об аккредитации и наименование органа по аккредитации, выдавшего свидетельство)" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="При проведении проверки присутствовали: (фамилия, имя, отчество (последнее – при наличии), должность руководителя, иного должностного лица (должностных лиц) или уполномоченного представителя юридического лица, уполномоченного представителя индивидуального предпринимателя, уполномоченного представителя саморегулируемой организации (в случае проведения проверки члена саморегулируемой организации), присутствовавших при проведении мероприятий по проверке)" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="ActInspectionUlViolations"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Нарушения" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="В ходе проведения проверки: выявлены нарушения обязательных требований или требований, установленных муниципальными правовыми актами с указанием положений (нормативных) правовых актов) (с указанием характера нарушений; лиц, допустивших нарушения)" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="выявлены несоответствия сведений, содержащихся в уведомлении о начале осуществления отдельных видов предпринимательской деятельности, обязательным требованиям (с указанием положений (нормативных) правовых актов):" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="выявлены факты невыполнения предписаний органов государственного контроля (надзора), органов муниципального контроля (с указанием реквизитов выданных предписаний):" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="нарушений не выявлено" Grid.Row="3" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="ActInspectionUlOther"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Другое" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Прилагаемые документы" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel x:Name="ActInspectionFl" Visibility="Collapsed">
+                        <TextBlock TextWrapping="Wrap" Text="Акт проверки физ лиц:"/>
+                        <Border x:Name="ActInspectionFlActDescription"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Описание акта" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Номер акта проверки" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Место составления" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Дата и время составления акта" Grid.Row="2" Grid.Column="0"/>
+                                    <xctk:DateTimePicker Grid.Row="2" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="(должность, Ф.И.О. должностного лица,составившего акт)" Grid.Row="3" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="на  основании  распоряжения (наименование должности руководителя органа муниципального земельного контроля)" Grid.Row="4" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Распоряжение от" Grid.Row="5" Grid.Column="0"/>
+                                    <DatePicker Text="" Grid.Row="5" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Номер распоряжения" Grid.Row="6" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="В присутствии (Ф.И.О. проверяемого лица, законного представителя)" Grid.Row="7" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="7" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="ActInspectionFlDescription"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Описание проверки" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Тип проверки (плановая/внеплановая, документарная/выездная)" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Адрес" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Площадь" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox Text="" TextWrapping="Wrap" Grid.Row="2" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Кто использовал (Ф.И.О., ИНН, адрес места жительства, паспортные данные)" Grid.Row="3" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Проверка проводилась с" Grid.Row="4" Grid.Column="0"/>
+                                    <DatePicker Grid.Row="4" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Проверка проводилась до" Grid.Row="5" Grid.Column="0"/>
+                                    <DatePicker  Grid.Row="5" Grid.Column="1"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="ActInspectionFlResult"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Результат проверки" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Проверкой установлено: (описание территории, строений, сооружений, ограждения, межевых знаков и т.д.)" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Объяснения, заявления проверяемого лица (законного  представителя) по результатам проведенной проверки соблюдения земельного законодательства:" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="ActInspectionFlOther"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Другое" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="От  участников проверки поступили (не поступили) заявления: (содержание заявления)" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="В ходе проверки производились: (обмер участка, фото-, видеосъемка и т.п.)" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="К акту прилагается:" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel x:Name="CheckingJournal" Visibility="Collapsed">
+                        <TextBlock TextWrapping="Wrap" Text="Журнал учета проверок юр лиц и ип:"/>
+                        <Border x:Name="CheckingJournalDescription"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Описание журнала" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="дата начала ведения журнала" Grid.Row="0" Grid.Column="0"/>
+                                    <DatePicker Grid.Row="0" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="наименование юридического лица/фамилия, имя, индивидуального предпринимателя" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="адрес (место нахождения) постоянно действующего исполнительного органа юридического лица/место жительства (место осуществления деятельности (если не совпадает с местом жительства) индивидуального предпринимателя)" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="(государственный регистрационный номер записи о государственной регистрации юридического лица/индивидуального предпринимателя, идентификационный номер налогоплательщика (для индивидуального предпринимателя); номер реестровой записи и дата включения сведений в реестр субъектов малого или среднего предпринимательства для субъектов малого и среднего предпринимательства" Grid.Row="3" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Ответственное лицо: (фамилия, имя, отчество (в случае, если имеется), должность лица (лиц), ответственного за ведение журнала учета проверок)" Grid.Row="4" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="(фамилия, имя, отчество (в случае, если имеется) руководителя юридического лица, индивидуального предпринимателя)" Grid.Row="5" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="CheckingJournalActDescription"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Описание проверки" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="дата начала и окончания проверки" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Общее время проведения проверки (в отношении субъектов малого предпринимательства и микропредприятий указывается в часах)" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Наименование органа государственного контроля (надзора), наименование органа муниципального контроля" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Дата и номер распоряжения или приказа о проведении проверки" Grid.Row="3" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Цель, задачи и предмет проверки" Grid.Row="4" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Вид проверки в отношении плановой проверки – со ссылкой на ежегодный план проведения проверок; в отношении внеплановой выездной проверки – с указанием на дату и номер решения прокурора о согласовании проведения проверки(в случае, если такое согласование необходимо)" Grid.Row="5" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Дата и номер акта, составленного по результатам проверки, дата его вручения представителю юридического лица, индивидуальному предпринимателю" Grid.Row="6" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="CheckingJournalActViolation"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Нарушения" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Выявленные нарушения обязательных требований (указываются содержание выявленного нарушения со ссылкой на положение нормативного правового акта, которым установлено нарушенное требование, допустившее его лицо)" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Дата, номер и содержание выданного предписания об устранении выявленных нарушений" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="CheckingJournalActOther"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Другое" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Фамилия, имя, отчество (в случае, если имеется), должность должностного лица (должностных лиц), проводящего(их) проверку" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel x:Name="AgreementStatement" Visibility="Collapsed">
+                        <TextBlock TextWrapping="Wrap" Text="Заявление о согласовании проверки:"/>
+                        <Border x:Name="AgreementStatementTarget"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Цель проверки" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Проверка в отношении (наименование, адрес (место нахождения) постоянно действующего исполнительного органа юридического лица, государственный регистрационный номер записи о государственной регистрации юридического лица/фамилия, имя и (в случае, если имеется) отчество, место жительства индивидуального предпринимателя, государственный регистрационный номер записи о государственной регистрации индивидуального предпринимателя, идентификационный номер налогоплательщика)" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="По адресу" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="AgreementStatementCheck"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Проведение проверки" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Основание проведения проверки:(ссылка на положение Федерального закона от 26 декабря 2008 г. № 294-ФЗ О защите прав юридических лиц и индивидуальных предпринимателей при осуществлении государственного контроля (надзора) и муниципального контроля)" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Дата начала проведения проверки" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Время начала проведения проверки" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="AgreementStatementOther"  BorderThickness="1" BorderBrush="Black">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Text="Другое" HorizontalAlignment="Center" FontSize="15"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="Приложения: (копия распоряжения или приказа руководителя, заместителя руководителя органа государственного контроля (надзора), органа муниципального контроля о проведении внеплановой выездной проверки. Документы, содержащие сведения, послужившие основанием для проведения внеплановой проверки)" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+
+                                    <TextBlock TextWrapping="Wrap" Text="Дата и время составления документа" Grid.Row="1" Grid.Column="0"/>
+                                    <xctk:DateTimePicker Grid.Row="1" Grid.Column="1"/>
                                 </Grid>
                             </StackPanel>
                         </Border>
