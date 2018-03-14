@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/System" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="FuncOfActBasebooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ActBase" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfActBasebooleanmpXbG3mS" nillable="true" type="tns:FuncOfActBasebooleanmpXbG3mS" />
+  <xs:complexType name="MulticastDelegate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Delegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MulticastDelegate" nillable="true" type="tns:MulticastDelegate" />
+  <xs:complexType name="Delegate">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+    </xs:sequence>
+    <xs:attribute ref="ser:FactoryType" />
+  </xs:complexType>
+  <xs:element name="Delegate" nillable="true" type="tns:Delegate" />
+  <xs:complexType name="FuncOfActCommonbooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ActCommon" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfActCommonbooleanmpXbG3mS" nillable="true" type="tns:FuncOfActCommonbooleanmpXbG3mS" />
+  <xs:complexType name="FuncOfActIndividualbooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ActIndividual" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfActIndividualbooleanmpXbG3mS" nillable="true" type="tns:FuncOfActIndividualbooleanmpXbG3mS" />
+  <xs:complexType name="FuncOfActInpectationFlbooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ActInpectationFl" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfActInpectationFlbooleanmpXbG3mS" nillable="true" type="tns:FuncOfActInpectationFlbooleanmpXbG3mS" />
+  <xs:complexType name="FuncOfActInspectationUlIpbooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ActInspectationUlIp" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfActInspectationUlIpbooleanmpXbG3mS" nillable="true" type="tns:FuncOfActInspectationUlIpbooleanmpXbG3mS" />
+  <xs:complexType name="FuncOfActInspectionbooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ActInspection" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfActInspectionbooleanmpXbG3mS" nillable="true" type="tns:FuncOfActInspectionbooleanmpXbG3mS" />
+  <xs:complexType name="FuncOfAgreementStatementbooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="AgreementStatement" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfAgreementStatementbooleanmpXbG3mS" nillable="true" type="tns:FuncOfAgreementStatementbooleanmpXbG3mS" />
+  <xs:complexType name="FuncOfAreaMeasurementbooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="AreaMeasurement" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfAreaMeasurementbooleanmpXbG3mS" nillable="true" type="tns:FuncOfAreaMeasurementbooleanmpXbG3mS" />
+  <xs:complexType name="FuncOfCheckingJournalbooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="CheckingJournal" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfCheckingJournalbooleanmpXbG3mS" nillable="true" type="tns:FuncOfCheckingJournalbooleanmpXbG3mS" />
+  <xs:complexType name="FuncOfCitizensCheckPlanbooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="CitizensCheckPlan" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfCitizensCheckPlanbooleanmpXbG3mS" nillable="true" type="tns:FuncOfCitizensCheckPlanbooleanmpXbG3mS" />
+  <xs:complexType name="FuncOfOrderInspectionUlIpbooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="OrderInspectionUlIp" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfOrderInspectionUlIpbooleanmpXbG3mS" nillable="true" type="tns:FuncOfOrderInspectionUlIpbooleanmpXbG3mS" />
+  <xs:complexType name="FuncOfPhotoTablebooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="PhotoTable" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfPhotoTablebooleanmpXbG3mS" nillable="true" type="tns:FuncOfPhotoTablebooleanmpXbG3mS" />
+  <xs:complexType name="FuncOfProtocolbooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Protocol" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfProtocolbooleanmpXbG3mS" nillable="true" type="tns:FuncOfProtocolbooleanmpXbG3mS" />
+  <xs:complexType name="FuncOfRegulationbooleanmpXbG3mS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="FuncOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Regulation" Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MulticastDelegate" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FuncOfRegulationbooleanmpXbG3mS" nillable="true" type="tns:FuncOfRegulationbooleanmpXbG3mS" />
+</xs:schema>

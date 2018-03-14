@@ -110,6 +110,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Services\ActTypeTemplateSelector.cs" />
     <Compile Include="ViewModels\AuthWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\AuthWindow.xaml.cs">
@@ -142,7 +143,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\DlrServer\AuthService.wsdl" />
-    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.Act.datasource">
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.ActBase.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.Token.datasource">
@@ -158,6 +159,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\DlrServer\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DlrServer\item4.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />

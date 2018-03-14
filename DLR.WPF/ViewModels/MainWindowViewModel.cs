@@ -4,6 +4,7 @@ using System.Linq;
 using Catel.Collections;
 using Catel.Data;
 using Catel.Services;
+using Catel.Windows.Interactivity;
 using DLR.WPF.DlrServer;
 using DLR.WPF.Views;
 
@@ -31,6 +32,7 @@ namespace DLR.WPF.ViewModels
             ActTypes.AddRange(Enum.GetNames(typeof(ActType)));
             ActTypes.Add("Не выбрано");
             SelectedActIndex = ActTypes.IndexOf("Не выбрано");
+            
         }
 
         public override string Title { get { return "DLR.WPF"; } }

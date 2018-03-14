@@ -6,6 +6,8 @@
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DzoAuthService" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ActsModel" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAuthService_Authenticate_InputMessage">
@@ -19,6 +21,90 @@
   </wsdl:message>
   <wsdl:message name="IAuthService_GetActs_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetActsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetSomeActs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSomeActs" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetSomeActs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSomeActsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetActsCommon_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActsCommon" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetActsCommon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActsCommonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetActsIndividual_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActsIndividual" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetActsIndividual_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActsIndividualResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetActsInpectationFl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActsInpectationFl" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetActsInpectationFl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActsInpectationFlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetActsInspectationUlIp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActsInspectationUlIp" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetActsInspectationUlIp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActsInspectationUlIpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetActInspection_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActInspection" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetActInspection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActInspectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetAgreementStatements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgreementStatements" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetAgreementStatements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgreementStatementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetAreaMeasurements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAreaMeasurements" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetAreaMeasurements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAreaMeasurementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetCheckingJournals_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckingJournals" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetCheckingJournals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckingJournalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetCitizensCheckPlans_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCitizensCheckPlans" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetCitizensCheckPlans_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCitizensCheckPlansResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetOrdersInspectionUlIp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersInspectionUlIp" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetOrdersInspectionUlIp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersInspectionUlIpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetPhotoTables_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoTables" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetPhotoTables_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoTablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetProtocols_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProtocols" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetProtocols_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProtocolsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetRegulations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegulations" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetRegulations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegulationsResponse" />
   </wsdl:message>
   <wsdl:message name="IAuthService_DeleteAct_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteAct" />
@@ -40,6 +126,62 @@
     <wsdl:operation name="GetActs">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetActs" message="tns:IAuthService_GetActs_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetActsResponse" message="tns:IAuthService_GetActs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSomeActs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetSomeActs" message="tns:IAuthService_GetSomeActs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetSomeActsResponse" message="tns:IAuthService_GetSomeActs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActsCommon">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetActsCommon" message="tns:IAuthService_GetActsCommon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetActsCommonResponse" message="tns:IAuthService_GetActsCommon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActsIndividual">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetActsIndividual" message="tns:IAuthService_GetActsIndividual_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetActsIndividualResponse" message="tns:IAuthService_GetActsIndividual_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActsInpectationFl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetActsInpectationFl" message="tns:IAuthService_GetActsInpectationFl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetActsInpectationFlResponse" message="tns:IAuthService_GetActsInpectationFl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActsInspectationUlIp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetActsInspectationUlIp" message="tns:IAuthService_GetActsInspectationUlIp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetActsInspectationUlIpResponse" message="tns:IAuthService_GetActsInspectationUlIp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActInspection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetActInspection" message="tns:IAuthService_GetActInspection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetActInspectionResponse" message="tns:IAuthService_GetActInspection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgreementStatements">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetAgreementStatements" message="tns:IAuthService_GetAgreementStatements_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetAgreementStatementsResponse" message="tns:IAuthService_GetAgreementStatements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaMeasurements">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetAreaMeasurements" message="tns:IAuthService_GetAreaMeasurements_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetAreaMeasurementsResponse" message="tns:IAuthService_GetAreaMeasurements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckingJournals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetCheckingJournals" message="tns:IAuthService_GetCheckingJournals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetCheckingJournalsResponse" message="tns:IAuthService_GetCheckingJournals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCitizensCheckPlans">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetCitizensCheckPlans" message="tns:IAuthService_GetCitizensCheckPlans_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetCitizensCheckPlansResponse" message="tns:IAuthService_GetCitizensCheckPlans_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersInspectionUlIp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetOrdersInspectionUlIp" message="tns:IAuthService_GetOrdersInspectionUlIp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetOrdersInspectionUlIpResponse" message="tns:IAuthService_GetOrdersInspectionUlIp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoTables">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetPhotoTables" message="tns:IAuthService_GetPhotoTables_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetPhotoTablesResponse" message="tns:IAuthService_GetPhotoTables_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProtocols">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetProtocols" message="tns:IAuthService_GetProtocols_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetProtocolsResponse" message="tns:IAuthService_GetProtocols_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegulations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetRegulations" message="tns:IAuthService_GetRegulations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetRegulationsResponse" message="tns:IAuthService_GetRegulations_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteAct">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/DeleteAct" message="tns:IAuthService_DeleteAct_InputMessage" />
@@ -63,6 +205,132 @@
     </wsdl:operation>
     <wsdl:operation name="GetActs">
       <soap:operation soapAction="http://tempuri.org/IAuthService/GetActs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSomeActs">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetSomeActs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActsCommon">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetActsCommon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActsIndividual">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetActsIndividual" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActsInpectationFl">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetActsInpectationFl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActsInspectationUlIp">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetActsInspectationUlIp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActInspection">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetActInspection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgreementStatements">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetAgreementStatements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaMeasurements">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetAreaMeasurements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckingJournals">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetCheckingJournals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitizensCheckPlans">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetCitizensCheckPlans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersInspectionUlIp">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetOrdersInspectionUlIp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoTables">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetPhotoTables" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProtocols">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetProtocols" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegulations">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetRegulations" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

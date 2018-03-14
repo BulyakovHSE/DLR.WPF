@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DzoAuthService" />
-  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ActsModel" />
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
   <xs:element name="Authenticate">
     <xs:complexType>
       <xs:sequence>
@@ -29,15 +30,225 @@
   <xs:element name="GetActsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ActsModel" minOccurs="0" name="GetActsResult" nillable="true" type="q3:ArrayOfAct" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetActsResult" nillable="true" type="q3:ArrayOfActBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSomeActs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q4:Token" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q5:FuncOfActBasebooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSomeActsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetSomeActsResult" nillable="true" type="q6:ArrayOfActBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActsCommon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q7:Token" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q8:FuncOfActCommonbooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActsCommonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetActsCommonResult" nillable="true" type="q9:ArrayOfActCommon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActsIndividual">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q10:Token" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q11:FuncOfActIndividualbooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActsIndividualResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetActsIndividualResult" nillable="true" type="q12:ArrayOfActIndividual" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActsInpectationFl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q13:Token" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q14:FuncOfActInpectationFlbooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActsInpectationFlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetActsInpectationFlResult" nillable="true" type="q15:ArrayOfActInpectationFl" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActsInspectationUlIp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q16:Token" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q17:FuncOfActInspectationUlIpbooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActsInspectationUlIpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetActsInspectationUlIpResult" nillable="true" type="q18:ArrayOfActInspectationUlIp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActInspection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q19:Token" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q20:FuncOfActInspectionbooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActInspectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetActInspectionResult" nillable="true" type="q21:ArrayOfActInspection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgreementStatements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q22:Token" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q23:FuncOfAgreementStatementbooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgreementStatementsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetAgreementStatementsResult" nillable="true" type="q24:ArrayOfAgreementStatement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaMeasurements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q25:Token" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q26:FuncOfAreaMeasurementbooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaMeasurementsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetAreaMeasurementsResult" nillable="true" type="q27:ArrayOfAreaMeasurement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCheckingJournals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q28:Token" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q29:FuncOfCheckingJournalbooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCheckingJournalsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetCheckingJournalsResult" nillable="true" type="q30:ArrayOfCheckingJournal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCitizensCheckPlans">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q31:Token" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q32:FuncOfCitizensCheckPlanbooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCitizensCheckPlansResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetCitizensCheckPlansResult" nillable="true" type="q33:ArrayOfCitizensCheckPlan" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersInspectionUlIp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q34:Token" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q35:FuncOfOrderInspectionUlIpbooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersInspectionUlIpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetOrdersInspectionUlIpResult" nillable="true" type="q36:ArrayOfOrderInspectionUlIp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhotoTables">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q37:Token" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q38:FuncOfPhotoTablebooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhotoTablesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetPhotoTablesResult" nillable="true" type="q39:ArrayOfPhotoTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProtocols">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q40:Token" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q41:FuncOfProtocolbooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProtocolsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetProtocolsResult" nillable="true" type="q42:ArrayOfProtocol" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegulations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q43:Token" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q44:FuncOfRegulationbooleanmpXbG3mS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegulationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="GetRegulationsResult" nillable="true" type="q45:ArrayOfRegulation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteAct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ActsModel" minOccurs="0" name="act" nillable="true" type="q4:Act" />
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q5:Token" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="act" nillable="true" type="q46:ActBase" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q47:Token" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -51,8 +262,8 @@
   <xs:element name="AddAct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ActsModel" minOccurs="0" name="act" nillable="true" type="q6:Act" />
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q7:Token" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/ActsModel.Model" minOccurs="0" name="act" nillable="true" type="q48:ActBase" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/DzoAuthService" minOccurs="0" name="token" nillable="true" type="q49:Token" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

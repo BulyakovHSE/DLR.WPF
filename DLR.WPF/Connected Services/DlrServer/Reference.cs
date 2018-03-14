@@ -121,45 +121,25 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Act", Namespace="http://schemas.datacontract.org/2004/07/ActsModel")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActBase", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
     [System.SerializableAttribute()]
-    public partial class Act : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActCommon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInpectationFl))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInspectationUlIp))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInspection))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.AreaMeasurement))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.PhotoTable))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActIndividual))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.AgreementStatement))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.CheckingJournal))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.CitizensCheckPlan))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.OrderInspectionUlIp))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.Protocol))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.Regulation))]
+    public partial class ActBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ActNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DLR.WPF.DlrServer.ActType ActTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AreaAdressField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AreaNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double AreaSquareField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CadastrNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DLR.WPF.DlrServer.CheckClass CheckClassField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DLR.WPF.DlrServer.ContactInfo CheckContactInfoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DLR.WPF.DlrServer.CheckType CheckTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreationDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DLR.WPF.DlrServer.Region CreatorRegionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private byte[] DocumentBytesField;
@@ -168,31 +148,10 @@ namespace DLR.WPF.DlrServer {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DLR.WPF.DlrServer.ContactInfo[] InvolvedContactInfosField;
+        private DLR.WPF.DlrServer.Region RegionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> MakingEndTimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.TimeSpan> MakingLengthField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MakingPlaceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> MakingStartTimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MeasurementDeviceParamsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> ReasonDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ReasonRequisitesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TerritorialBodyNameField;
+        private int RegionNumField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -201,149 +160,6 @@ namespace DLR.WPF.DlrServer {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ActNumber {
-            get {
-                return this.ActNumberField;
-            }
-            set {
-                if ((this.ActNumberField.Equals(value) != true)) {
-                    this.ActNumberField = value;
-                    this.RaisePropertyChanged("ActNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DLR.WPF.DlrServer.ActType ActType {
-            get {
-                return this.ActTypeField;
-            }
-            set {
-                if ((this.ActTypeField.Equals(value) != true)) {
-                    this.ActTypeField = value;
-                    this.RaisePropertyChanged("ActType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AreaAdress {
-            get {
-                return this.AreaAdressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AreaAdressField, value) != true)) {
-                    this.AreaAdressField = value;
-                    this.RaisePropertyChanged("AreaAdress");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AreaNumber {
-            get {
-                return this.AreaNumberField;
-            }
-            set {
-                if ((this.AreaNumberField.Equals(value) != true)) {
-                    this.AreaNumberField = value;
-                    this.RaisePropertyChanged("AreaNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double AreaSquare {
-            get {
-                return this.AreaSquareField;
-            }
-            set {
-                if ((this.AreaSquareField.Equals(value) != true)) {
-                    this.AreaSquareField = value;
-                    this.RaisePropertyChanged("AreaSquare");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CadastrNumber {
-            get {
-                return this.CadastrNumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CadastrNumberField, value) != true)) {
-                    this.CadastrNumberField = value;
-                    this.RaisePropertyChanged("CadastrNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DLR.WPF.DlrServer.CheckClass CheckClass {
-            get {
-                return this.CheckClassField;
-            }
-            set {
-                if ((this.CheckClassField.Equals(value) != true)) {
-                    this.CheckClassField = value;
-                    this.RaisePropertyChanged("CheckClass");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DLR.WPF.DlrServer.ContactInfo CheckContactInfo {
-            get {
-                return this.CheckContactInfoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CheckContactInfoField, value) != true)) {
-                    this.CheckContactInfoField = value;
-                    this.RaisePropertyChanged("CheckContactInfo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DLR.WPF.DlrServer.CheckType CheckType {
-            get {
-                return this.CheckTypeField;
-            }
-            set {
-                if ((this.CheckTypeField.Equals(value) != true)) {
-                    this.CheckTypeField = value;
-                    this.RaisePropertyChanged("CheckType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreationDate {
-            get {
-                return this.CreationDateField;
-            }
-            set {
-                if ((this.CreationDateField.Equals(value) != true)) {
-                    this.CreationDateField = value;
-                    this.RaisePropertyChanged("CreationDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DLR.WPF.DlrServer.Region CreatorRegion {
-            get {
-                return this.CreatorRegionField;
-            }
-            set {
-                if ((this.CreatorRegionField.Equals(value) != true)) {
-                    this.CreatorRegionField = value;
-                    this.RaisePropertyChanged("CreatorRegion");
-                }
             }
         }
         
@@ -374,7 +190,861 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DLR.WPF.DlrServer.ContactInfo[] InvolvedContactInfos {
+        public DLR.WPF.DlrServer.Region Region {
+            get {
+                return this.RegionField;
+            }
+            set {
+                if ((this.RegionField.Equals(value) != true)) {
+                    this.RegionField = value;
+                    this.RaisePropertyChanged("Region");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int RegionNum {
+            get {
+                return this.RegionNumField;
+            }
+            set {
+                if ((this.RegionNumField.Equals(value) != true)) {
+                    this.RegionNumField = value;
+                    this.RaisePropertyChanged("RegionNum");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActCommon", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInpectationFl))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInspectationUlIp))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInspection))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.AreaMeasurement))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.PhotoTable))]
+    public partial class ActCommon : DLR.WPF.DlrServer.ActBase {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CommonNumField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CommonNum {
+            get {
+                return this.CommonNumField;
+            }
+            set {
+                if ((this.CommonNumField.Equals(value) != true)) {
+                    this.CommonNumField = value;
+                    this.RaisePropertyChanged("CommonNum");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActInpectationFl", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    public partial class ActInpectationFl : DLR.WPF.DlrServer.ActCommon {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ActCreatorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ActNumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdditionsToActField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ApplicationContentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AreaAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AreaSquareField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AttendingPersonsInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BaseOnOrderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> BaseOnOrderDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CheckDateFinishField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CheckDateStartField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckResultsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> DateTimeCreationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DuringCheckActivityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InspectedPersonInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrderNumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PlaceActCreationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserInfoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ActCreator {
+            get {
+                return this.ActCreatorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActCreatorField, value) != true)) {
+                    this.ActCreatorField = value;
+                    this.RaisePropertyChanged("ActCreator");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ActNum {
+            get {
+                return this.ActNumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActNumField, value) != true)) {
+                    this.ActNumField = value;
+                    this.RaisePropertyChanged("ActNum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdditionsToAct {
+            get {
+                return this.AdditionsToActField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdditionsToActField, value) != true)) {
+                    this.AdditionsToActField = value;
+                    this.RaisePropertyChanged("AdditionsToAct");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ApplicationContent {
+            get {
+                return this.ApplicationContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApplicationContentField, value) != true)) {
+                    this.ApplicationContentField = value;
+                    this.RaisePropertyChanged("ApplicationContent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AreaAddress {
+            get {
+                return this.AreaAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaAddressField, value) != true)) {
+                    this.AreaAddressField = value;
+                    this.RaisePropertyChanged("AreaAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AreaSquare {
+            get {
+                return this.AreaSquareField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaSquareField, value) != true)) {
+                    this.AreaSquareField = value;
+                    this.RaisePropertyChanged("AreaSquare");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AttendingPersonsInfo {
+            get {
+                return this.AttendingPersonsInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AttendingPersonsInfoField, value) != true)) {
+                    this.AttendingPersonsInfoField = value;
+                    this.RaisePropertyChanged("AttendingPersonsInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BaseOnOrder {
+            get {
+                return this.BaseOnOrderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BaseOnOrderField, value) != true)) {
+                    this.BaseOnOrderField = value;
+                    this.RaisePropertyChanged("BaseOnOrder");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> BaseOnOrderDate {
+            get {
+                return this.BaseOnOrderDateField;
+            }
+            set {
+                if ((this.BaseOnOrderDateField.Equals(value) != true)) {
+                    this.BaseOnOrderDateField = value;
+                    this.RaisePropertyChanged("BaseOnOrderDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CheckDateFinish {
+            get {
+                return this.CheckDateFinishField;
+            }
+            set {
+                if ((this.CheckDateFinishField.Equals(value) != true)) {
+                    this.CheckDateFinishField = value;
+                    this.RaisePropertyChanged("CheckDateFinish");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CheckDateStart {
+            get {
+                return this.CheckDateStartField;
+            }
+            set {
+                if ((this.CheckDateStartField.Equals(value) != true)) {
+                    this.CheckDateStartField = value;
+                    this.RaisePropertyChanged("CheckDateStart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckResults {
+            get {
+                return this.CheckResultsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckResultsField, value) != true)) {
+                    this.CheckResultsField = value;
+                    this.RaisePropertyChanged("CheckResults");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckType {
+            get {
+                return this.CheckTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckTypeField, value) != true)) {
+                    this.CheckTypeField = value;
+                    this.RaisePropertyChanged("CheckType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> DateTimeCreation {
+            get {
+                return this.DateTimeCreationField;
+            }
+            set {
+                if ((this.DateTimeCreationField.Equals(value) != true)) {
+                    this.DateTimeCreationField = value;
+                    this.RaisePropertyChanged("DateTimeCreation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DuringCheckActivity {
+            get {
+                return this.DuringCheckActivityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DuringCheckActivityField, value) != true)) {
+                    this.DuringCheckActivityField = value;
+                    this.RaisePropertyChanged("DuringCheckActivity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InspectedPersonInfo {
+            get {
+                return this.InspectedPersonInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InspectedPersonInfoField, value) != true)) {
+                    this.InspectedPersonInfoField = value;
+                    this.RaisePropertyChanged("InspectedPersonInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OrderNum {
+            get {
+                return this.OrderNumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderNumField, value) != true)) {
+                    this.OrderNumField = value;
+                    this.RaisePropertyChanged("OrderNum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PlaceActCreation {
+            get {
+                return this.PlaceActCreationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlaceActCreationField, value) != true)) {
+                    this.PlaceActCreationField = value;
+                    this.RaisePropertyChanged("PlaceActCreation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserInfo {
+            get {
+                return this.UserInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserInfoField, value) != true)) {
+                    this.UserInfoField = value;
+                    this.RaisePropertyChanged("UserInfo");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActInspectationUlIp", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    public partial class ActInspectationUlIp : DLR.WPF.DlrServer.ActCommon {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ActCreatedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ActNumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BeholdersInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckersInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckingPlaceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ChekingTargetField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CommonCheckDurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DateAndTimeOfCheckField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> DateTimeCreationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DiscrepanciesInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FamiliarPersonInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NoViolationsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NonComplianceFactsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OnBaseOfDocsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PersonInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PlaceActCreationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProsecutorDecisionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RequirementsViolationsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TerritorialBodyNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ActCreatedBy {
+            get {
+                return this.ActCreatedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActCreatedByField, value) != true)) {
+                    this.ActCreatedByField = value;
+                    this.RaisePropertyChanged("ActCreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ActNum {
+            get {
+                return this.ActNumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActNumField, value) != true)) {
+                    this.ActNumField = value;
+                    this.RaisePropertyChanged("ActNum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BeholdersInfo {
+            get {
+                return this.BeholdersInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BeholdersInfoField, value) != true)) {
+                    this.BeholdersInfoField = value;
+                    this.RaisePropertyChanged("BeholdersInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckType {
+            get {
+                return this.CheckTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckTypeField, value) != true)) {
+                    this.CheckTypeField = value;
+                    this.RaisePropertyChanged("CheckType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckersInfo {
+            get {
+                return this.CheckersInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckersInfoField, value) != true)) {
+                    this.CheckersInfoField = value;
+                    this.RaisePropertyChanged("CheckersInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckingPlace {
+            get {
+                return this.CheckingPlaceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckingPlaceField, value) != true)) {
+                    this.CheckingPlaceField = value;
+                    this.RaisePropertyChanged("CheckingPlace");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ChekingTarget {
+            get {
+                return this.ChekingTargetField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ChekingTargetField, value) != true)) {
+                    this.ChekingTargetField = value;
+                    this.RaisePropertyChanged("ChekingTarget");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CommonCheckDuration {
+            get {
+                return this.CommonCheckDurationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CommonCheckDurationField, value) != true)) {
+                    this.CommonCheckDurationField = value;
+                    this.RaisePropertyChanged("CommonCheckDuration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DateAndTimeOfCheck {
+            get {
+                return this.DateAndTimeOfCheckField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DateAndTimeOfCheckField, value) != true)) {
+                    this.DateAndTimeOfCheckField = value;
+                    this.RaisePropertyChanged("DateAndTimeOfCheck");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> DateTimeCreation {
+            get {
+                return this.DateTimeCreationField;
+            }
+            set {
+                if ((this.DateTimeCreationField.Equals(value) != true)) {
+                    this.DateTimeCreationField = value;
+                    this.RaisePropertyChanged("DateTimeCreation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DiscrepanciesInfo {
+            get {
+                return this.DiscrepanciesInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DiscrepanciesInfoField, value) != true)) {
+                    this.DiscrepanciesInfoField = value;
+                    this.RaisePropertyChanged("DiscrepanciesInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FamiliarPersonInfo {
+            get {
+                return this.FamiliarPersonInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FamiliarPersonInfoField, value) != true)) {
+                    this.FamiliarPersonInfoField = value;
+                    this.RaisePropertyChanged("FamiliarPersonInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NoViolations {
+            get {
+                return this.NoViolationsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NoViolationsField, value) != true)) {
+                    this.NoViolationsField = value;
+                    this.RaisePropertyChanged("NoViolations");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NonComplianceFacts {
+            get {
+                return this.NonComplianceFactsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NonComplianceFactsField, value) != true)) {
+                    this.NonComplianceFactsField = value;
+                    this.RaisePropertyChanged("NonComplianceFacts");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OnBaseOfDocs {
+            get {
+                return this.OnBaseOfDocsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OnBaseOfDocsField, value) != true)) {
+                    this.OnBaseOfDocsField = value;
+                    this.RaisePropertyChanged("OnBaseOfDocs");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonInfo {
+            get {
+                return this.PersonInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonInfoField, value) != true)) {
+                    this.PersonInfoField = value;
+                    this.RaisePropertyChanged("PersonInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PlaceActCreation {
+            get {
+                return this.PlaceActCreationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlaceActCreationField, value) != true)) {
+                    this.PlaceActCreationField = value;
+                    this.RaisePropertyChanged("PlaceActCreation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProsecutorDecision {
+            get {
+                return this.ProsecutorDecisionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProsecutorDecisionField, value) != true)) {
+                    this.ProsecutorDecisionField = value;
+                    this.RaisePropertyChanged("ProsecutorDecision");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RequirementsViolations {
+            get {
+                return this.RequirementsViolationsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RequirementsViolationsField, value) != true)) {
+                    this.RequirementsViolationsField = value;
+                    this.RaisePropertyChanged("RequirementsViolations");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TerritorialBodyName {
+            get {
+                return this.TerritorialBodyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TerritorialBodyNameField, value) != true)) {
+                    this.TerritorialBodyNameField = value;
+                    this.RaisePropertyChanged("TerritorialBodyName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActInspection", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    public partial class ActInspection : DLR.WPF.DlrServer.ActCommon {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ActAnnexesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ActNumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AreaAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AreaSquareField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CadastralNumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckContactInfosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> DateCreationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DeviceParametersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InvolvedContactInfosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PlaceAndTimeCreationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProvidedToInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ReasonRequisitesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResearchResultsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TerritorialBodyNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ActAnnexes {
+            get {
+                return this.ActAnnexesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActAnnexesField, value) != true)) {
+                    this.ActAnnexesField = value;
+                    this.RaisePropertyChanged("ActAnnexes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ActNum {
+            get {
+                return this.ActNumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActNumField, value) != true)) {
+                    this.ActNumField = value;
+                    this.RaisePropertyChanged("ActNum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AreaAddress {
+            get {
+                return this.AreaAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaAddressField, value) != true)) {
+                    this.AreaAddressField = value;
+                    this.RaisePropertyChanged("AreaAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AreaSquare {
+            get {
+                return this.AreaSquareField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaSquareField, value) != true)) {
+                    this.AreaSquareField = value;
+                    this.RaisePropertyChanged("AreaSquare");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CadastralNum {
+            get {
+                return this.CadastralNumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CadastralNumField, value) != true)) {
+                    this.CadastralNumField = value;
+                    this.RaisePropertyChanged("CadastralNum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckContactInfos {
+            get {
+                return this.CheckContactInfosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckContactInfosField, value) != true)) {
+                    this.CheckContactInfosField = value;
+                    this.RaisePropertyChanged("CheckContactInfos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> DateCreation {
+            get {
+                return this.DateCreationField;
+            }
+            set {
+                if ((this.DateCreationField.Equals(value) != true)) {
+                    this.DateCreationField = value;
+                    this.RaisePropertyChanged("DateCreation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DeviceParameters {
+            get {
+                return this.DeviceParametersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DeviceParametersField, value) != true)) {
+                    this.DeviceParametersField = value;
+                    this.RaisePropertyChanged("DeviceParameters");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InvolvedContactInfos {
             get {
                 return this.InvolvedContactInfosField;
             }
@@ -387,79 +1057,27 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> MakingEndTime {
+        public string PlaceAndTimeCreation {
             get {
-                return this.MakingEndTimeField;
+                return this.PlaceAndTimeCreationField;
             }
             set {
-                if ((this.MakingEndTimeField.Equals(value) != true)) {
-                    this.MakingEndTimeField = value;
-                    this.RaisePropertyChanged("MakingEndTime");
+                if ((object.ReferenceEquals(this.PlaceAndTimeCreationField, value) != true)) {
+                    this.PlaceAndTimeCreationField = value;
+                    this.RaisePropertyChanged("PlaceAndTimeCreation");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.TimeSpan> MakingLength {
+        public string ProvidedToInfo {
             get {
-                return this.MakingLengthField;
+                return this.ProvidedToInfoField;
             }
             set {
-                if ((this.MakingLengthField.Equals(value) != true)) {
-                    this.MakingLengthField = value;
-                    this.RaisePropertyChanged("MakingLength");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MakingPlace {
-            get {
-                return this.MakingPlaceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MakingPlaceField, value) != true)) {
-                    this.MakingPlaceField = value;
-                    this.RaisePropertyChanged("MakingPlace");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> MakingStartTime {
-            get {
-                return this.MakingStartTimeField;
-            }
-            set {
-                if ((this.MakingStartTimeField.Equals(value) != true)) {
-                    this.MakingStartTimeField = value;
-                    this.RaisePropertyChanged("MakingStartTime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MeasurementDeviceParams {
-            get {
-                return this.MeasurementDeviceParamsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MeasurementDeviceParamsField, value) != true)) {
-                    this.MeasurementDeviceParamsField = value;
-                    this.RaisePropertyChanged("MeasurementDeviceParams");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> ReasonDate {
-            get {
-                return this.ReasonDateField;
-            }
-            set {
-                if ((this.ReasonDateField.Equals(value) != true)) {
-                    this.ReasonDateField = value;
-                    this.RaisePropertyChanged("ReasonDate");
+                if ((object.ReferenceEquals(this.ProvidedToInfoField, value) != true)) {
+                    this.ProvidedToInfoField = value;
+                    this.RaisePropertyChanged("ProvidedToInfo");
                 }
             }
         }
@@ -478,6 +1096,19 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ResearchResults {
+            get {
+                return this.ResearchResultsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResearchResultsField, value) != true)) {
+                    this.ResearchResultsField = value;
+                    this.RaisePropertyChanged("ResearchResults");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string TerritorialBodyName {
             get {
                 return this.TerritorialBodyNameField;
@@ -489,46 +1120,1611 @@ namespace DLR.WPF.DlrServer {
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AreaMeasurement", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    public partial class AreaMeasurement : DLR.WPF.DlrServer.ActCommon {
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ActNumField;
         
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AreaAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AreaCalculationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AreaSquareField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> DateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DeviceInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MeasureAuthorInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RepresentativePersonInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SpecialMarksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TerritorialBodyNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ActNum {
+            get {
+                return this.ActNumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActNumField, value) != true)) {
+                    this.ActNumField = value;
+                    this.RaisePropertyChanged("ActNum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AreaAddress {
+            get {
+                return this.AreaAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaAddressField, value) != true)) {
+                    this.AreaAddressField = value;
+                    this.RaisePropertyChanged("AreaAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AreaCalculation {
+            get {
+                return this.AreaCalculationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaCalculationField, value) != true)) {
+                    this.AreaCalculationField = value;
+                    this.RaisePropertyChanged("AreaCalculation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AreaSquare {
+            get {
+                return this.AreaSquareField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaSquareField, value) != true)) {
+                    this.AreaSquareField = value;
+                    this.RaisePropertyChanged("AreaSquare");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> Date {
+            get {
+                return this.DateField;
+            }
+            set {
+                if ((this.DateField.Equals(value) != true)) {
+                    this.DateField = value;
+                    this.RaisePropertyChanged("Date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DeviceInfo {
+            get {
+                return this.DeviceInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DeviceInfoField, value) != true)) {
+                    this.DeviceInfoField = value;
+                    this.RaisePropertyChanged("DeviceInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MeasureAuthorInfo {
+            get {
+                return this.MeasureAuthorInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeasureAuthorInfoField, value) != true)) {
+                    this.MeasureAuthorInfoField = value;
+                    this.RaisePropertyChanged("MeasureAuthorInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RepresentativePersonInfo {
+            get {
+                return this.RepresentativePersonInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RepresentativePersonInfoField, value) != true)) {
+                    this.RepresentativePersonInfoField = value;
+                    this.RaisePropertyChanged("RepresentativePersonInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SpecialMarks {
+            get {
+                return this.SpecialMarksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SpecialMarksField, value) != true)) {
+                    this.SpecialMarksField = value;
+                    this.RaisePropertyChanged("SpecialMarks");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TerritorialBodyName {
+            get {
+                return this.TerritorialBodyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TerritorialBodyNameField, value) != true)) {
+                    this.TerritorialBodyNameField = value;
+                    this.RaisePropertyChanged("TerritorialBodyName");
+                }
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ContactInfo", Namespace="http://schemas.datacontract.org/2004/07/ActsModel")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PhotoTable", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
     [System.SerializableAttribute()]
-    public partial class ContactInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class PhotoTable : DLR.WPF.DlrServer.ActCommon {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ActNumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> AdditionToActDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AreaInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DeviceInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MunitipalControlNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PersonsInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DLR.WPF.DlrServer.Photo[] PhotosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhototableCreatorField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ActNum {
+            get {
+                return this.ActNumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActNumField, value) != true)) {
+                    this.ActNumField = value;
+                    this.RaisePropertyChanged("ActNum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> AdditionToActDate {
+            get {
+                return this.AdditionToActDateField;
+            }
+            set {
+                if ((this.AdditionToActDateField.Equals(value) != true)) {
+                    this.AdditionToActDateField = value;
+                    this.RaisePropertyChanged("AdditionToActDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AreaInfo {
+            get {
+                return this.AreaInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaInfoField, value) != true)) {
+                    this.AreaInfoField = value;
+                    this.RaisePropertyChanged("AreaInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DeviceInfo {
+            get {
+                return this.DeviceInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DeviceInfoField, value) != true)) {
+                    this.DeviceInfoField = value;
+                    this.RaisePropertyChanged("DeviceInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MunitipalControlName {
+            get {
+                return this.MunitipalControlNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MunitipalControlNameField, value) != true)) {
+                    this.MunitipalControlNameField = value;
+                    this.RaisePropertyChanged("MunitipalControlName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonsInfo {
+            get {
+                return this.PersonsInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonsInfoField, value) != true)) {
+                    this.PersonsInfoField = value;
+                    this.RaisePropertyChanged("PersonsInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DLR.WPF.DlrServer.Photo[] Photos {
+            get {
+                return this.PhotosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhotosField, value) != true)) {
+                    this.PhotosField = value;
+                    this.RaisePropertyChanged("Photos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PhototableCreator {
+            get {
+                return this.PhototableCreatorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhototableCreatorField, value) != true)) {
+                    this.PhototableCreatorField = value;
+                    this.RaisePropertyChanged("PhototableCreator");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActIndividual", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.AgreementStatement))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.CheckingJournal))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.CitizensCheckPlan))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.OrderInspectionUlIp))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.Protocol))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.Regulation))]
+    public partial class ActIndividual : DLR.WPF.DlrServer.ActBase {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AgreementStatement", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    public partial class AgreementStatement : DLR.WPF.DlrServer.ActIndividual {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdditionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckBaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CheckDateStartField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CheckTimeStartField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> DateTimeOfDocCreationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InspectationTargetInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TargetAddressField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Additions {
+            get {
+                return this.AdditionsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdditionsField, value) != true)) {
+                    this.AdditionsField = value;
+                    this.RaisePropertyChanged("Additions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckBase {
+            get {
+                return this.CheckBaseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckBaseField, value) != true)) {
+                    this.CheckBaseField = value;
+                    this.RaisePropertyChanged("CheckBase");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CheckDateStart {
+            get {
+                return this.CheckDateStartField;
+            }
+            set {
+                if ((this.CheckDateStartField.Equals(value) != true)) {
+                    this.CheckDateStartField = value;
+                    this.RaisePropertyChanged("CheckDateStart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CheckTimeStart {
+            get {
+                return this.CheckTimeStartField;
+            }
+            set {
+                if ((this.CheckTimeStartField.Equals(value) != true)) {
+                    this.CheckTimeStartField = value;
+                    this.RaisePropertyChanged("CheckTimeStart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> DateTimeOfDocCreation {
+            get {
+                return this.DateTimeOfDocCreationField;
+            }
+            set {
+                if ((this.DateTimeOfDocCreationField.Equals(value) != true)) {
+                    this.DateTimeOfDocCreationField = value;
+                    this.RaisePropertyChanged("DateTimeOfDocCreation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InspectationTargetInfo {
+            get {
+                return this.InspectationTargetInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InspectationTargetInfoField, value) != true)) {
+                    this.InspectationTargetInfoField = value;
+                    this.RaisePropertyChanged("InspectationTargetInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TargetAddress {
+            get {
+                return this.TargetAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TargetAddressField, value) != true)) {
+                    this.TargetAddressField = value;
+                    this.RaisePropertyChanged("TargetAddress");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CheckingJournal", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    public partial class CheckingJournal : DLR.WPF.DlrServer.ActIndividual {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckAimTaskAndObjectField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckDateStartAndFinishField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckerPersonInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CommonCheckDurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DateNumOfCheckResField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DateNumOfContentOfEliminationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DateNumOrOrderOfCheckField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DifferentInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FoundViolationsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string JournalStartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PersonInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResponsiblePersonBossInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResponsiblePersonInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StateControlNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address {
+            get {
+                return this.AddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
+                    this.AddressField = value;
+                    this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckAimTaskAndObject {
+            get {
+                return this.CheckAimTaskAndObjectField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckAimTaskAndObjectField, value) != true)) {
+                    this.CheckAimTaskAndObjectField = value;
+                    this.RaisePropertyChanged("CheckAimTaskAndObject");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckDateStartAndFinish {
+            get {
+                return this.CheckDateStartAndFinishField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckDateStartAndFinishField, value) != true)) {
+                    this.CheckDateStartAndFinishField = value;
+                    this.RaisePropertyChanged("CheckDateStartAndFinish");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckType {
+            get {
+                return this.CheckTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckTypeField, value) != true)) {
+                    this.CheckTypeField = value;
+                    this.RaisePropertyChanged("CheckType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckerPersonInfo {
+            get {
+                return this.CheckerPersonInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckerPersonInfoField, value) != true)) {
+                    this.CheckerPersonInfoField = value;
+                    this.RaisePropertyChanged("CheckerPersonInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CommonCheckDuration {
+            get {
+                return this.CommonCheckDurationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CommonCheckDurationField, value) != true)) {
+                    this.CommonCheckDurationField = value;
+                    this.RaisePropertyChanged("CommonCheckDuration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DateNumOfCheckRes {
+            get {
+                return this.DateNumOfCheckResField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DateNumOfCheckResField, value) != true)) {
+                    this.DateNumOfCheckResField = value;
+                    this.RaisePropertyChanged("DateNumOfCheckRes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DateNumOfContentOfElimination {
+            get {
+                return this.DateNumOfContentOfEliminationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DateNumOfContentOfEliminationField, value) != true)) {
+                    this.DateNumOfContentOfEliminationField = value;
+                    this.RaisePropertyChanged("DateNumOfContentOfElimination");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DateNumOrOrderOfCheck {
+            get {
+                return this.DateNumOrOrderOfCheckField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DateNumOrOrderOfCheckField, value) != true)) {
+                    this.DateNumOrOrderOfCheckField = value;
+                    this.RaisePropertyChanged("DateNumOrOrderOfCheck");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DifferentInfo {
+            get {
+                return this.DifferentInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DifferentInfoField, value) != true)) {
+                    this.DifferentInfoField = value;
+                    this.RaisePropertyChanged("DifferentInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FoundViolations {
+            get {
+                return this.FoundViolationsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FoundViolationsField, value) != true)) {
+                    this.FoundViolationsField = value;
+                    this.RaisePropertyChanged("FoundViolations");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string JournalStartDate {
+            get {
+                return this.JournalStartDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JournalStartDateField, value) != true)) {
+                    this.JournalStartDateField = value;
+                    this.RaisePropertyChanged("JournalStartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonInfo {
+            get {
+                return this.PersonInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonInfoField, value) != true)) {
+                    this.PersonInfoField = value;
+                    this.RaisePropertyChanged("PersonInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ResponsiblePersonBossInfo {
+            get {
+                return this.ResponsiblePersonBossInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResponsiblePersonBossInfoField, value) != true)) {
+                    this.ResponsiblePersonBossInfoField = value;
+                    this.RaisePropertyChanged("ResponsiblePersonBossInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ResponsiblePersonInfo {
+            get {
+                return this.ResponsiblePersonInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResponsiblePersonInfoField, value) != true)) {
+                    this.ResponsiblePersonInfoField = value;
+                    this.RaisePropertyChanged("ResponsiblePersonInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StateControlName {
+            get {
+                return this.StateControlNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StateControlNameField, value) != true)) {
+                    this.StateControlNameField = value;
+                    this.RaisePropertyChanged("StateControlName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CitizensCheckPlan", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    public partial class CitizensCheckPlan : DLR.WPF.DlrServer.ActIndividual {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ApprovedByInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> ApprovedTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckAimField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckBaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckDurationInDaysField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckStartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CitizenNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EarthObjectField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FederalBodyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ScheduledInspectionYearField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TerritorialBodyNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ApprovedByInfo {
+            get {
+                return this.ApprovedByInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApprovedByInfoField, value) != true)) {
+                    this.ApprovedByInfoField = value;
+                    this.RaisePropertyChanged("ApprovedByInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> ApprovedTime {
+            get {
+                return this.ApprovedTimeField;
+            }
+            set {
+                if ((this.ApprovedTimeField.Equals(value) != true)) {
+                    this.ApprovedTimeField = value;
+                    this.RaisePropertyChanged("ApprovedTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckAim {
+            get {
+                return this.CheckAimField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckAimField, value) != true)) {
+                    this.CheckAimField = value;
+                    this.RaisePropertyChanged("CheckAim");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckBase {
+            get {
+                return this.CheckBaseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckBaseField, value) != true)) {
+                    this.CheckBaseField = value;
+                    this.RaisePropertyChanged("CheckBase");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckDurationInDays {
+            get {
+                return this.CheckDurationInDaysField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckDurationInDaysField, value) != true)) {
+                    this.CheckDurationInDaysField = value;
+                    this.RaisePropertyChanged("CheckDurationInDays");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckStartDate {
+            get {
+                return this.CheckStartDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckStartDateField, value) != true)) {
+                    this.CheckStartDateField = value;
+                    this.RaisePropertyChanged("CheckStartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CitizenName {
+            get {
+                return this.CitizenNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CitizenNameField, value) != true)) {
+                    this.CitizenNameField = value;
+                    this.RaisePropertyChanged("CitizenName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EarthObject {
+            get {
+                return this.EarthObjectField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EarthObjectField, value) != true)) {
+                    this.EarthObjectField = value;
+                    this.RaisePropertyChanged("EarthObject");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FederalBodyName {
+            get {
+                return this.FederalBodyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FederalBodyNameField, value) != true)) {
+                    this.FederalBodyNameField = value;
+                    this.RaisePropertyChanged("FederalBodyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ScheduledInspectionYear {
+            get {
+                return this.ScheduledInspectionYearField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScheduledInspectionYearField, value) != true)) {
+                    this.ScheduledInspectionYearField = value;
+                    this.RaisePropertyChanged("ScheduledInspectionYear");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TerritorialBodyName {
+            get {
+                return this.TerritorialBodyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TerritorialBodyNameField, value) != true)) {
+                    this.TerritorialBodyNameField = value;
+                    this.RaisePropertyChanged("TerritorialBodyName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderInspectionUlIp", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    public partial class OrderInspectionUlIp : DLR.WPF.DlrServer.ActIndividual {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckerInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckingAimField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckingDurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckingEventsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckingScopesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckingTasksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CheckingTimeFinishField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CheckingTimeStartField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DocumentsForSuccessField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ExpertsInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InspectionTargetField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MandatoryRequirementsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrderCreatorInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrderNumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProvisionsListOfStateControlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RightCheckingBasesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TargetPlaceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TerritorialBodyNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckType {
+            get {
+                return this.CheckTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckTypeField, value) != true)) {
+                    this.CheckTypeField = value;
+                    this.RaisePropertyChanged("CheckType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckerInfo {
+            get {
+                return this.CheckerInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckerInfoField, value) != true)) {
+                    this.CheckerInfoField = value;
+                    this.RaisePropertyChanged("CheckerInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckingAim {
+            get {
+                return this.CheckingAimField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckingAimField, value) != true)) {
+                    this.CheckingAimField = value;
+                    this.RaisePropertyChanged("CheckingAim");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckingDuration {
+            get {
+                return this.CheckingDurationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckingDurationField, value) != true)) {
+                    this.CheckingDurationField = value;
+                    this.RaisePropertyChanged("CheckingDuration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckingEvents {
+            get {
+                return this.CheckingEventsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckingEventsField, value) != true)) {
+                    this.CheckingEventsField = value;
+                    this.RaisePropertyChanged("CheckingEvents");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckingScopes {
+            get {
+                return this.CheckingScopesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckingScopesField, value) != true)) {
+                    this.CheckingScopesField = value;
+                    this.RaisePropertyChanged("CheckingScopes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckingTasks {
+            get {
+                return this.CheckingTasksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckingTasksField, value) != true)) {
+                    this.CheckingTasksField = value;
+                    this.RaisePropertyChanged("CheckingTasks");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CheckingTimeFinish {
+            get {
+                return this.CheckingTimeFinishField;
+            }
+            set {
+                if ((this.CheckingTimeFinishField.Equals(value) != true)) {
+                    this.CheckingTimeFinishField = value;
+                    this.RaisePropertyChanged("CheckingTimeFinish");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CheckingTimeStart {
+            get {
+                return this.CheckingTimeStartField;
+            }
+            set {
+                if ((this.CheckingTimeStartField.Equals(value) != true)) {
+                    this.CheckingTimeStartField = value;
+                    this.RaisePropertyChanged("CheckingTimeStart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DocumentsForSuccess {
+            get {
+                return this.DocumentsForSuccessField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DocumentsForSuccessField, value) != true)) {
+                    this.DocumentsForSuccessField = value;
+                    this.RaisePropertyChanged("DocumentsForSuccess");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ExpertsInfo {
+            get {
+                return this.ExpertsInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExpertsInfoField, value) != true)) {
+                    this.ExpertsInfoField = value;
+                    this.RaisePropertyChanged("ExpertsInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InspectionTarget {
+            get {
+                return this.InspectionTargetField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InspectionTargetField, value) != true)) {
+                    this.InspectionTargetField = value;
+                    this.RaisePropertyChanged("InspectionTarget");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MandatoryRequirements {
+            get {
+                return this.MandatoryRequirementsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MandatoryRequirementsField, value) != true)) {
+                    this.MandatoryRequirementsField = value;
+                    this.RaisePropertyChanged("MandatoryRequirements");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OrderCreatorInfo {
+            get {
+                return this.OrderCreatorInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderCreatorInfoField, value) != true)) {
+                    this.OrderCreatorInfoField = value;
+                    this.RaisePropertyChanged("OrderCreatorInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OrderNum {
+            get {
+                return this.OrderNumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderNumField, value) != true)) {
+                    this.OrderNumField = value;
+                    this.RaisePropertyChanged("OrderNum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProvisionsListOfStateControl {
+            get {
+                return this.ProvisionsListOfStateControlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProvisionsListOfStateControlField, value) != true)) {
+                    this.ProvisionsListOfStateControlField = value;
+                    this.RaisePropertyChanged("ProvisionsListOfStateControl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RightCheckingBases {
+            get {
+                return this.RightCheckingBasesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RightCheckingBasesField, value) != true)) {
+                    this.RightCheckingBasesField = value;
+                    this.RaisePropertyChanged("RightCheckingBases");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TargetPlace {
+            get {
+                return this.TargetPlaceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TargetPlaceField, value) != true)) {
+                    this.TargetPlaceField = value;
+                    this.RaisePropertyChanged("TargetPlace");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TerritorialBodyName {
+            get {
+                return this.TerritorialBodyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TerritorialBodyNameField, value) != true)) {
+                    this.TerritorialBodyNameField = value;
+                    this.RaisePropertyChanged("TerritorialBodyName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Protocol", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    public partial class Protocol : DLR.WPF.DlrServer.ActIndividual {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ActCreatorInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodexArticleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodexSectionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreationPlaceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> DateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InPresenceOfPersonInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PersonExplanationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProtocolCreatorInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SpecialMarksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ViolationAuthorInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ViolationDescriptionField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ActCreatorInfo {
+            get {
+                return this.ActCreatorInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActCreatorInfoField, value) != true)) {
+                    this.ActCreatorInfoField = value;
+                    this.RaisePropertyChanged("ActCreatorInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodexArticle {
+            get {
+                return this.CodexArticleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodexArticleField, value) != true)) {
+                    this.CodexArticleField = value;
+                    this.RaisePropertyChanged("CodexArticle");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodexSection {
+            get {
+                return this.CodexSectionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodexSectionField, value) != true)) {
+                    this.CodexSectionField = value;
+                    this.RaisePropertyChanged("CodexSection");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreationPlace {
+            get {
+                return this.CreationPlaceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreationPlaceField, value) != true)) {
+                    this.CreationPlaceField = value;
+                    this.RaisePropertyChanged("CreationPlace");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> Date {
+            get {
+                return this.DateField;
+            }
+            set {
+                if ((this.DateField.Equals(value) != true)) {
+                    this.DateField = value;
+                    this.RaisePropertyChanged("Date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InPresenceOfPersonInfo {
+            get {
+                return this.InPresenceOfPersonInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InPresenceOfPersonInfoField, value) != true)) {
+                    this.InPresenceOfPersonInfoField = value;
+                    this.RaisePropertyChanged("InPresenceOfPersonInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Num {
+            get {
+                return this.NumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumField, value) != true)) {
+                    this.NumField = value;
+                    this.RaisePropertyChanged("Num");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonExplanation {
+            get {
+                return this.PersonExplanationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonExplanationField, value) != true)) {
+                    this.PersonExplanationField = value;
+                    this.RaisePropertyChanged("PersonExplanation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProtocolCreatorInfo {
+            get {
+                return this.ProtocolCreatorInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProtocolCreatorInfoField, value) != true)) {
+                    this.ProtocolCreatorInfoField = value;
+                    this.RaisePropertyChanged("ProtocolCreatorInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SpecialMarks {
+            get {
+                return this.SpecialMarksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SpecialMarksField, value) != true)) {
+                    this.SpecialMarksField = value;
+                    this.RaisePropertyChanged("SpecialMarks");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ViolationAuthorInfo {
+            get {
+                return this.ViolationAuthorInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ViolationAuthorInfoField, value) != true)) {
+                    this.ViolationAuthorInfoField = value;
+                    this.RaisePropertyChanged("ViolationAuthorInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ViolationDescription {
+            get {
+                return this.ViolationDescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ViolationDescriptionField, value) != true)) {
+                    this.ViolationDescriptionField = value;
+                    this.RaisePropertyChanged("ViolationDescription");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Regulation", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    public partial class Regulation : DLR.WPF.DlrServer.ActIndividual {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AreaAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AreaSquareField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AreaUserInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CorrectToDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatorInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> DateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MunicipalAuthorityAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MunicipalAuthorityForDocumentsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrescriptionDeliveryMarkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ViolationAuthorInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ViolationDescriptionField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AreaAddress {
+            get {
+                return this.AreaAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaAddressField, value) != true)) {
+                    this.AreaAddressField = value;
+                    this.RaisePropertyChanged("AreaAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AreaSquare {
+            get {
+                return this.AreaSquareField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaSquareField, value) != true)) {
+                    this.AreaSquareField = value;
+                    this.RaisePropertyChanged("AreaSquare");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AreaUserInfo {
+            get {
+                return this.AreaUserInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaUserInfoField, value) != true)) {
+                    this.AreaUserInfoField = value;
+                    this.RaisePropertyChanged("AreaUserInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CorrectToDate {
+            get {
+                return this.CorrectToDateField;
+            }
+            set {
+                if ((this.CorrectToDateField.Equals(value) != true)) {
+                    this.CorrectToDateField = value;
+                    this.RaisePropertyChanged("CorrectToDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreatorInfo {
+            get {
+                return this.CreatorInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatorInfoField, value) != true)) {
+                    this.CreatorInfoField = value;
+                    this.RaisePropertyChanged("CreatorInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> Date {
+            get {
+                return this.DateField;
+            }
+            set {
+                if ((this.DateField.Equals(value) != true)) {
+                    this.DateField = value;
+                    this.RaisePropertyChanged("Date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MunicipalAuthorityAddress {
+            get {
+                return this.MunicipalAuthorityAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MunicipalAuthorityAddressField, value) != true)) {
+                    this.MunicipalAuthorityAddressField = value;
+                    this.RaisePropertyChanged("MunicipalAuthorityAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MunicipalAuthorityForDocuments {
+            get {
+                return this.MunicipalAuthorityForDocumentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MunicipalAuthorityForDocumentsField, value) != true)) {
+                    this.MunicipalAuthorityForDocumentsField = value;
+                    this.RaisePropertyChanged("MunicipalAuthorityForDocuments");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Num {
+            get {
+                return this.NumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumField, value) != true)) {
+                    this.NumField = value;
+                    this.RaisePropertyChanged("Num");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PrescriptionDeliveryMark {
+            get {
+                return this.PrescriptionDeliveryMarkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrescriptionDeliveryMarkField, value) != true)) {
+                    this.PrescriptionDeliveryMarkField = value;
+                    this.RaisePropertyChanged("PrescriptionDeliveryMark");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ViolationAuthorInfo {
+            get {
+                return this.ViolationAuthorInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ViolationAuthorInfoField, value) != true)) {
+                    this.ViolationAuthorInfoField = value;
+                    this.RaisePropertyChanged("ViolationAuthorInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ViolationDescription {
+            get {
+                return this.ViolationDescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ViolationDescriptionField, value) != true)) {
+                    this.ViolationDescriptionField = value;
+                    this.RaisePropertyChanged("ViolationDescription");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Photo", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    public partial class Photo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FioField;
+        private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long InnField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PassportDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long PassportNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PhoneNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PositionField;
+        private string IdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -541,92 +2737,27 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Fio {
+        public string Description {
             get {
-                return this.FioField;
+                return this.DescriptionField;
             }
             set {
-                if ((object.ReferenceEquals(this.FioField, value) != true)) {
-                    this.FioField = value;
-                    this.RaisePropertyChanged("Fio");
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
+        public string Id {
             get {
                 return this.IdField;
             }
             set {
-                if ((this.IdField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Inn {
-            get {
-                return this.InnField;
-            }
-            set {
-                if ((this.InnField.Equals(value) != true)) {
-                    this.InnField = value;
-                    this.RaisePropertyChanged("Inn");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PassportData {
-            get {
-                return this.PassportDataField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PassportDataField, value) != true)) {
-                    this.PassportDataField = value;
-                    this.RaisePropertyChanged("PassportData");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long PassportNumber {
-            get {
-                return this.PassportNumberField;
-            }
-            set {
-                if ((this.PassportNumberField.Equals(value) != true)) {
-                    this.PassportNumberField = value;
-                    this.RaisePropertyChanged("PassportNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PhoneNumber {
-            get {
-                return this.PhoneNumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
-                    this.PhoneNumberField = value;
-                    this.RaisePropertyChanged("PhoneNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Position {
-            get {
-                return this.PositionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PositionField, value) != true)) {
-                    this.PositionField = value;
-                    this.RaisePropertyChanged("Position");
                 }
             }
         }
@@ -639,66 +2770,6 @@ namespace DLR.WPF.DlrServer {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ActType", Namespace="http://schemas.datacontract.org/2004/07/ActsModel")]
-    public enum ActType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        АктОбследования = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        АктПроверкиФизЛица = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        АктПроверкиЮл = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ФотоТаблица = 3,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ОбмерПлощадиЗу = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ПротоколАдмПравонарушения = 5,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ЖурналУчетаПроверокЮл = 6,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ПредписаниеУтсрНарушЗемЗакона = 7,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ЗаявлениеСоглВнеплВыездПроверки = 8,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        РаспоряжениеПроверкиЮл = 9,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ПланПроверокГраждан = 10,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CheckClass", Namespace="http://schemas.datacontract.org/2004/07/ActsModel")]
-    public enum CheckClass : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Planned = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Unplanned = 1,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CheckType", Namespace="http://schemas.datacontract.org/2004/07/ActsModel")]
-    public enum CheckType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Documentary = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Departure = 1,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -712,22 +2783,106 @@ namespace DLR.WPF.DlrServer {
         System.Threading.Tasks.Task<DLR.WPF.DlrServer.Token> AuthenticateAsync(string login, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActs", ReplyAction="http://tempuri.org/IAuthService/GetActsResponse")]
-        DLR.WPF.DlrServer.Act[] GetActs(DLR.WPF.DlrServer.Token token, int count, int offset);
+        DLR.WPF.DlrServer.ActBase[] GetActs(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActs", ReplyAction="http://tempuri.org/IAuthService/GetActsResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.Act[]> GetActsAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActBase[]> GetActsAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetSomeActs", ReplyAction="http://tempuri.org/IAuthService/GetSomeActsResponse")]
+        DLR.WPF.DlrServer.ActBase[] GetSomeActs(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActBase, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetSomeActs", ReplyAction="http://tempuri.org/IAuthService/GetSomeActsResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActBase[]> GetSomeActsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActBase, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsCommon", ReplyAction="http://tempuri.org/IAuthService/GetActsCommonResponse")]
+        DLR.WPF.DlrServer.ActCommon[] GetActsCommon(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActCommon, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsCommon", ReplyAction="http://tempuri.org/IAuthService/GetActsCommonResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActCommon[]> GetActsCommonAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActCommon, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsIndividual", ReplyAction="http://tempuri.org/IAuthService/GetActsIndividualResponse")]
+        DLR.WPF.DlrServer.ActIndividual[] GetActsIndividual(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActIndividual, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsIndividual", ReplyAction="http://tempuri.org/IAuthService/GetActsIndividualResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActIndividual[]> GetActsIndividualAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActIndividual, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsInpectationFl", ReplyAction="http://tempuri.org/IAuthService/GetActsInpectationFlResponse")]
+        DLR.WPF.DlrServer.ActInpectationFl[] GetActsInpectationFl(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInpectationFl, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsInpectationFl", ReplyAction="http://tempuri.org/IAuthService/GetActsInpectationFlResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInpectationFl[]> GetActsInpectationFlAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInpectationFl, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsInspectationUlIp", ReplyAction="http://tempuri.org/IAuthService/GetActsInspectationUlIpResponse")]
+        DLR.WPF.DlrServer.ActInspectationUlIp[] GetActsInspectationUlIp(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspectationUlIp, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsInspectationUlIp", ReplyAction="http://tempuri.org/IAuthService/GetActsInspectationUlIpResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInspectationUlIp[]> GetActsInspectationUlIpAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspectationUlIp, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActInspection", ReplyAction="http://tempuri.org/IAuthService/GetActInspectionResponse")]
+        DLR.WPF.DlrServer.ActInspection[] GetActInspection(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspection, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActInspection", ReplyAction="http://tempuri.org/IAuthService/GetActInspectionResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInspection[]> GetActInspectionAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspection, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetAgreementStatements", ReplyAction="http://tempuri.org/IAuthService/GetAgreementStatementsResponse")]
+        DLR.WPF.DlrServer.AgreementStatement[] GetAgreementStatements(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AgreementStatement, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetAgreementStatements", ReplyAction="http://tempuri.org/IAuthService/GetAgreementStatementsResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.AgreementStatement[]> GetAgreementStatementsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AgreementStatement, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetAreaMeasurements", ReplyAction="http://tempuri.org/IAuthService/GetAreaMeasurementsResponse")]
+        DLR.WPF.DlrServer.AreaMeasurement[] GetAreaMeasurements(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AreaMeasurement, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetAreaMeasurements", ReplyAction="http://tempuri.org/IAuthService/GetAreaMeasurementsResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.AreaMeasurement[]> GetAreaMeasurementsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AreaMeasurement, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetCheckingJournals", ReplyAction="http://tempuri.org/IAuthService/GetCheckingJournalsResponse")]
+        DLR.WPF.DlrServer.CheckingJournal[] GetCheckingJournals(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CheckingJournal, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetCheckingJournals", ReplyAction="http://tempuri.org/IAuthService/GetCheckingJournalsResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.CheckingJournal[]> GetCheckingJournalsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CheckingJournal, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetCitizensCheckPlans", ReplyAction="http://tempuri.org/IAuthService/GetCitizensCheckPlansResponse")]
+        DLR.WPF.DlrServer.CitizensCheckPlan[] GetCitizensCheckPlans(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CitizensCheckPlan, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetCitizensCheckPlans", ReplyAction="http://tempuri.org/IAuthService/GetCitizensCheckPlansResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.CitizensCheckPlan[]> GetCitizensCheckPlansAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CitizensCheckPlan, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetOrdersInspectionUlIp", ReplyAction="http://tempuri.org/IAuthService/GetOrdersInspectionUlIpResponse")]
+        DLR.WPF.DlrServer.OrderInspectionUlIp[] GetOrdersInspectionUlIp(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.OrderInspectionUlIp, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetOrdersInspectionUlIp", ReplyAction="http://tempuri.org/IAuthService/GetOrdersInspectionUlIpResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.OrderInspectionUlIp[]> GetOrdersInspectionUlIpAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.OrderInspectionUlIp, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetPhotoTables", ReplyAction="http://tempuri.org/IAuthService/GetPhotoTablesResponse")]
+        DLR.WPF.DlrServer.PhotoTable[] GetPhotoTables(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.PhotoTable, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetPhotoTables", ReplyAction="http://tempuri.org/IAuthService/GetPhotoTablesResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.PhotoTable[]> GetPhotoTablesAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.PhotoTable, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetProtocols", ReplyAction="http://tempuri.org/IAuthService/GetProtocolsResponse")]
+        DLR.WPF.DlrServer.Protocol[] GetProtocols(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Protocol, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetProtocols", ReplyAction="http://tempuri.org/IAuthService/GetProtocolsResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.Protocol[]> GetProtocolsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Protocol, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetRegulations", ReplyAction="http://tempuri.org/IAuthService/GetRegulationsResponse")]
+        DLR.WPF.DlrServer.Regulation[] GetRegulations(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Regulation, bool> predicate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetRegulations", ReplyAction="http://tempuri.org/IAuthService/GetRegulationsResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.Regulation[]> GetRegulationsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Regulation, bool> predicate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/DeleteAct", ReplyAction="http://tempuri.org/IAuthService/DeleteActResponse")]
-        bool DeleteAct(DLR.WPF.DlrServer.Act act, DLR.WPF.DlrServer.Token token);
+        bool DeleteAct(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/DeleteAct", ReplyAction="http://tempuri.org/IAuthService/DeleteActResponse")]
-        System.Threading.Tasks.Task<bool> DeleteActAsync(DLR.WPF.DlrServer.Act act, DLR.WPF.DlrServer.Token token);
+        System.Threading.Tasks.Task<bool> DeleteActAsync(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/AddAct", ReplyAction="http://tempuri.org/IAuthService/AddActResponse")]
-        bool AddAct(DLR.WPF.DlrServer.Act act, DLR.WPF.DlrServer.Token token);
+        bool AddAct(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/AddAct", ReplyAction="http://tempuri.org/IAuthService/AddActResponse")]
-        System.Threading.Tasks.Task<bool> AddActAsync(DLR.WPF.DlrServer.Act act, DLR.WPF.DlrServer.Token token);
+        System.Threading.Tasks.Task<bool> AddActAsync(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -765,27 +2920,139 @@ namespace DLR.WPF.DlrServer {
             return base.Channel.AuthenticateAsync(login, password);
         }
         
-        public DLR.WPF.DlrServer.Act[] GetActs(DLR.WPF.DlrServer.Token token, int count, int offset) {
+        public DLR.WPF.DlrServer.ActBase[] GetActs(DLR.WPF.DlrServer.Token token, int count, int offset) {
             return base.Channel.GetActs(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.Act[]> GetActsAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActBase[]> GetActsAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
             return base.Channel.GetActsAsync(token, count, offset);
         }
         
-        public bool DeleteAct(DLR.WPF.DlrServer.Act act, DLR.WPF.DlrServer.Token token) {
+        public DLR.WPF.DlrServer.ActBase[] GetSomeActs(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActBase, bool> predicate) {
+            return base.Channel.GetSomeActs(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActBase[]> GetSomeActsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActBase, bool> predicate) {
+            return base.Channel.GetSomeActsAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.ActCommon[] GetActsCommon(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActCommon, bool> predicate) {
+            return base.Channel.GetActsCommon(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActCommon[]> GetActsCommonAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActCommon, bool> predicate) {
+            return base.Channel.GetActsCommonAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.ActIndividual[] GetActsIndividual(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActIndividual, bool> predicate) {
+            return base.Channel.GetActsIndividual(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActIndividual[]> GetActsIndividualAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActIndividual, bool> predicate) {
+            return base.Channel.GetActsIndividualAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.ActInpectationFl[] GetActsInpectationFl(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInpectationFl, bool> predicate) {
+            return base.Channel.GetActsInpectationFl(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInpectationFl[]> GetActsInpectationFlAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInpectationFl, bool> predicate) {
+            return base.Channel.GetActsInpectationFlAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.ActInspectationUlIp[] GetActsInspectationUlIp(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspectationUlIp, bool> predicate) {
+            return base.Channel.GetActsInspectationUlIp(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInspectationUlIp[]> GetActsInspectationUlIpAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspectationUlIp, bool> predicate) {
+            return base.Channel.GetActsInspectationUlIpAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.ActInspection[] GetActInspection(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspection, bool> predicate) {
+            return base.Channel.GetActInspection(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInspection[]> GetActInspectionAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspection, bool> predicate) {
+            return base.Channel.GetActInspectionAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.AgreementStatement[] GetAgreementStatements(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AgreementStatement, bool> predicate) {
+            return base.Channel.GetAgreementStatements(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.AgreementStatement[]> GetAgreementStatementsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AgreementStatement, bool> predicate) {
+            return base.Channel.GetAgreementStatementsAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.AreaMeasurement[] GetAreaMeasurements(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AreaMeasurement, bool> predicate) {
+            return base.Channel.GetAreaMeasurements(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.AreaMeasurement[]> GetAreaMeasurementsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AreaMeasurement, bool> predicate) {
+            return base.Channel.GetAreaMeasurementsAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.CheckingJournal[] GetCheckingJournals(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CheckingJournal, bool> predicate) {
+            return base.Channel.GetCheckingJournals(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.CheckingJournal[]> GetCheckingJournalsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CheckingJournal, bool> predicate) {
+            return base.Channel.GetCheckingJournalsAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.CitizensCheckPlan[] GetCitizensCheckPlans(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CitizensCheckPlan, bool> predicate) {
+            return base.Channel.GetCitizensCheckPlans(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.CitizensCheckPlan[]> GetCitizensCheckPlansAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CitizensCheckPlan, bool> predicate) {
+            return base.Channel.GetCitizensCheckPlansAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.OrderInspectionUlIp[] GetOrdersInspectionUlIp(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.OrderInspectionUlIp, bool> predicate) {
+            return base.Channel.GetOrdersInspectionUlIp(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.OrderInspectionUlIp[]> GetOrdersInspectionUlIpAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.OrderInspectionUlIp, bool> predicate) {
+            return base.Channel.GetOrdersInspectionUlIpAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.PhotoTable[] GetPhotoTables(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.PhotoTable, bool> predicate) {
+            return base.Channel.GetPhotoTables(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.PhotoTable[]> GetPhotoTablesAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.PhotoTable, bool> predicate) {
+            return base.Channel.GetPhotoTablesAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.Protocol[] GetProtocols(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Protocol, bool> predicate) {
+            return base.Channel.GetProtocols(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.Protocol[]> GetProtocolsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Protocol, bool> predicate) {
+            return base.Channel.GetProtocolsAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.Regulation[] GetRegulations(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Regulation, bool> predicate) {
+            return base.Channel.GetRegulations(token, predicate);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.Regulation[]> GetRegulationsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Regulation, bool> predicate) {
+            return base.Channel.GetRegulationsAsync(token, predicate);
+        }
+        
+        public bool DeleteAct(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token) {
             return base.Channel.DeleteAct(act, token);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteActAsync(DLR.WPF.DlrServer.Act act, DLR.WPF.DlrServer.Token token) {
+        public System.Threading.Tasks.Task<bool> DeleteActAsync(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token) {
             return base.Channel.DeleteActAsync(act, token);
         }
         
-        public bool AddAct(DLR.WPF.DlrServer.Act act, DLR.WPF.DlrServer.Token token) {
+        public bool AddAct(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token) {
             return base.Channel.AddAct(act, token);
         }
         
-        public System.Threading.Tasks.Task<bool> AddActAsync(DLR.WPF.DlrServer.Act act, DLR.WPF.DlrServer.Token token) {
+        public System.Threading.Tasks.Task<bool> AddActAsync(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token) {
             return base.Channel.AddActAsync(act, token);
         }
     }

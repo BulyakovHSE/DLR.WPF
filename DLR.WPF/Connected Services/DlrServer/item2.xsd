@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ActsModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ActsModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ActsModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ActsModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:simpleType name="Region">
     <xs:restriction base="xs:string">
       <xs:enumeration value="All" />
@@ -15,85 +14,4 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="Region" nillable="true" type="tns:Region" />
-  <xs:complexType name="ArrayOfAct">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Act" nillable="true" type="tns:Act" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfAct" nillable="true" type="tns:ArrayOfAct" />
-  <xs:complexType name="Act">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ActNumber" type="xs:int" />
-      <xs:element minOccurs="0" name="ActType" type="tns:ActType" />
-      <xs:element minOccurs="0" name="AreaAdress" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="AreaNumber" type="xs:int" />
-      <xs:element minOccurs="0" name="AreaSquare" type="xs:double" />
-      <xs:element minOccurs="0" name="CadastrNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CheckClass" type="tns:CheckClass" />
-      <xs:element minOccurs="0" name="CheckContactInfo" nillable="true" type="tns:ContactInfo" />
-      <xs:element minOccurs="0" name="CheckType" type="tns:CheckType" />
-      <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="CreatorRegion" type="tns:Region" />
-      <xs:element minOccurs="0" name="DocumentBytes" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="InvolvedContactInfos" nillable="true" type="tns:ArrayOfContactInfo" />
-      <xs:element minOccurs="0" name="MakingEndTime" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="MakingLength" nillable="true" type="ser:duration" />
-      <xs:element minOccurs="0" name="MakingPlace" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MakingStartTime" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="MeasurementDeviceParams" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ReasonDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="ReasonRequisites" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TerritorialBodyName" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Act" nillable="true" type="tns:Act" />
-  <xs:simpleType name="ActType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="АктОбследования" />
-      <xs:enumeration value="АктПроверкиФизЛица" />
-      <xs:enumeration value="АктПроверкиЮл" />
-      <xs:enumeration value="ФотоТаблица" />
-      <xs:enumeration value="ОбмерПлощадиЗу" />
-      <xs:enumeration value="ПротоколАдмПравонарушения" />
-      <xs:enumeration value="ЖурналУчетаПроверокЮл" />
-      <xs:enumeration value="ПредписаниеУтсрНарушЗемЗакона" />
-      <xs:enumeration value="ЗаявлениеСоглВнеплВыездПроверки" />
-      <xs:enumeration value="РаспоряжениеПроверкиЮл" />
-      <xs:enumeration value="ПланПроверокГраждан" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="ActType" nillable="true" type="tns:ActType" />
-  <xs:simpleType name="CheckClass">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Planned" />
-      <xs:enumeration value="Unplanned" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="CheckClass" nillable="true" type="tns:CheckClass" />
-  <xs:complexType name="ContactInfo">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Fio" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Inn" type="xs:long" />
-      <xs:element minOccurs="0" name="PassportData" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PassportNumber" type="xs:long" />
-      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ContactInfo" nillable="true" type="tns:ContactInfo" />
-  <xs:simpleType name="CheckType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Documentary" />
-      <xs:enumeration value="Departure" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="CheckType" nillable="true" type="tns:CheckType" />
-  <xs:complexType name="ArrayOfContactInfo">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactInfo" nillable="true" type="tns:ContactInfo" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfContactInfo" nillable="true" type="tns:ArrayOfContactInfo" />
 </xs:schema>

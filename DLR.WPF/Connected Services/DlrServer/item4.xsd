@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ActsModel.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ActsModel" />
+  <xs:complexType name="ArrayOfActBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActBase" nillable="true" type="tns:ActBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActBase" nillable="true" type="tns:ArrayOfActBase" />
+  <xs:complexType name="ActBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentBytes" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ActsModel" minOccurs="0" name="Region" type="q1:Region" />
+      <xs:element minOccurs="0" name="RegionNum" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ActBase" nillable="true" type="tns:ActBase" />
+  <xs:complexType name="ArrayOfActCommon">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActCommon" nillable="true" type="tns:ActCommon" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActCommon" nillable="true" type="tns:ArrayOfActCommon" />
+  <xs:complexType name="ActCommon">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CommonNum" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActCommon" nillable="true" type="tns:ActCommon" />
+  <xs:complexType name="ArrayOfActIndividual">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActIndividual" nillable="true" type="tns:ActIndividual" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActIndividual" nillable="true" type="tns:ArrayOfActIndividual" />
+  <xs:complexType name="ActIndividual">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActIndividual" nillable="true" type="tns:ActIndividual" />
+  <xs:complexType name="ArrayOfActInpectationFl">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActInpectationFl" nillable="true" type="tns:ActInpectationFl" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActInpectationFl" nillable="true" type="tns:ArrayOfActInpectationFl" />
+  <xs:complexType name="ActInpectationFl">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActCommon">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActCreator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AdditionsToAct" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationContent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaSquare" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AttendingPersonsInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BaseOnOrder" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BaseOnOrderDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CheckDateFinish" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CheckDateStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CheckResults" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateTimeCreation" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DuringCheckActivity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InspectedPersonInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PlaceActCreation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserInfo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActInpectationFl" nillable="true" type="tns:ActInpectationFl" />
+  <xs:complexType name="ArrayOfActInspectationUlIp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActInspectationUlIp" nillable="true" type="tns:ActInspectationUlIp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActInspectationUlIp" nillable="true" type="tns:ArrayOfActInspectationUlIp" />
+  <xs:complexType name="ActInspectationUlIp">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActCommon">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActCreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BeholdersInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckersInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckingPlace" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ChekingTarget" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CommonCheckDuration" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateAndTimeOfCheck" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateTimeCreation" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DiscrepanciesInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FamiliarPersonInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NoViolations" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NonComplianceFacts" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OnBaseOfDocs" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PersonInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PlaceActCreation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProsecutorDecision" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequirementsViolations" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TerritorialBodyName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActInspectationUlIp" nillable="true" type="tns:ActInspectationUlIp" />
+  <xs:complexType name="ArrayOfActInspection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActInspection" nillable="true" type="tns:ActInspection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActInspection" nillable="true" type="tns:ArrayOfActInspection" />
+  <xs:complexType name="ActInspection">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActCommon">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActAnnexes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaSquare" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CadastralNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckContactInfos" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateCreation" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DeviceParameters" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InvolvedContactInfos" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PlaceAndTimeCreation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProvidedToInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReasonRequisites" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResearchResults" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TerritorialBodyName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActInspection" nillable="true" type="tns:ActInspection" />
+  <xs:complexType name="ArrayOfAgreementStatement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AgreementStatement" nillable="true" type="tns:AgreementStatement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAgreementStatement" nillable="true" type="tns:ArrayOfAgreementStatement" />
+  <xs:complexType name="AgreementStatement">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActIndividual">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Additions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckBase" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckDateStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CheckTimeStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateTimeOfDocCreation" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="InspectationTargetInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TargetAddress" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AgreementStatement" nillable="true" type="tns:AgreementStatement" />
+  <xs:complexType name="ArrayOfAreaMeasurement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AreaMeasurement" nillable="true" type="tns:AreaMeasurement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAreaMeasurement" nillable="true" type="tns:ArrayOfAreaMeasurement" />
+  <xs:complexType name="AreaMeasurement">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActCommon">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaCalculation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaSquare" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DeviceInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MeasureAuthorInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RepresentativePersonInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecialMarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TerritorialBodyName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AreaMeasurement" nillable="true" type="tns:AreaMeasurement" />
+  <xs:complexType name="ArrayOfCheckingJournal">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CheckingJournal" nillable="true" type="tns:CheckingJournal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCheckingJournal" nillable="true" type="tns:ArrayOfCheckingJournal" />
+  <xs:complexType name="CheckingJournal">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActIndividual">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckAimTaskAndObject" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckDateStartAndFinish" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckerPersonInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CommonCheckDuration" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateNumOfCheckRes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateNumOfContentOfElimination" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateNumOrOrderOfCheck" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DifferentInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FoundViolations" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JournalStartDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PersonInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResponsiblePersonBossInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResponsiblePersonInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateControlName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CheckingJournal" nillable="true" type="tns:CheckingJournal" />
+  <xs:complexType name="ArrayOfCitizensCheckPlan">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CitizensCheckPlan" nillable="true" type="tns:CitizensCheckPlan" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCitizensCheckPlan" nillable="true" type="tns:ArrayOfCitizensCheckPlan" />
+  <xs:complexType name="CitizensCheckPlan">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActIndividual">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApprovedByInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApprovedTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CheckAim" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckBase" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckDurationInDays" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckStartDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CitizenName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EarthObject" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FederalBodyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScheduledInspectionYear" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TerritorialBodyName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CitizensCheckPlan" nillable="true" type="tns:CitizensCheckPlan" />
+  <xs:complexType name="ArrayOfOrderInspectionUlIp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderInspectionUlIp" nillable="true" type="tns:OrderInspectionUlIp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderInspectionUlIp" nillable="true" type="tns:ArrayOfOrderInspectionUlIp" />
+  <xs:complexType name="OrderInspectionUlIp">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActIndividual">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CheckType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckerInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckingAim" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckingDuration" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckingEvents" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckingScopes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckingTasks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckingTimeFinish" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CheckingTimeStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DocumentsForSuccess" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExpertsInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InspectionTarget" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MandatoryRequirements" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderCreatorInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProvisionsListOfStateControl" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RightCheckingBases" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TargetPlace" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TerritorialBodyName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OrderInspectionUlIp" nillable="true" type="tns:OrderInspectionUlIp" />
+  <xs:complexType name="ArrayOfPhotoTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PhotoTable" nillable="true" type="tns:PhotoTable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhotoTable" nillable="true" type="tns:ArrayOfPhotoTable" />
+  <xs:complexType name="PhotoTable">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActCommon">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AdditionToActDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="AreaInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviceInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MunitipalControlName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PersonsInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Photos" nillable="true" type="tns:ArrayOfPhoto" />
+          <xs:element minOccurs="0" name="PhototableCreator" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PhotoTable" nillable="true" type="tns:PhotoTable" />
+  <xs:complexType name="ArrayOfPhoto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Photo" nillable="true" type="tns:Photo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhoto" nillable="true" type="tns:ArrayOfPhoto" />
+  <xs:complexType name="Photo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Photo" nillable="true" type="tns:Photo" />
+  <xs:complexType name="ArrayOfProtocol">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Protocol" nillable="true" type="tns:Protocol" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProtocol" nillable="true" type="tns:ArrayOfProtocol" />
+  <xs:complexType name="Protocol">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActIndividual">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActCreatorInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodexArticle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodexSection" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreationPlace" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="InPresenceOfPersonInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Num" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PersonExplanation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProtocolCreatorInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecialMarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViolationAuthorInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViolationDescription" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Protocol" nillable="true" type="tns:Protocol" />
+  <xs:complexType name="ArrayOfRegulation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Regulation" nillable="true" type="tns:Regulation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegulation" nillable="true" type="tns:ArrayOfRegulation" />
+  <xs:complexType name="Regulation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ActIndividual">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AreaAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaSquare" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaUserInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CorrectToDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CreatorInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MunicipalAuthorityAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MunicipalAuthorityForDocuments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Num" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrescriptionDeliveryMark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViolationAuthorInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViolationDescription" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Regulation" nillable="true" type="tns:Regulation" />
+</xs:schema>
