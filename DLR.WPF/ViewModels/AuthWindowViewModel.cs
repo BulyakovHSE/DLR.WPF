@@ -18,14 +18,8 @@ namespace DLR.WPF.ViewModels
         {
             _messageService = messageService;
         }
-
-        public override string Title { get { return "View model title"; } }
-
+        
         public Token Token { get; set; }
-
-        // TODO: Register models with the vmpropmodel codesnippet
-        // TODO: Register view model properties with the vmprop or vmpropviewmodeltomodel codesnippets
-        // TODO: Register commands with the vmcommand or vmcommandwithcanexecute codesnippets
         
         public string Login
         {

@@ -230,6 +230,9 @@
     <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.OrderInspectionUlIp1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.Photo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\DlrServer\DLR.WPF.DlrServer.PhotoTable1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

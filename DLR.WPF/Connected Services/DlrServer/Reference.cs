@@ -2872,6 +2872,24 @@ namespace DLR.WPF.DlrServer {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetRegulations", ReplyAction="http://tempuri.org/IAuthService/GetRegulationsResponse")]
         System.Threading.Tasks.Task<DLR.WPF.DlrServer.Regulation[]> GetRegulationsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Regulation, bool> predicate);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetPhotoTablePhotos", ReplyAction="http://tempuri.org/IAuthService/GetPhotoTablePhotosResponse")]
+        DLR.WPF.DlrServer.Photo[] GetPhotoTablePhotos(DLR.WPF.DlrServer.Token token, DLR.WPF.DlrServer.PhotoTable photoTable);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetPhotoTablePhotos", ReplyAction="http://tempuri.org/IAuthService/GetPhotoTablePhotosResponse")]
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.Photo[]> GetPhotoTablePhotosAsync(DLR.WPF.DlrServer.Token token, DLR.WPF.DlrServer.PhotoTable photoTable);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/UpdateAct", ReplyAction="http://tempuri.org/IAuthService/UpdateActResponse")]
+        bool UpdateAct(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/UpdateAct", ReplyAction="http://tempuri.org/IAuthService/UpdateActResponse")]
+        System.Threading.Tasks.Task<bool> UpdateActAsync(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/DeleteActById", ReplyAction="http://tempuri.org/IAuthService/DeleteActByIdResponse")]
+        bool DeleteActById(int id, DLR.WPF.DlrServer.Token token);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/DeleteActById", ReplyAction="http://tempuri.org/IAuthService/DeleteActByIdResponse")]
+        System.Threading.Tasks.Task<bool> DeleteActByIdAsync(int id, DLR.WPF.DlrServer.Token token);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/DeleteAct", ReplyAction="http://tempuri.org/IAuthService/DeleteActResponse")]
         bool DeleteAct(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token);
         
@@ -3038,6 +3056,30 @@ namespace DLR.WPF.DlrServer {
         
         public System.Threading.Tasks.Task<DLR.WPF.DlrServer.Regulation[]> GetRegulationsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Regulation, bool> predicate) {
             return base.Channel.GetRegulationsAsync(token, predicate);
+        }
+        
+        public DLR.WPF.DlrServer.Photo[] GetPhotoTablePhotos(DLR.WPF.DlrServer.Token token, DLR.WPF.DlrServer.PhotoTable photoTable) {
+            return base.Channel.GetPhotoTablePhotos(token, photoTable);
+        }
+        
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.Photo[]> GetPhotoTablePhotosAsync(DLR.WPF.DlrServer.Token token, DLR.WPF.DlrServer.PhotoTable photoTable) {
+            return base.Channel.GetPhotoTablePhotosAsync(token, photoTable);
+        }
+        
+        public bool UpdateAct(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token) {
+            return base.Channel.UpdateAct(act, token);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateActAsync(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token) {
+            return base.Channel.UpdateActAsync(act, token);
+        }
+        
+        public bool DeleteActById(int id, DLR.WPF.DlrServer.Token token) {
+            return base.Channel.DeleteActById(id, token);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteActByIdAsync(int id, DLR.WPF.DlrServer.Token token) {
+            return base.Channel.DeleteActByIdAsync(id, token);
         }
         
         public bool DeleteAct(DLR.WPF.DlrServer.ActBase act, DLR.WPF.DlrServer.Token token) {

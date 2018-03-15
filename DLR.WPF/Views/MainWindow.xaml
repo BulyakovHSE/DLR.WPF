@@ -28,7 +28,10 @@
             <StackPanel x:Name="LayoutRoot">
                 <StackPanel x:Name="AuthStack" Orientation="Horizontal">
                     <Button Content="Войти" Command="{Binding AuthenticateCommand}" Margin="0 0 10 0"/>
-                    <TextBlock Text="{Binding UserRegion}"/>
+                    <TextBlock>
+                        <Run Text="Район: "/>
+                        <Run Text="{Binding UserRegion}"/> 
+                    </TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" IsEnabled="{Binding Authenticated}">
                     <Button Content="Создать новое дело" Command="{Binding CreateNewCommand}"/>
@@ -51,7 +54,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Content="Сохранить"/>
+            <Button Content="Сохранить изменения" Command="{Binding SaveChangesCommand}"/>
             <Button Content="Создать акт" Grid.Column="1" Command="{Binding CreateAct}"/>
             <Button Content="Журнал" Grid.Column="2" Command="{Binding OpenJournalCommand}"/>
         </Grid>

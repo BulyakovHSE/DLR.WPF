@@ -20,6 +20,7 @@ namespace DLR.WPF.ViewModels
         private readonly IPleaseWaitService _pleaseWaitService;
         private readonly IUIVisualizerService _uiVisualizerService;
         private Token _token;
+        private ActBase _journalAct;
 
         public MainWindowViewModel(IMessageService messageService, IPleaseWaitService pleaseWaitService, IUIVisualizerService uiVisualizerService)
         {
@@ -28,13 +29,6 @@ namespace DLR.WPF.ViewModels
             _uiVisualizerService = uiVisualizerService;
             InitialiseProperties();
         }
-
-        public override string Title { get { return "DLR.WPF"; } }
-
-        // TODO: Register models with the vmpropmodel codesnippet
-        // TODO: Register view model properties with the vmprop or vmpropviewmodeltomodel codesnippets
-        // TODO: Register commands with the vmcommand or vmcommandwithcanexecute codesnippets
-
 
         public bool Authenticated { get; set; }
 
@@ -158,28 +152,80 @@ namespace DLR.WPF.ViewModels
                     }
             }
             ShowAct(act);
+            _journalAct = null;
+        });
+
+        public Command SaveChangesCommand => new Command(() =>
+        {
+            if (!Authenticated)
+            {
+                _messageService.ShowWarningAsync("Вы не авторизованы в системе!");
+                return;
+            }
+            try
+            {
+                var AuthClient = new AuthServiceClient("BasicHttpBinding_IAuthService");
+                if (_journalAct == null)
+                {
+                    _messageService.ShowWarningAsync(
+                        "Акт еще не создан в базе данных.\nДля его создания нажмите на кнопку \"Создать акт\"");
+                    return;
+                }
+                if (SelectedAct.Count == 0)
+                {
+                    _messageService.ShowWarningAsync("Акт не выбран!\nВыберите акт для редактирования из журнала");
+                    return;
+                }
+
+                if (AuthClient.UpdateAct(SelectedAct.First(), _token))
+                    _messageService.ShowInformationAsync("Сохранено");
+                else
+                    _messageService.ShowWarningAsync("Не удалось сохранить изменения на сервере");
+            }
+            catch (Exception e)
+            {
+                _messageService.ShowErrorAsync("Произошла непредвиденная ошибка.");
+            }
         });
 
         public Command OpenJournalCommand => new Command(() =>
         {
+            if (!Authenticated)
+            {
+                _messageService.ShowWarningAsync("Вы не авторизованы в системе!");
+                return;
+            }
             var vm = new JournalWindowViewModel(_token);
             _uiVisualizerService.ShowDialogAsync(vm);
         });
 
         public Command CreateAct => new Command(() =>
         {
-            var AuthClient = new AuthServiceClient("BasicHttpBinding_IAuthService");
-            var act = SelectedAct.First();
-            if(act==null)return;
-            if (AuthClient.AddAct(act, _token))
-                _messageService.ShowInformationAsync("Success!");
-            else
-                _messageService.ShowWarningAsync("Act was not added because error!");
-        }, () => SelectedAct.First()!=null);
+            if (!Authenticated)
+            {
+                _messageService.ShowWarningAsync("Вы не авторизованы в системе!");
+                return;
+            }
+            try
+            {
+                var AuthClient = new AuthServiceClient("BasicHttpBinding_IAuthService");
+                var act = SelectedAct.First();
+                if (act == null) return;
+                if (AuthClient.AddAct(act, _token))
+                    _messageService.ShowInformationAsync("Акт успешно создан!");
+                else
+                    _messageService.ShowWarningAsync("Акт не был создан изза ошибки на сервере!");
+            }
+            catch (Exception e)
+            {
+                _messageService.ShowErrorAsync("Произошла непредвиденная ошибка.");
+            }
+        }, () => true);
 
         public void ShowAct(ActBase act)
         {
             if (act == null) return;
+            _journalAct = act;
             SelectedAct.Clear();
             SelectedAct.Add(act);
             SelectedActIndex = (int)GetActType(act);

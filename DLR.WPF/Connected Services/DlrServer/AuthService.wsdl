@@ -106,6 +106,24 @@
   <wsdl:message name="IAuthService_GetRegulations_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetRegulationsResponse" />
   </wsdl:message>
+  <wsdl:message name="IAuthService_GetPhotoTablePhotos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoTablePhotos" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetPhotoTablePhotos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoTablePhotosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_UpdateAct_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAct" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_UpdateAct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateActResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_DeleteActById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteActById" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_DeleteActById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteActByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IAuthService_DeleteAct_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteAct" />
   </wsdl:message>
@@ -182,6 +200,18 @@
     <wsdl:operation name="GetRegulations">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetRegulations" message="tns:IAuthService_GetRegulations_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetRegulationsResponse" message="tns:IAuthService_GetRegulations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoTablePhotos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetPhotoTablePhotos" message="tns:IAuthService_GetPhotoTablePhotos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetPhotoTablePhotosResponse" message="tns:IAuthService_GetPhotoTablePhotos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/UpdateAct" message="tns:IAuthService_UpdateAct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/UpdateActResponse" message="tns:IAuthService_UpdateAct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteActById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/DeleteActById" message="tns:IAuthService_DeleteActById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/DeleteActByIdResponse" message="tns:IAuthService_DeleteActById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteAct">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/DeleteAct" message="tns:IAuthService_DeleteAct_InputMessage" />
@@ -331,6 +361,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetRegulations">
       <soap:operation soapAction="http://tempuri.org/IAuthService/GetRegulations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoTablePhotos">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetPhotoTablePhotos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAct">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/UpdateAct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteActById">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/DeleteActById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
