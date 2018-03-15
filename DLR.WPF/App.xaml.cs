@@ -1,4 +1,6 @@
-﻿namespace DLR.WPF
+﻿using DLR.WPF.DlrServer;
+
+namespace DLR.WPF
 {
     using System.Windows;
 
@@ -15,6 +17,10 @@
     public partial class App : Application
     {
         private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+
+        public static bool ActLoadingRequired { get; set; }
+
+        public static ActBase Act { get; set; }
 
         protected override void OnStartup(StartupEventArgs e)
         {

@@ -19,9 +19,9 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Логин: "/>
-                <TextBox Text="{Binding Login}" Grid.Row="0" Grid.Column="1"/>
+                <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="1"/>
                 <Label Content="Пароль: " Grid.Row="1" Grid.Column="0"/>
-                <TextBox Text="{Binding Password}" Grid.Row="1" Grid.Column="1"/>
+                <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1"/>
             </Grid>
             <Button Content="Войти" Width="150" Margin="0 20 0 0" Command="{Binding AuthenticateCommand}" IsDefault="True"/>
         </StackPanel>

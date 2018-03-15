@@ -52,8 +52,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button Content="Сохранить"/>
-            <Button Content="Создать акт" Grid.Column="1"/>
-            <Button Content="Журнал" Grid.Column="2"/>
+            <Button Content="Создать акт" Grid.Column="1" Command="{Binding CreateAct}"/>
+            <Button Content="Журнал" Grid.Column="2" Command="{Binding OpenJournalCommand}"/>
         </Grid>
     </Grid>
 

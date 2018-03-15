@@ -26,14 +26,7 @@ namespace DLR.WPF.ViewModels
             _messageService = messageService;
             _pleaseWaitService = pleaseWaitService;
             _uiVisualizerService = uiVisualizerService;
-            AuthenticateCommand = new Command(Authenticate, () => true);
-            UserRegion = "Не авторизовано";
-            EditingEnabled = true;
-            ActTypes = new ObservableCollection<string>();
-            ActTypes.AddRange(Enum.GetNames(typeof(ActType)));
-            ActTypes.Add("Не выбрано");
-            SelectedActIndex = ActTypes.IndexOf("Не выбрано");
-            SelectedAct = new ObservableCollection<ActBase>();
+            InitialiseProperties();
         }
 
         public override string Title { get { return "DLR.WPF"; } }
@@ -74,7 +67,7 @@ namespace DLR.WPF.ViewModels
             var authVm = new AuthWindowViewModel(_messageService);
             await _uiVisualizerService.ShowDialogAsync(authVm, (o, e) =>
             {
-                if (e.Result.HasValue && authVm.Token!=null)
+                if (e.Result.HasValue && authVm.Token != null)
                 {
                     _token = authVm.Token;
                     UserRegion = GetRegionName(_token.UserRegion);
@@ -87,7 +80,7 @@ namespace DLR.WPF.ViewModels
         {
             switch (region)
             {
-                    case Region.All: return "Центральный";
+                case Region.All: return "Центральный";
                 case Region.Dzerzhinsky: return "Дзержинский";
                 case Region.Industrial: return "Индустриальный";
                 case Region.Kirov: return "Кировский";
@@ -96,7 +89,7 @@ namespace DLR.WPF.ViewModels
                 case Region.NewLyads: return "Новые ляды";
                 case Region.Ordzhonikidzevsky: return "Орджоникидзевский";
                 case Region.Sverdlovsky: return "Свердловский";
-                    default: return "";
+                default: return "";
             }
         }
 
@@ -104,72 +97,143 @@ namespace DLR.WPF.ViewModels
 
         public Command CreateNewCommand => new Command(() =>
         {
-            if(!Enum.TryParse(SelectedActIndex.ToString(), out ActType actType)) return;
+            if (!Enum.TryParse(SelectedActIndex.ToString(), out ActType actType)) return;
+            ActBase act = null;
             switch (actType)
             {
                 case ActType.АктОбследования:
-                {
-                    ShowAct(new ActInspection());
-                    break;
-                }
+                    {
+                        act = new ActInspection();
+                        break;
+                    }
                 case ActType.АктПроверкиФизЛица:
-                {
-                    ShowAct(new ActInpectationFl());
-                    break;
-                }
+                    {
+                        act = new ActInpectationFl();
+                        break;
+                    }
                 case ActType.АктПроверкиЮл:
-                {
-                    ShowAct(new ActInspectationUlIp());
-                    break;
-                }
+                    {
+                        act = new ActInspectationUlIp();
+                        break;
+                    }
                 case ActType.ЖурналУчетаПроверокЮл:
-                {
-                    ShowAct(new CheckingJournal());
-                    break;
-                }
+                    {
+                        act = new CheckingJournal();
+                        break;
+                    }
                 case ActType.ЗаявлениеСоглВнеплВыездПроверки:
-                {
-                    ShowAct(new AgreementStatement());
-                    break;
-                }
+                    {
+                        act = new AgreementStatement();
+                        break;
+                    }
                 case ActType.ОбмерПлощадиЗу:
-                {
-                    ShowAct(new AreaMeasurement());
-                    break;
-                }
+                    {
+                        act = new AreaMeasurement();
+                        break;
+                    }
                 case ActType.ПланПроверокГраждан:
-                {
-                    ShowAct(new CitizensCheckPlan());
-                    break;
-                }
+                    {
+                        act = new CitizensCheckPlan();
+                        break;
+                    }
                 case ActType.ПредписаниеУтсрНарушЗемЗакона:
-                {
-                    ShowAct(new OrderInspectionUlIp());
-                    break;
-                }
+                    {
+                        act = new OrderInspectionUlIp();
+                        break;
+                    }
                 case ActType.ПротоколАдмПравонарушения:
-                {
-                    ShowAct(new Protocol());
-                    break;
-                }
+                    {
+                        act = new Protocol();
+                        break;
+                    }
                 case ActType.РаспоряжениеПроверкиЮл:
-                {
-                    ShowAct(new Regulation());
-                    break;
-                }
+                    {
+                        act = new Regulation();
+                        break;
+                    }
                 case ActType.ФотоТаблица:
-                {
-                    ShowAct(new PhotoTable());
-                    break;
-                }
+                    {
+                        act = new PhotoTable();
+                        break;
+                    }
             }
-
+            ShowAct(act);
         });
 
-        private void ShowAct(ActBase act)
+        public Command OpenJournalCommand => new Command(() =>
         {
+            var vm = new JournalWindowViewModel(_token);
+            _uiVisualizerService.ShowDialogAsync(vm);
+        });
+
+        public Command CreateAct => new Command(() =>
+        {
+            var AuthClient = new AuthServiceClient("BasicHttpBinding_IAuthService");
+            var act = SelectedAct.First();
+            if(act==null)return;
+            if (AuthClient.AddAct(act, _token))
+                _messageService.ShowInformationAsync("Success!");
+            else
+                _messageService.ShowWarningAsync("Act was not added because error!");
+        }, () => SelectedAct.First()!=null);
+
+        public void ShowAct(ActBase act)
+        {
+            if (act == null) return;
             SelectedAct.Clear();
             SelectedAct.Add(act);
-        } 
+            SelectedActIndex = (int)GetActType(act);
+        }
+
+        private string GetFullActName(ActType actType)
+        {
+            switch (actType)
+            {
+                case ActType.АктОбследования: return "Акт обследования земельного участка";
+                case ActType.АктПроверкиФизЛица: return "Акт проверки соблюдения земельного законодательства физическим лицом";
+                case ActType.ПланПроверокГраждан: return "План проверок граждан";
+                case ActType.АктПроверкиЮл: return "Акт проверки юридического лица, индивидуального предпринимателя";
+                case ActType.ЖурналУчетаПроверокЮл: return "Журнал учета проверок юридического лица, индивидуального предпренимателя";
+                case ActType.ЗаявлениеСоглВнеплВыездПроверки: return "Заявление о согласовании проведения внеплановой выездной проверки юридического лица, индивидуального предпринимателя";
+                case ActType.ОбмерПлощадиЗу: return "Обмер площади земельного участка";
+                case ActType.ПредписаниеУтсрНарушЗемЗакона: return "Предписание об устранении нарушения земельного законодательства";
+                case ActType.ПротоколАдмПравонарушения: return "Протокол об административном правонарушении";
+                case ActType.ФотоТаблица: return "Фототаблица";
+                case ActType.РаспоряжениеПроверкиЮл: return "Распоряжение о проведении проверки юридического лица, индивидуального предпринимателя";
+                default: return "";
+            }
+        }
+
+        private void InitialiseProperties()
+        {
+            AuthenticateCommand = new Command(Authenticate, () => true);
+            UserRegion = "Не авторизовано";
+            EditingEnabled = true;
+            ActTypes = new ObservableCollection<string>();
+            for (int i = 0; i < Enum.GetNames(typeof(ActType)).Length; i++)
+            {
+                ActTypes.Add(GetFullActName((ActType)i));
+            }
+            ActTypes.Add("Не выбрано");
+            SelectedActIndex = ActTypes.IndexOf("Не выбрано");
+            SelectedAct = new ObservableCollection<ActBase>();
+        }
+
+        private ActType GetActType(ActBase act)
+        {
+            var type = act.GetType();
+            if (type == typeof(ActInspection)) return ActType.АктОбследования;
+            if (type == typeof(ActInpectationFl)) return ActType.АктПроверкиФизЛица;
+            if (type == typeof(ActInspectationUlIp)) return ActType.АктПроверкиЮл;
+            if (type == typeof(AreaMeasurement)) return ActType.ОбмерПлощадиЗу;
+            if (type == typeof(AgreementStatement)) return ActType.ЗаявлениеСоглВнеплВыездПроверки;
+            if (type == typeof(CheckingJournal)) return ActType.ЖурналУчетаПроверокЮл;
+            if (type == typeof(CitizensCheckPlan)) return ActType.ПланПроверокГраждан;
+            if (type == typeof(OrderInspectionUlIp)) return ActType.РаспоряжениеПроверкиЮл;
+            if (type == typeof(Protocol)) return ActType.ПротоколАдмПравонарушения;
+            if (type == typeof(Regulation)) return ActType.ПредписаниеУтсрНарушЗемЗакона;
+            if (type == typeof(PhotoTable)) return ActType.ФотоТаблица;
+            return 0;
+        }
     }
 }

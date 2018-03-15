@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows;
 using Catel.Data;
 using Catel.Services;
 using Catel.Windows;
@@ -22,12 +23,9 @@ namespace DLR.WPF.ViewModels
 
         public Token Token { get; set; }
 
-        public Window Window { get;set; }
-
         // TODO: Register models with the vmpropmodel codesnippet
         // TODO: Register view model properties with the vmprop or vmpropviewmodeltomodel codesnippets
         // TODO: Register commands with the vmcommand or vmcommandwithcanexecute codesnippets
-
         
         public string Login
         {
@@ -55,7 +53,8 @@ namespace DLR.WPF.ViewModels
                 if (token != null)
                 {
                     Token = token;
-                    Window?.Close();
+                    var window = Application.Current.GetActiveWindow();
+                    window.Close();
                 }
                 else
                 {

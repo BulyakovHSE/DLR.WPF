@@ -1,0 +1,28 @@
+﻿<Window x:Class="DLR.WPF.Views.JournalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DLR.WPF.Views"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:catel="http://schemas.catelproject.com"
+        mc:Ignorable="d"
+        Title="JournalWindow" Height="700" Width="700">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button Content="LoadAllActs" Command="{Binding LoadAllActs}"/>
+        </StackPanel>
+        <DataGrid x:Name="DataGrid" Grid.Column="1" ItemsSource="{Binding DisplayingActs}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <catel:EventToCommand Command="{Binding MouseDoubleClickCommand}" CommandParameter="{Binding ElementName=DataGrid}"></catel:EventToCommand>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            
+        </DataGrid>
+    </Grid>
+</Window>

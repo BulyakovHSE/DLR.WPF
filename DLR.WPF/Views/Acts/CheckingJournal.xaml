@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <DataTemplate x:Key="CheckingJournalTemplate">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dlrServer="clr-namespace:DLR.WPF.DlrServer">
+    <DataTemplate x:Key="CheckingJournalTemplate" DataType="dlrServer:CheckingJournal">
         <StackPanel x:Name="CheckingJournal" Visibility="Visible">
             <TextBlock TextWrapping="Wrap" Text="Журнал учета проверок юр лиц и ип:"/>
             <Border x:Name="CheckingJournalDescription"  BorderThickness="1" BorderBrush="Black">
@@ -20,22 +21,22 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Text="дата начала ведения журнала" Grid.Row="0" Grid.Column="0"/>
-                        <DatePicker Grid.Row="0" Grid.Column="1"/>
+                        <DatePicker SelectedDate="{Binding JournalStartDate }" Grid.Row="0" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="наименование юридического лица/фамилия, имя, индивидуального предпринимателя" Grid.Row="1" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding PersonInfo }" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="адрес (место нахождения) постоянно действующего исполнительного органа юридического лица/место жительства (место осуществления деятельности (если не совпадает с местом жительства) индивидуального предпринимателя)" Grid.Row="2" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding Address }" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="(государственный регистрационный номер записи о государственной регистрации юридического лица/индивидуального предпринимателя, идентификационный номер налогоплательщика (для индивидуального предпринимателя); номер реестровой записи и дата включения сведений в реестр субъектов малого или среднего предпринимательства для субъектов малого и среднего предпринимательства" Grid.Row="3" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding DifferentInfo }" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Ответственное лицо: (фамилия, имя, отчество (в случае, если имеется), должность лица (лиц), ответственного за ведение журнала учета проверок)" Grid.Row="4" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding ResponsiblePersonInfo }" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="(фамилия, имя, отчество (в случае, если имеется) руководителя юридического лица, индивидуального предпринимателя)" Grid.Row="5" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding ResponsiblePersonBossInfo }" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap"/>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -57,25 +58,25 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Text="дата начала и окончания проверки" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+                        <TextBox Text="{Binding CheckDateStartAndFinish }" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Общее время проведения проверки (в отношении субъектов малого предпринимательства и микропредприятий указывается в часах)" Grid.Row="1" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding CommonCheckDuration }" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Наименование органа государственного контроля (надзора), наименование органа муниципального контроля" Grid.Row="2" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding StateControlName }" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Дата и номер распоряжения или приказа о проведении проверки" Grid.Row="3" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding DateNumOrOrderOfCheck }" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Цель, задачи и предмет проверки" Grid.Row="4" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding CheckAimTaskAndObject }" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Вид проверки в отношении плановой проверки – со ссылкой на ежегодный план проведения проверок; в отношении внеплановой выездной проверки – с указанием на дату и номер решения прокурора о согласовании проведения проверки(в случае, если такое согласование необходимо)" Grid.Row="5" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding CheckType }" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Дата и номер акта, составленного по результатам проверки, дата его вручения представителю юридического лица, индивидуальному предпринимателю" Grid.Row="6" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding DateNumOfCheckRes }" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap"/>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -92,10 +93,10 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Text="Выявленные нарушения обязательных требований (указываются содержание выявленного нарушения со ссылкой на положение нормативного правового акта, которым установлено нарушенное требование, допустившее его лицо)" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+                        <TextBox Text="{Binding FoundViolations }" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Дата, номер и содержание выданного предписания об устранении выявленных нарушений" Grid.Row="1" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding DateNumOfContentOfElimination }" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -108,7 +109,7 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Text="Фамилия, имя, отчество (в случае, если имеется), должность должностного лица (должностных лиц), проводящего(их) проверку" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+                        <TextBox Text="{Binding CheckerPersonInfo }" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
                     </Grid>
                 </StackPanel>
             </Border>

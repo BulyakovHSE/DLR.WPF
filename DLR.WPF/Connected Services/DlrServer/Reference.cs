@@ -127,8 +127,8 @@ namespace DLR.WPF.DlrServer {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInpectationFl))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInspectationUlIp))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInspection))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.AreaMeasurement))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.PhotoTable))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.AreaMeasurement))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActIndividual))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.AgreementStatement))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.CheckingJournal))]
@@ -232,8 +232,8 @@ namespace DLR.WPF.DlrServer {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInpectationFl))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInspectationUlIp))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInspection))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.AreaMeasurement))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.PhotoTable))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.AreaMeasurement))]
     public partial class ActCommon : DLR.WPF.DlrServer.ActBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1124,6 +1124,141 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PhotoTable", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.SerializableAttribute()]
+    public partial class PhotoTable : DLR.WPF.DlrServer.ActCommon {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ActNumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> AdditionToActDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AreaInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DeviceInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MunitipalControlNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PersonsInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DLR.WPF.DlrServer.Photo[] PhotosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhototableCreatorField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ActNum {
+            get {
+                return this.ActNumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActNumField, value) != true)) {
+                    this.ActNumField = value;
+                    this.RaisePropertyChanged("ActNum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> AdditionToActDate {
+            get {
+                return this.AdditionToActDateField;
+            }
+            set {
+                if ((this.AdditionToActDateField.Equals(value) != true)) {
+                    this.AdditionToActDateField = value;
+                    this.RaisePropertyChanged("AdditionToActDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AreaInfo {
+            get {
+                return this.AreaInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaInfoField, value) != true)) {
+                    this.AreaInfoField = value;
+                    this.RaisePropertyChanged("AreaInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DeviceInfo {
+            get {
+                return this.DeviceInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DeviceInfoField, value) != true)) {
+                    this.DeviceInfoField = value;
+                    this.RaisePropertyChanged("DeviceInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MunitipalControlName {
+            get {
+                return this.MunitipalControlNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MunitipalControlNameField, value) != true)) {
+                    this.MunitipalControlNameField = value;
+                    this.RaisePropertyChanged("MunitipalControlName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonsInfo {
+            get {
+                return this.PersonsInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonsInfoField, value) != true)) {
+                    this.PersonsInfoField = value;
+                    this.RaisePropertyChanged("PersonsInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DLR.WPF.DlrServer.Photo[] Photos {
+            get {
+                return this.PhotosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhotosField, value) != true)) {
+                    this.PhotosField = value;
+                    this.RaisePropertyChanged("Photos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PhototableCreator {
+            get {
+                return this.PhototableCreatorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhototableCreatorField, value) != true)) {
+                    this.PhototableCreatorField = value;
+                    this.RaisePropertyChanged("PhototableCreator");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AreaMeasurement", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
     [System.SerializableAttribute()]
     public partial class AreaMeasurement : DLR.WPF.DlrServer.ActCommon {
@@ -1284,141 +1419,6 @@ namespace DLR.WPF.DlrServer {
                 if ((object.ReferenceEquals(this.TerritorialBodyNameField, value) != true)) {
                     this.TerritorialBodyNameField = value;
                     this.RaisePropertyChanged("TerritorialBodyName");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PhotoTable", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
-    [System.SerializableAttribute()]
-    public partial class PhotoTable : DLR.WPF.DlrServer.ActCommon {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ActNumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> AdditionToActDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AreaInfoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DeviceInfoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MunitipalControlNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PersonsInfoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DLR.WPF.DlrServer.Photo[] PhotosField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PhototableCreatorField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ActNum {
-            get {
-                return this.ActNumField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ActNumField, value) != true)) {
-                    this.ActNumField = value;
-                    this.RaisePropertyChanged("ActNum");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> AdditionToActDate {
-            get {
-                return this.AdditionToActDateField;
-            }
-            set {
-                if ((this.AdditionToActDateField.Equals(value) != true)) {
-                    this.AdditionToActDateField = value;
-                    this.RaisePropertyChanged("AdditionToActDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AreaInfo {
-            get {
-                return this.AreaInfoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AreaInfoField, value) != true)) {
-                    this.AreaInfoField = value;
-                    this.RaisePropertyChanged("AreaInfo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DeviceInfo {
-            get {
-                return this.DeviceInfoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DeviceInfoField, value) != true)) {
-                    this.DeviceInfoField = value;
-                    this.RaisePropertyChanged("DeviceInfo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MunitipalControlName {
-            get {
-                return this.MunitipalControlNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MunitipalControlNameField, value) != true)) {
-                    this.MunitipalControlNameField = value;
-                    this.RaisePropertyChanged("MunitipalControlName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PersonsInfo {
-            get {
-                return this.PersonsInfoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PersonsInfoField, value) != true)) {
-                    this.PersonsInfoField = value;
-                    this.RaisePropertyChanged("PersonsInfo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DLR.WPF.DlrServer.Photo[] Photos {
-            get {
-                return this.PhotosField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PhotosField, value) != true)) {
-                    this.PhotosField = value;
-                    this.RaisePropertyChanged("Photos");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PhototableCreator {
-            get {
-                return this.PhototableCreatorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PhototableCreatorField, value) != true)) {
-                    this.PhototableCreatorField = value;
-                    this.RaisePropertyChanged("PhototableCreator");
                 }
             }
         }
@@ -1596,7 +1596,7 @@ namespace DLR.WPF.DlrServer {
         private string FoundViolationsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string JournalStartDateField;
+        private System.Nullable<System.DateTime> JournalStartDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PersonInfoField;
@@ -1754,12 +1754,12 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string JournalStartDate {
+        public System.Nullable<System.DateTime> JournalStartDate {
             get {
                 return this.JournalStartDateField;
             }
             set {
-                if ((object.ReferenceEquals(this.JournalStartDateField, value) != true)) {
+                if ((this.JournalStartDateField.Equals(value) != true)) {
                     this.JournalStartDateField = value;
                     this.RaisePropertyChanged("JournalStartDate");
                 }

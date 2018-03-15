@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
-    <DataTemplate x:Key="ActInspectionUlIp">
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                    xmlns:dlrServer="clr-namespace:DLR.WPF.DlrServer">
+    <DataTemplate x:Key="ActInspectionUlIp" DataType="dlrServer:ActInspectationUlIp">
         <StackPanel x:Name="ActInspectionUl" Visibility="Visible">
             <TextBlock TextWrapping="Wrap" Text="Акт проверки юр лиц и ип:"/>
             <Border x:Name="ActInspectionUlActDescription"  BorderThickness="1" BorderBrush="Black">
@@ -19,16 +20,16 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Text="Наименование территориального органа администрации Перми, уполномоченного на осуществеление муницип. зем. контроля" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+                        <TextBox Text="{Binding TerritorialBodyName}" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Место составления" Grid.Row="1" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding PlaceActCreation }" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Дата и время составления акта" Grid.Row="2" Grid.Column="0"/>
-                        <xctk:DateTimePicker Grid.Row="2" Grid.Column="1"/>
+                        <xctk:DateTimePicker Value="{Binding DateTimeCreation }" Grid.Row="2" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Номер акта проверки" Grid.Row="3" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding ActNum }" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -50,25 +51,25 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Text="Место проведения проверки" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+                        <TextBox Text="{Binding CheckingPlace }" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Основание проведения пороверки (вид документа с указанием реквизитов (номер, дата))" Grid.Row="1" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding OnBaseOfDocs }" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Тип проверки (плановая/внеплановая, документарная/выездная)" Grid.Row="2" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding CheckType }" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="В отношении кого (наименование юридического лица, фамилия, имя, отчество (последнее – при наличии) индивидуального предпринимателя)" Grid.Row="3" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding ChekingTarget }" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Дата и время проведения проверки: (заполняется в случае проведения проверок филиалов, представительств,  обособленных структурных подразделений юридического лица или  при осуществлении деятельности индивидуального предпринимателя по нескольким адресам)" Grid.Row="4" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding DateAndTimeOfCheck }" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Общая продолжительность проверки: (рабочих дней/часов)" Grid.Row="5" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding CommonCheckDuration }" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Кем составлен (наименование органа государственного контроля (надзора) или органа муниципального контроля)" Grid.Row="6" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding ActCreatedBy }" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap"/>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -82,7 +83,7 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock TextWrapping="Wrap" Text="Дата и номер решения прокурора (его заместителя) о согласовании проведения проверки: ((заполняется в случае необходимости согласования проверки с органами прокуратуры)" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding ProsecutorDecision }" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -100,10 +101,10 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock TextWrapping="Wrap" Text="Лицо(а), проводившее проверку: (фамилия, имя, отчество (последнее – при наличии), должность должностного лица (должностных лиц), проводившего(их) проверку; в случае привлечения к участию в проверке экспертов, экспертных организаций указываются фамилии, имена, отчества (последнее – при наличии), должности экспертов и/или наименования экспертных организаций с указанием реквизитов свидетельства об аккредитации и наименование органа по аккредитации, выдавшего свидетельство)" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding CheckersInfo }" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="При проведении проверки присутствовали: (фамилия, имя, отчество (последнее – при наличии), должность руководителя, иного должностного лица (должностных лиц) или уполномоченного представителя юридического лица, уполномоченного представителя индивидуального предпринимателя, уполномоченного представителя саморегулируемой организации (в случае проведения проверки члена саморегулируемой организации), присутствовавших при проведении мероприятий по проверке)" Grid.Row="1" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding BeholdersInfo }" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -122,16 +123,16 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Text="В ходе проведения проверки: выявлены нарушения обязательных требований или требований, установленных муниципальными правовыми актами с указанием положений (нормативных) правовых актов) (с указанием характера нарушений; лиц, допустивших нарушения)" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding RequirementsViolations }" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
 
-                        <TextBlock TextWrapping="Wrap" Text="выявлены несоответствия сведений, содержащихся в уведомлении о начале осуществления отдельных видов предпринимательской деятельности, обязательным требованиям (с указанием положений (нормативных) правовых актов):" Grid.Row="1" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBlock TextWrapping="Wrap" Text="Выявлены несоответствия сведений, содержащихся в уведомлении о начале осуществления отдельных видов предпринимательской деятельности, обязательным требованиям (с указанием положений (нормативных) правовых актов):" Grid.Row="1" Grid.Column="0"/>
+                        <TextBox Text="{Binding DiscrepanciesInfo }" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
 
-                        <TextBlock TextWrapping="Wrap" Text="выявлены факты невыполнения предписаний органов государственного контроля (надзора), органов муниципального контроля (с указанием реквизитов выданных предписаний):" Grid.Row="2" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBlock TextWrapping="Wrap" Text="Выявлены факты невыполнения предписаний органов государственного контроля (надзора), органов муниципального контроля (с указанием реквизитов выданных предписаний):" Grid.Row="2" Grid.Column="0"/>
+                        <TextBox Text="{Binding NonComplianceFacts }" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
 
-                        <TextBlock TextWrapping="Wrap" Text="нарушений не выявлено" Grid.Row="3" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBlock TextWrapping="Wrap" Text="Нарушений не выявлено" Grid.Row="3" Grid.Column="0"/>
+                        <TextBox Text="{Binding NoViolations }" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -144,7 +145,7 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Text="Прилагаемые документы" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding DocsForAct }" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"/>
                     </Grid>
                 </StackPanel>
             </Border>

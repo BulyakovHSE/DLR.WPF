@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
-    <DataTemplate x:Key="ActInspectionFl">
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                    xmlns:dlrServer="clr-namespace:DLR.WPF.DlrServer">
+    <DataTemplate x:Key="ActInspectionFl" DataType="dlrServer:ActInpectationFl">
         <StackPanel x:Name="ActInspectionFl" Visibility="Visible">
             <TextBlock TextWrapping="Wrap" Text="Акт проверки физ лиц:"/>
             <Border x:Name="ActInspectionFlActDescription"  BorderThickness="1" BorderBrush="Black">
@@ -23,28 +24,28 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Text="Номер акта проверки" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+                        <TextBox Text="{Binding ActNum}" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Место составления" Grid.Row="1" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding PlaceActCreation}" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Дата и время составления акта" Grid.Row="2" Grid.Column="0"/>
-                        <xctk:DateTimePicker Grid.Row="2" Grid.Column="1"/>
+                        <xctk:DateTimePicker Value="{Binding DateTimeCreation}" Grid.Row="2" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="(должность, Ф.И.О. должностного лица,составившего акт)" Grid.Row="3" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding ActCreator}" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="на  основании  распоряжения (наименование должности руководителя органа муниципального земельного контроля)" Grid.Row="4" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding BaseOnOrder}" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Распоряжение от" Grid.Row="5" Grid.Column="0"/>
-                        <DatePicker Text="" Grid.Row="5" Grid.Column="1"/>
+                        <DatePicker SelectedDate="{Binding BaseOnOrderDate}" Grid.Row="5" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Номер распоряжения" Grid.Row="6" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding OrderNum}" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="В присутствии (Ф.И.О. проверяемого лица, законного представителя)" Grid.Row="7" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="7" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding AttendingPersonsInfo}" Grid.Row="7" Grid.Column="1" TextWrapping="Wrap"/>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -65,22 +66,22 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Text="Тип проверки (плановая/внеплановая, документарная/выездная)" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+                        <TextBox Text="{Binding CheckType}" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Адрес" Grid.Row="1" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding AreaAddress}" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Площадь" Grid.Row="2" Grid.Column="0"/>
-                        <TextBox Text="" TextWrapping="Wrap" Grid.Row="2" Grid.Column="1"/>
+                        <TextBox Text="{Binding AreaSquare}" TextWrapping="Wrap" Grid.Row="2" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Кто использовал (Ф.И.О., ИНН, адрес места жительства, паспортные данные)" Grid.Row="3" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding UserInfo}" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Проверка проводилась с" Grid.Row="4" Grid.Column="0"/>
-                        <DatePicker Grid.Row="4" Grid.Column="1"/>
+                        <DatePicker SelectedDate="{Binding CheckDateStart}" Grid.Row="4" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Проверка проводилась до" Grid.Row="5" Grid.Column="0"/>
-                        <DatePicker  Grid.Row="5" Grid.Column="1"/>
+                        <DatePicker SelectedDate="{Binding CheckDateFinish}" Grid.Row="5" Grid.Column="1"/>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -97,10 +98,10 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Text="Проверкой установлено: (описание территории, строений, сооружений, ограждения, межевых знаков и т.д.)" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+                        <TextBox Text="{Binding CheckResults}" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Объяснения, заявления проверяемого лица (законного  представителя) по результатам проведенной проверки соблюдения земельного законодательства:" Grid.Row="1" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding InspectedPersonInfo}" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -118,13 +119,13 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Text="От  участников проверки поступили (не поступили) заявления: (содержание заявления)" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
+                        <TextBox Text="{Binding ApplicationContent}" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="В ходе проверки производились: (обмер участка, фото-, видеосъемка и т.п.)" Grid.Row="1" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding DuringCheckActivity}" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="К акту прилагается:" Grid.Row="2" Grid.Column="0"/>
-                        <TextBox Text="" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding AdditionsToAct}" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
                     </Grid>
                 </StackPanel>
             </Border>
