@@ -7,6 +7,7 @@ using Catel.Services;
 using Catel.Windows.Interactivity;
 using DLR.WPF.DlrServer;
 using DLR.WPF.Models;
+using DLR.WPF.Services;
 using DLR.WPF.Views;
 
 namespace DLR.WPF.ViewModels
@@ -64,34 +65,17 @@ namespace DLR.WPF.ViewModels
                 if (e.Result.HasValue && authVm.Token != null)
                 {
                     _token = authVm.Token;
-                    UserRegion = GetRegionName(_token.UserRegion);
+                    UserRegion = DlrStaticMethods.GetRegionName(_token.UserRegion);
                     Authenticated = true;
                 }
             });
-        }
-
-        private string GetRegionName(Region region)
-        {
-            switch (region)
-            {
-                case Region.All: return "Центральный";
-                case Region.Dzerzhinsky: return "Дзержинский";
-                case Region.Industrial: return "Индустриальный";
-                case Region.Kirov: return "Кировский";
-                case Region.Leninsky: return "Ленинский";
-                case Region.Motovilikhinsky: return "Мотовилихинский";
-                case Region.NewLyads: return "Новые ляды";
-                case Region.Ordzhonikidzevsky: return "Орджоникидзевский";
-                case Region.Sverdlovsky: return "Свердловский";
-                default: return "";
-            }
         }
 
         public Command AuthenticateCommand { get; set; }
 
         public Command CreateNewCommand => new Command(() =>
         {
-            if (!Enum.TryParse(SelectedActIndex.ToString(), out ActType actType)) return;
+            if (!Enum.TryParse((SelectedActIndex + 1).ToString(), out ActType actType)) return;
             ActBase act = null;
             switch (actType)
             {
@@ -132,7 +116,7 @@ namespace DLR.WPF.ViewModels
                     }
                 case ActType.ПредписаниеУтсрНарушЗемЗакона:
                     {
-                        act = new OrderInspectionUlIp();
+                        act = new Regulation();
                         break;
                     }
                 case ActType.ПротоколАдмПравонарушения:
@@ -142,7 +126,7 @@ namespace DLR.WPF.ViewModels
                     }
                 case ActType.РаспоряжениеПроверкиЮл:
                     {
-                        act = new Regulation();
+                        act = new OrderInspectionUlIp();
                         break;
                     }
                 case ActType.ФотоТаблица:
@@ -195,7 +179,7 @@ namespace DLR.WPF.ViewModels
                 _messageService.ShowWarningAsync("Вы не авторизованы в системе!");
                 return;
             }
-            var vm = new JournalWindowViewModel(_token);
+            var vm = new JournalWindowViewModel(_token, _messageService, _pleaseWaitService);
             _uiVisualizerService.ShowDialogAsync(vm);
         });
 
@@ -211,6 +195,15 @@ namespace DLR.WPF.ViewModels
                 var AuthClient = new AuthServiceClient("BasicHttpBinding_IAuthService");
                 var act = SelectedAct.First();
                 if (act == null) return;
+                try
+                {
+                    WordTemplateFillingService.FillWordBookmarks(ref act);
+                }
+                catch (Exception e)
+                {
+                    _messageService.ShowWarningAsync("Не удалось создать файл.\n" + e.Message + "\nРекомендуется закрыть все процессы Word в диспетчере задач Windows");
+                }
+
                 if (AuthClient.AddAct(act, _token))
                     _messageService.ShowInformationAsync("Акт успешно создан!");
                 else
@@ -218,7 +211,7 @@ namespace DLR.WPF.ViewModels
             }
             catch (Exception e)
             {
-                _messageService.ShowErrorAsync("Произошла непредвиденная ошибка.");
+                _messageService.ShowErrorAsync("Произошла непредвиденная ошибка.\n" + e.Message);
             }
         }, () => true);
 
@@ -228,26 +221,7 @@ namespace DLR.WPF.ViewModels
             _journalAct = act;
             SelectedAct.Clear();
             SelectedAct.Add(act);
-            SelectedActIndex = (int)GetActType(act);
-        }
-
-        private string GetFullActName(ActType actType)
-        {
-            switch (actType)
-            {
-                case ActType.АктОбследования: return "Акт обследования земельного участка";
-                case ActType.АктПроверкиФизЛица: return "Акт проверки соблюдения земельного законодательства физическим лицом";
-                case ActType.ПланПроверокГраждан: return "План проверок граждан";
-                case ActType.АктПроверкиЮл: return "Акт проверки юридического лица, индивидуального предпринимателя";
-                case ActType.ЖурналУчетаПроверокЮл: return "Журнал учета проверок юридического лица, индивидуального предпренимателя";
-                case ActType.ЗаявлениеСоглВнеплВыездПроверки: return "Заявление о согласовании проведения внеплановой выездной проверки юридического лица, индивидуального предпринимателя";
-                case ActType.ОбмерПлощадиЗу: return "Обмер площади земельного участка";
-                case ActType.ПредписаниеУтсрНарушЗемЗакона: return "Предписание об устранении нарушения земельного законодательства";
-                case ActType.ПротоколАдмПравонарушения: return "Протокол об административном правонарушении";
-                case ActType.ФотоТаблица: return "Фототаблица";
-                case ActType.РаспоряжениеПроверкиЮл: return "Распоряжение о проведении проверки юридического лица, индивидуального предпринимателя";
-                default: return "";
-            }
+            SelectedActIndex = (int)DlrStaticMethods.GetActType(act);
         }
 
         private void InitialiseProperties()
@@ -258,28 +232,12 @@ namespace DLR.WPF.ViewModels
             ActTypes = new ObservableCollection<string>();
             for (int i = 0; i < Enum.GetNames(typeof(ActType)).Length; i++)
             {
-                ActTypes.Add(GetFullActName((ActType)i));
+                if(i == 0) continue;
+                ActTypes.Add(DlrStaticMethods.GetFullActName((ActType)i));
             }
             ActTypes.Add("Не выбрано");
             SelectedActIndex = ActTypes.IndexOf("Не выбрано");
             SelectedAct = new ObservableCollection<ActBase>();
-        }
-
-        private ActType GetActType(ActBase act)
-        {
-            var type = act.GetType();
-            if (type == typeof(ActInspection)) return ActType.АктОбследования;
-            if (type == typeof(ActInpectationFl)) return ActType.АктПроверкиФизЛица;
-            if (type == typeof(ActInspectationUlIp)) return ActType.АктПроверкиЮл;
-            if (type == typeof(AreaMeasurement)) return ActType.ОбмерПлощадиЗу;
-            if (type == typeof(AgreementStatement)) return ActType.ЗаявлениеСоглВнеплВыездПроверки;
-            if (type == typeof(CheckingJournal)) return ActType.ЖурналУчетаПроверокЮл;
-            if (type == typeof(CitizensCheckPlan)) return ActType.ПланПроверокГраждан;
-            if (type == typeof(OrderInspectionUlIp)) return ActType.РаспоряжениеПроверкиЮл;
-            if (type == typeof(Protocol)) return ActType.ПротоколАдмПравонарушения;
-            if (type == typeof(Regulation)) return ActType.ПредписаниеУтсрНарушЗемЗакона;
-            if (type == typeof(PhotoTable)) return ActType.ФотоТаблица;
-            return 0;
         }
     }
 }

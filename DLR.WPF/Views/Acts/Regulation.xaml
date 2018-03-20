@@ -60,6 +60,8 @@
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -71,8 +73,14 @@
                         <TextBlock TextWrapping="Wrap" Text="Кем допущено" Grid.Row="1" Grid.Column="0"/>
                         <TextBox Text="{Binding ViolationAuthorInfo }" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
 
-                        <TextBlock TextWrapping="Wrap" Text="Устранить до" Grid.Row="2" Grid.Column="0"/>
-                        <DatePicker SelectedDate="{Binding CorrectToDate }" Grid.Row="2" Grid.Column="1" />
+                        <TextBlock TextWrapping="Wrap" Text="Кто обязывает (должность, Ф.И.О.)" Grid.Row="2" Grid.Column="0"/>
+                        <TextBox Text="{Binding CreatorInfoFirstName }" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="Кого обязывает (наименование юридического лица, Ф.И.О. руководителя, должностное лицо, индивидуальный предприниматель, физическое лицо)" Grid.Row="3" Grid.Column="0"/>
+                        <TextBox Text="{Binding ViolationAuthor2 }" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="Устранить до" Grid.Row="4" Grid.Column="0"/>
+                        <DatePicker SelectedDate="{Binding CorrectToDate }" Grid.Row="4" Grid.Column="1" />
                     </Grid>
                 </StackPanel>
             </Border>

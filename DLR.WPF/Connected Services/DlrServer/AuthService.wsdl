@@ -5,9 +5,8 @@
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DzoAuthService" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ActsModel" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DlrModel" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAuthService_Authenticate_InputMessage">
@@ -21,12 +20,6 @@
   </wsdl:message>
   <wsdl:message name="IAuthService_GetActs_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetActsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IAuthService_GetSomeActs_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetSomeActs" />
-  </wsdl:message>
-  <wsdl:message name="IAuthService_GetSomeActs_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetSomeActsResponse" />
   </wsdl:message>
   <wsdl:message name="IAuthService_GetActsCommon_InputMessage">
     <wsdl:part name="parameters" element="tns:GetActsCommon" />
@@ -145,10 +138,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetActs" message="tns:IAuthService_GetActs_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetActsResponse" message="tns:IAuthService_GetActs_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetSomeActs">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetSomeActs" message="tns:IAuthService_GetSomeActs_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetSomeActsResponse" message="tns:IAuthService_GetSomeActs_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetActsCommon">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetActsCommon" message="tns:IAuthService_GetActsCommon_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetActsCommonResponse" message="tns:IAuthService_GetActsCommon_OutputMessage" />
@@ -235,15 +224,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetActs">
       <soap:operation soapAction="http://tempuri.org/IAuthService/GetActs" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSomeActs">
-      <soap:operation soapAction="http://tempuri.org/IAuthService/GetSomeActs" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

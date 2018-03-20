@@ -7,22 +7,44 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:catel="http://schemas.catelproject.com"
         mc:Ignorable="d"
-        Title="JournalWindow" Height="700" Width="700">
+        Title="JournalWindow" Height="700" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <StackPanel>
-            <Button Content="LoadAllActs" Command="{Binding LoadAllActs}"/>
+            <Button Content="Загрузить все акты" Command="{Binding LoadAllActs}"/>
+            <Button Content="Удалить акт" Command="{Binding DeleteAct}" CommandParameter="{Binding ElementName=DataGrid}"/>
+            <Button Content="Открыть файл" Command="{Binding OpenActFile}" CommandParameter="{Binding ElementName=DataGrid}"/>
+            <Button Content="Открыть акт для редактирования" Command="{Binding MouseDoubleClickCommand}" CommandParameter="{Binding ElementName=DataGrid}"/>
+            <StackPanel>
+                <TextBlock Text="Фильтр по типу акта: "/>
+                <ComboBox ItemsSource="{Binding ActTypes}" x:Name="ComboBox" SelectedIndex="{Binding SelectedActTypeIndex}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <catel:EventToCommand Command="{Binding ComboBoxSelectionChanged}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel IsEnabled="{Binding IsCentral}">
+                <TextBlock Text="Фильтр по региону: "/>
+                <ComboBox ItemsSource="{Binding Regions}" x:Name="ComboBoxRegion" SelectedIndex="{Binding SelectedRegionIndex}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <catel:EventToCommand Command="{Binding ComboBoxSelectionChanged}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+            </StackPanel>
         </StackPanel>
-        <DataGrid x:Name="DataGrid" Grid.Column="1" ItemsSource="{Binding DisplayingActs}">
+        <DataGrid x:Name="DataGrid" Grid.Column="1" ItemsSource="{Binding DisplayingActs}" AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn" AutoGenerateColumns="True">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
-                    <catel:EventToCommand Command="{Binding MouseDoubleClickCommand}" CommandParameter="{Binding ElementName=DataGrid}"></catel:EventToCommand>
+                    <catel:EventToCommand Command="{Binding MouseDoubleClickCommand}" CommandParameter="{Binding ElementName=DataGrid}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
-            
         </DataGrid>
     </Grid>
 </Window>

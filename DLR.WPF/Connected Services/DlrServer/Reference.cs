@@ -88,7 +88,7 @@ namespace DLR.WPF.DlrServer {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Region", Namespace="http://schemas.datacontract.org/2004/07/ActsModel")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Region", Namespace="http://schemas.datacontract.org/2004/07/DlrModel")]
     public enum Region : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -121,7 +121,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ActBase", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActBase", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActCommon))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInpectationFl))]
@@ -142,6 +142,9 @@ namespace DLR.WPF.DlrServer {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DLR.WPF.DlrServer.ActType ActTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private byte[] DocumentBytesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -160,6 +163,19 @@ namespace DLR.WPF.DlrServer {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DLR.WPF.DlrServer.ActType ActType {
+            get {
+                return this.ActTypeField;
+            }
+            set {
+                if ((this.ActTypeField.Equals(value) != true)) {
+                    this.ActTypeField = value;
+                    this.RaisePropertyChanged("ActType");
+                }
             }
         }
         
@@ -227,7 +243,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ActCommon", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActCommon", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInpectationFl))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.ActInspectationUlIp))]
@@ -255,7 +271,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ActInpectationFl", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActInpectationFl", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     public partial class ActInpectationFl : DLR.WPF.DlrServer.ActCommon {
         
@@ -299,7 +315,7 @@ namespace DLR.WPF.DlrServer {
         private string CheckTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> DateTimeCreationField;
+        private System.Nullable<System.DateTime> DateOfCreationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DuringCheckActivityField;
@@ -312,6 +328,9 @@ namespace DLR.WPF.DlrServer {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PlaceActCreationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> TimeOfCreationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UserInfoField;
@@ -486,14 +505,14 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> DateTimeCreation {
+        public System.Nullable<System.DateTime> DateOfCreation {
             get {
-                return this.DateTimeCreationField;
+                return this.DateOfCreationField;
             }
             set {
-                if ((this.DateTimeCreationField.Equals(value) != true)) {
-                    this.DateTimeCreationField = value;
-                    this.RaisePropertyChanged("DateTimeCreation");
+                if ((this.DateOfCreationField.Equals(value) != true)) {
+                    this.DateOfCreationField = value;
+                    this.RaisePropertyChanged("DateOfCreation");
                 }
             }
         }
@@ -551,6 +570,19 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> TimeOfCreation {
+            get {
+                return this.TimeOfCreationField;
+            }
+            set {
+                if ((this.TimeOfCreationField.Equals(value) != true)) {
+                    this.TimeOfCreationField = value;
+                    this.RaisePropertyChanged("TimeOfCreation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string UserInfo {
             get {
                 return this.UserInfoField;
@@ -566,7 +598,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ActInspectationUlIp", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActInspectationUlIp", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     public partial class ActInspectationUlIp : DLR.WPF.DlrServer.ActCommon {
         
@@ -893,7 +925,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ActInspection", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActInspection", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     public partial class ActInspection : DLR.WPF.DlrServer.ActCommon {
         
@@ -1124,7 +1156,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PhotoTable", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PhotoTable", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     public partial class PhotoTable : DLR.WPF.DlrServer.ActCommon {
         
@@ -1259,7 +1291,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AreaMeasurement", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AreaMeasurement", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     public partial class AreaMeasurement : DLR.WPF.DlrServer.ActCommon {
         
@@ -1426,7 +1458,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ActIndividual", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActIndividual", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.AgreementStatement))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(DLR.WPF.DlrServer.CheckingJournal))]
@@ -1439,7 +1471,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AgreementStatement", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AgreementStatement", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     public partial class AgreementStatement : DLR.WPF.DlrServer.ActIndividual {
         
@@ -1558,7 +1590,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CheckingJournal", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CheckingJournal", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     public partial class CheckingJournal : DLR.WPF.DlrServer.ActIndividual {
         
@@ -1566,34 +1598,37 @@ namespace DLR.WPF.DlrServer {
         private string AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CheckAimTaskAndObjectField;
+        private string CheckAimTaskAndObjectNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CheckDateStartAndFinishField;
+        private string CheckDateStartAndFinishNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CheckTypeField;
+        private string CheckTypeNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CheckerPersonInfoField;
+        private string CheckerPersonInfoNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CommonCheckDurationField;
+        private string CommonCheckDurationNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DateNumOfCheckResField;
+        private string DateNumOfCheckResNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DateNumOfContentOfEliminationField;
+        private string DateNumOfContentOfEliminationNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DateNumOrOrderOfCheckField;
+        private string DateNumOrOrderOfCheckNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DifferentInfoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FoundViolationsField;
+        private string ExpertsInfoNoUnderlineField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FoundViolationsNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> JournalStartDateField;
@@ -1608,7 +1643,7 @@ namespace DLR.WPF.DlrServer {
         private string ResponsiblePersonInfoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StateControlNameField;
+        private string StateControlNameNoUnderlineField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Address {
@@ -1624,105 +1659,105 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CheckAimTaskAndObject {
+        public string CheckAimTaskAndObjectNoUnderline {
             get {
-                return this.CheckAimTaskAndObjectField;
+                return this.CheckAimTaskAndObjectNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.CheckAimTaskAndObjectField, value) != true)) {
-                    this.CheckAimTaskAndObjectField = value;
-                    this.RaisePropertyChanged("CheckAimTaskAndObject");
+                if ((object.ReferenceEquals(this.CheckAimTaskAndObjectNoUnderlineField, value) != true)) {
+                    this.CheckAimTaskAndObjectNoUnderlineField = value;
+                    this.RaisePropertyChanged("CheckAimTaskAndObjectNoUnderline");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CheckDateStartAndFinish {
+        public string CheckDateStartAndFinishNoUnderline {
             get {
-                return this.CheckDateStartAndFinishField;
+                return this.CheckDateStartAndFinishNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.CheckDateStartAndFinishField, value) != true)) {
-                    this.CheckDateStartAndFinishField = value;
-                    this.RaisePropertyChanged("CheckDateStartAndFinish");
+                if ((object.ReferenceEquals(this.CheckDateStartAndFinishNoUnderlineField, value) != true)) {
+                    this.CheckDateStartAndFinishNoUnderlineField = value;
+                    this.RaisePropertyChanged("CheckDateStartAndFinishNoUnderline");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CheckType {
+        public string CheckTypeNoUnderline {
             get {
-                return this.CheckTypeField;
+                return this.CheckTypeNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.CheckTypeField, value) != true)) {
-                    this.CheckTypeField = value;
-                    this.RaisePropertyChanged("CheckType");
+                if ((object.ReferenceEquals(this.CheckTypeNoUnderlineField, value) != true)) {
+                    this.CheckTypeNoUnderlineField = value;
+                    this.RaisePropertyChanged("CheckTypeNoUnderline");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CheckerPersonInfo {
+        public string CheckerPersonInfoNoUnderline {
             get {
-                return this.CheckerPersonInfoField;
+                return this.CheckerPersonInfoNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.CheckerPersonInfoField, value) != true)) {
-                    this.CheckerPersonInfoField = value;
-                    this.RaisePropertyChanged("CheckerPersonInfo");
+                if ((object.ReferenceEquals(this.CheckerPersonInfoNoUnderlineField, value) != true)) {
+                    this.CheckerPersonInfoNoUnderlineField = value;
+                    this.RaisePropertyChanged("CheckerPersonInfoNoUnderline");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CommonCheckDuration {
+        public string CommonCheckDurationNoUnderline {
             get {
-                return this.CommonCheckDurationField;
+                return this.CommonCheckDurationNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.CommonCheckDurationField, value) != true)) {
-                    this.CommonCheckDurationField = value;
-                    this.RaisePropertyChanged("CommonCheckDuration");
+                if ((object.ReferenceEquals(this.CommonCheckDurationNoUnderlineField, value) != true)) {
+                    this.CommonCheckDurationNoUnderlineField = value;
+                    this.RaisePropertyChanged("CommonCheckDurationNoUnderline");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DateNumOfCheckRes {
+        public string DateNumOfCheckResNoUnderline {
             get {
-                return this.DateNumOfCheckResField;
+                return this.DateNumOfCheckResNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.DateNumOfCheckResField, value) != true)) {
-                    this.DateNumOfCheckResField = value;
-                    this.RaisePropertyChanged("DateNumOfCheckRes");
+                if ((object.ReferenceEquals(this.DateNumOfCheckResNoUnderlineField, value) != true)) {
+                    this.DateNumOfCheckResNoUnderlineField = value;
+                    this.RaisePropertyChanged("DateNumOfCheckResNoUnderline");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DateNumOfContentOfElimination {
+        public string DateNumOfContentOfEliminationNoUnderline {
             get {
-                return this.DateNumOfContentOfEliminationField;
+                return this.DateNumOfContentOfEliminationNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.DateNumOfContentOfEliminationField, value) != true)) {
-                    this.DateNumOfContentOfEliminationField = value;
-                    this.RaisePropertyChanged("DateNumOfContentOfElimination");
+                if ((object.ReferenceEquals(this.DateNumOfContentOfEliminationNoUnderlineField, value) != true)) {
+                    this.DateNumOfContentOfEliminationNoUnderlineField = value;
+                    this.RaisePropertyChanged("DateNumOfContentOfEliminationNoUnderline");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DateNumOrOrderOfCheck {
+        public string DateNumOrOrderOfCheckNoUnderline {
             get {
-                return this.DateNumOrOrderOfCheckField;
+                return this.DateNumOrOrderOfCheckNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.DateNumOrOrderOfCheckField, value) != true)) {
-                    this.DateNumOrOrderOfCheckField = value;
-                    this.RaisePropertyChanged("DateNumOrOrderOfCheck");
+                if ((object.ReferenceEquals(this.DateNumOrOrderOfCheckNoUnderlineField, value) != true)) {
+                    this.DateNumOrOrderOfCheckNoUnderlineField = value;
+                    this.RaisePropertyChanged("DateNumOrOrderOfCheckNoUnderline");
                 }
             }
         }
@@ -1741,14 +1776,27 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FoundViolations {
+        public string ExpertsInfoNoUnderline {
             get {
-                return this.FoundViolationsField;
+                return this.ExpertsInfoNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.FoundViolationsField, value) != true)) {
-                    this.FoundViolationsField = value;
-                    this.RaisePropertyChanged("FoundViolations");
+                if ((object.ReferenceEquals(this.ExpertsInfoNoUnderlineField, value) != true)) {
+                    this.ExpertsInfoNoUnderlineField = value;
+                    this.RaisePropertyChanged("ExpertsInfoNoUnderline");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FoundViolationsNoUnderline {
+            get {
+                return this.FoundViolationsNoUnderlineField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FoundViolationsNoUnderlineField, value) != true)) {
+                    this.FoundViolationsNoUnderlineField = value;
+                    this.RaisePropertyChanged("FoundViolationsNoUnderline");
                 }
             }
         }
@@ -1806,14 +1854,14 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StateControlName {
+        public string StateControlNameNoUnderline {
             get {
-                return this.StateControlNameField;
+                return this.StateControlNameNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.StateControlNameField, value) != true)) {
-                    this.StateControlNameField = value;
-                    this.RaisePropertyChanged("StateControlName");
+                if ((object.ReferenceEquals(this.StateControlNameNoUnderlineField, value) != true)) {
+                    this.StateControlNameNoUnderlineField = value;
+                    this.RaisePropertyChanged("StateControlNameNoUnderline");
                 }
             }
         }
@@ -1821,7 +1869,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CitizensCheckPlan", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CitizensCheckPlan", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     public partial class CitizensCheckPlan : DLR.WPF.DlrServer.ActIndividual {
         
@@ -1829,28 +1877,28 @@ namespace DLR.WPF.DlrServer {
         private string ApprovedByInfoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> ApprovedTimeField;
+        private System.Nullable<System.DateTime> ApprovedDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CheckAimField;
+        private string CheckAimNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CheckBaseField;
+        private string CheckBaseNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CheckDurationInDaysField;
+        private string CheckDurationInDaysNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CheckStartDateField;
+        private string CheckStartDateNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CitizenNameField;
+        private string CitizenNameNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EarthObjectField;
+        private string EarthObjectNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FederalBodyNameField;
+        private string FederalBodyNameNoUnderlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ScheduledInspectionYearField;
@@ -1872,105 +1920,105 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> ApprovedTime {
+        public System.Nullable<System.DateTime> ApprovedDate {
             get {
-                return this.ApprovedTimeField;
+                return this.ApprovedDateField;
             }
             set {
-                if ((this.ApprovedTimeField.Equals(value) != true)) {
-                    this.ApprovedTimeField = value;
-                    this.RaisePropertyChanged("ApprovedTime");
+                if ((this.ApprovedDateField.Equals(value) != true)) {
+                    this.ApprovedDateField = value;
+                    this.RaisePropertyChanged("ApprovedDate");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CheckAim {
+        public string CheckAimNoUnderline {
             get {
-                return this.CheckAimField;
+                return this.CheckAimNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.CheckAimField, value) != true)) {
-                    this.CheckAimField = value;
-                    this.RaisePropertyChanged("CheckAim");
+                if ((object.ReferenceEquals(this.CheckAimNoUnderlineField, value) != true)) {
+                    this.CheckAimNoUnderlineField = value;
+                    this.RaisePropertyChanged("CheckAimNoUnderline");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CheckBase {
+        public string CheckBaseNoUnderline {
             get {
-                return this.CheckBaseField;
+                return this.CheckBaseNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.CheckBaseField, value) != true)) {
-                    this.CheckBaseField = value;
-                    this.RaisePropertyChanged("CheckBase");
+                if ((object.ReferenceEquals(this.CheckBaseNoUnderlineField, value) != true)) {
+                    this.CheckBaseNoUnderlineField = value;
+                    this.RaisePropertyChanged("CheckBaseNoUnderline");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CheckDurationInDays {
+        public string CheckDurationInDaysNoUnderline {
             get {
-                return this.CheckDurationInDaysField;
+                return this.CheckDurationInDaysNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.CheckDurationInDaysField, value) != true)) {
-                    this.CheckDurationInDaysField = value;
-                    this.RaisePropertyChanged("CheckDurationInDays");
+                if ((object.ReferenceEquals(this.CheckDurationInDaysNoUnderlineField, value) != true)) {
+                    this.CheckDurationInDaysNoUnderlineField = value;
+                    this.RaisePropertyChanged("CheckDurationInDaysNoUnderline");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CheckStartDate {
+        public string CheckStartDateNoUnderline {
             get {
-                return this.CheckStartDateField;
+                return this.CheckStartDateNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.CheckStartDateField, value) != true)) {
-                    this.CheckStartDateField = value;
-                    this.RaisePropertyChanged("CheckStartDate");
+                if ((object.ReferenceEquals(this.CheckStartDateNoUnderlineField, value) != true)) {
+                    this.CheckStartDateNoUnderlineField = value;
+                    this.RaisePropertyChanged("CheckStartDateNoUnderline");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CitizenName {
+        public string CitizenNameNoUnderline {
             get {
-                return this.CitizenNameField;
+                return this.CitizenNameNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.CitizenNameField, value) != true)) {
-                    this.CitizenNameField = value;
-                    this.RaisePropertyChanged("CitizenName");
+                if ((object.ReferenceEquals(this.CitizenNameNoUnderlineField, value) != true)) {
+                    this.CitizenNameNoUnderlineField = value;
+                    this.RaisePropertyChanged("CitizenNameNoUnderline");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EarthObject {
+        public string EarthObjectNoUnderline {
             get {
-                return this.EarthObjectField;
+                return this.EarthObjectNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.EarthObjectField, value) != true)) {
-                    this.EarthObjectField = value;
-                    this.RaisePropertyChanged("EarthObject");
+                if ((object.ReferenceEquals(this.EarthObjectNoUnderlineField, value) != true)) {
+                    this.EarthObjectNoUnderlineField = value;
+                    this.RaisePropertyChanged("EarthObjectNoUnderline");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FederalBodyName {
+        public string FederalBodyNameNoUnderline {
             get {
-                return this.FederalBodyNameField;
+                return this.FederalBodyNameNoUnderlineField;
             }
             set {
-                if ((object.ReferenceEquals(this.FederalBodyNameField, value) != true)) {
-                    this.FederalBodyNameField = value;
-                    this.RaisePropertyChanged("FederalBodyName");
+                if ((object.ReferenceEquals(this.FederalBodyNameNoUnderlineField, value) != true)) {
+                    this.FederalBodyNameNoUnderlineField = value;
+                    this.RaisePropertyChanged("FederalBodyNameNoUnderline");
                 }
             }
         }
@@ -2004,7 +2052,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OrderInspectionUlIp", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderInspectionUlIp", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     public partial class OrderInspectionUlIp : DLR.WPF.DlrServer.ActIndividual {
         
@@ -2018,6 +2066,12 @@ namespace DLR.WPF.DlrServer {
         private string CheckingAimField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CheckingDateFinishField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CheckingDateStartField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CheckingDurationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -2028,12 +2082,6 @@ namespace DLR.WPF.DlrServer {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CheckingTasksField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CheckingTimeFinishField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CheckingTimeStartField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DocumentsForSuccessField;
@@ -2049,6 +2097,12 @@ namespace DLR.WPF.DlrServer {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OrderCreatorInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrderCreatorMakerInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> OrderDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OrderNumField;
@@ -2105,6 +2159,32 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CheckingDateFinish {
+            get {
+                return this.CheckingDateFinishField;
+            }
+            set {
+                if ((this.CheckingDateFinishField.Equals(value) != true)) {
+                    this.CheckingDateFinishField = value;
+                    this.RaisePropertyChanged("CheckingDateFinish");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CheckingDateStart {
+            get {
+                return this.CheckingDateStartField;
+            }
+            set {
+                if ((this.CheckingDateStartField.Equals(value) != true)) {
+                    this.CheckingDateStartField = value;
+                    this.RaisePropertyChanged("CheckingDateStart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string CheckingDuration {
             get {
                 return this.CheckingDurationField;
@@ -2152,32 +2232,6 @@ namespace DLR.WPF.DlrServer {
                 if ((object.ReferenceEquals(this.CheckingTasksField, value) != true)) {
                     this.CheckingTasksField = value;
                     this.RaisePropertyChanged("CheckingTasks");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CheckingTimeFinish {
-            get {
-                return this.CheckingTimeFinishField;
-            }
-            set {
-                if ((this.CheckingTimeFinishField.Equals(value) != true)) {
-                    this.CheckingTimeFinishField = value;
-                    this.RaisePropertyChanged("CheckingTimeFinish");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CheckingTimeStart {
-            get {
-                return this.CheckingTimeStartField;
-            }
-            set {
-                if ((this.CheckingTimeStartField.Equals(value) != true)) {
-                    this.CheckingTimeStartField = value;
-                    this.RaisePropertyChanged("CheckingTimeStart");
                 }
             }
         }
@@ -2243,6 +2297,32 @@ namespace DLR.WPF.DlrServer {
                 if ((object.ReferenceEquals(this.OrderCreatorInfoField, value) != true)) {
                     this.OrderCreatorInfoField = value;
                     this.RaisePropertyChanged("OrderCreatorInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OrderCreatorMakerInfo {
+            get {
+                return this.OrderCreatorMakerInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderCreatorMakerInfoField, value) != true)) {
+                    this.OrderCreatorMakerInfoField = value;
+                    this.RaisePropertyChanged("OrderCreatorMakerInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> OrderDate {
+            get {
+                return this.OrderDateField;
+            }
+            set {
+                if ((this.OrderDateField.Equals(value) != true)) {
+                    this.OrderDateField = value;
+                    this.RaisePropertyChanged("OrderDate");
                 }
             }
         }
@@ -2315,7 +2395,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Protocol", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Protocol", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     public partial class Protocol : DLR.WPF.DlrServer.ActIndividual {
         
@@ -2348,6 +2428,9 @@ namespace DLR.WPF.DlrServer {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SpecialMarksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> TimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ViolationAuthorInfoField;
@@ -2486,6 +2569,19 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> Time {
+            get {
+                return this.TimeField;
+            }
+            set {
+                if ((this.TimeField.Equals(value) != true)) {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string ViolationAuthorInfo {
             get {
                 return this.ViolationAuthorInfoField;
@@ -2514,7 +2610,7 @@ namespace DLR.WPF.DlrServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Regulation", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Regulation", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     public partial class Regulation : DLR.WPF.DlrServer.ActIndividual {
         
@@ -2534,6 +2630,9 @@ namespace DLR.WPF.DlrServer {
         private string CreatorInfoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatorInfoFirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> DateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -2547,6 +2646,9 @@ namespace DLR.WPF.DlrServer {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PrescriptionDeliveryMarkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ViolationAuthor2Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ViolationAuthorInfoField;
@@ -2620,6 +2722,19 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreatorInfoFirstName {
+            get {
+                return this.CreatorInfoFirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatorInfoFirstNameField, value) != true)) {
+                    this.CreatorInfoFirstNameField = value;
+                    this.RaisePropertyChanged("CreatorInfoFirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> Date {
             get {
                 return this.DateField;
@@ -2685,6 +2800,19 @@ namespace DLR.WPF.DlrServer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ViolationAuthor2 {
+            get {
+                return this.ViolationAuthor2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ViolationAuthor2Field, value) != true)) {
+                    this.ViolationAuthor2Field = value;
+                    this.RaisePropertyChanged("ViolationAuthor2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string ViolationAuthorInfo {
             get {
                 return this.ViolationAuthorInfoField;
@@ -2711,9 +2839,50 @@ namespace DLR.WPF.DlrServer {
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActType", Namespace="http://schemas.datacontract.org/2004/07/DlrModel")]
+    public enum ActType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Базовый = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        АктОбследования = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        АктПроверкиФизЛица = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        АктПроверкиЮл = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ФотоТаблица = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ОбмерПлощадиЗу = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ПротоколАдмПравонарушения = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ЖурналУчетаПроверокЮл = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ПредписаниеУтсрНарушЗемЗакона = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ЗаявлениеСоглВнеплВыездПроверки = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        РаспоряжениеПроверкиЮл = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ПланПроверокГраждан = 11,
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Photo", Namespace="http://schemas.datacontract.org/2004/07/ActsModel.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Photo", Namespace="http://schemas.datacontract.org/2004/07/DlrModel.Model")]
     [System.SerializableAttribute()]
     public partial class Photo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -2788,89 +2957,83 @@ namespace DLR.WPF.DlrServer {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActs", ReplyAction="http://tempuri.org/IAuthService/GetActsResponse")]
         System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActBase[]> GetActsAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetSomeActs", ReplyAction="http://tempuri.org/IAuthService/GetSomeActsResponse")]
-        DLR.WPF.DlrServer.ActBase[] GetSomeActs(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActBase, bool> predicate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetSomeActs", ReplyAction="http://tempuri.org/IAuthService/GetSomeActsResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActBase[]> GetSomeActsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActBase, bool> predicate);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsCommon", ReplyAction="http://tempuri.org/IAuthService/GetActsCommonResponse")]
+        DLR.WPF.DlrServer.ActCommon[] GetActsCommon(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsCommon", ReplyAction="http://tempuri.org/IAuthService/GetActsCommonResponse")]
-        DLR.WPF.DlrServer.ActCommon[] GetActsCommon(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActCommon, bool> predicate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsCommon", ReplyAction="http://tempuri.org/IAuthService/GetActsCommonResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActCommon[]> GetActsCommonAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActCommon, bool> predicate);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActCommon[]> GetActsCommonAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsIndividual", ReplyAction="http://tempuri.org/IAuthService/GetActsIndividualResponse")]
-        DLR.WPF.DlrServer.ActIndividual[] GetActsIndividual(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActIndividual, bool> predicate);
+        DLR.WPF.DlrServer.ActIndividual[] GetActsIndividual(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsIndividual", ReplyAction="http://tempuri.org/IAuthService/GetActsIndividualResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActIndividual[]> GetActsIndividualAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActIndividual, bool> predicate);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActIndividual[]> GetActsIndividualAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsInpectationFl", ReplyAction="http://tempuri.org/IAuthService/GetActsInpectationFlResponse")]
-        DLR.WPF.DlrServer.ActInpectationFl[] GetActsInpectationFl(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInpectationFl, bool> predicate);
+        DLR.WPF.DlrServer.ActInpectationFl[] GetActsInpectationFl(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsInpectationFl", ReplyAction="http://tempuri.org/IAuthService/GetActsInpectationFlResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInpectationFl[]> GetActsInpectationFlAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInpectationFl, bool> predicate);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInpectationFl[]> GetActsInpectationFlAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsInspectationUlIp", ReplyAction="http://tempuri.org/IAuthService/GetActsInspectationUlIpResponse")]
-        DLR.WPF.DlrServer.ActInspectationUlIp[] GetActsInspectationUlIp(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspectationUlIp, bool> predicate);
+        DLR.WPF.DlrServer.ActInspectationUlIp[] GetActsInspectationUlIp(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActsInspectationUlIp", ReplyAction="http://tempuri.org/IAuthService/GetActsInspectationUlIpResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInspectationUlIp[]> GetActsInspectationUlIpAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspectationUlIp, bool> predicate);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInspectationUlIp[]> GetActsInspectationUlIpAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActInspection", ReplyAction="http://tempuri.org/IAuthService/GetActInspectionResponse")]
-        DLR.WPF.DlrServer.ActInspection[] GetActInspection(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspection, bool> predicate);
+        DLR.WPF.DlrServer.ActInspection[] GetActInspection(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetActInspection", ReplyAction="http://tempuri.org/IAuthService/GetActInspectionResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInspection[]> GetActInspectionAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspection, bool> predicate);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInspection[]> GetActInspectionAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetAgreementStatements", ReplyAction="http://tempuri.org/IAuthService/GetAgreementStatementsResponse")]
-        DLR.WPF.DlrServer.AgreementStatement[] GetAgreementStatements(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AgreementStatement, bool> predicate);
+        DLR.WPF.DlrServer.AgreementStatement[] GetAgreementStatements(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetAgreementStatements", ReplyAction="http://tempuri.org/IAuthService/GetAgreementStatementsResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.AgreementStatement[]> GetAgreementStatementsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AgreementStatement, bool> predicate);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.AgreementStatement[]> GetAgreementStatementsAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetAreaMeasurements", ReplyAction="http://tempuri.org/IAuthService/GetAreaMeasurementsResponse")]
-        DLR.WPF.DlrServer.AreaMeasurement[] GetAreaMeasurements(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AreaMeasurement, bool> predicate);
+        DLR.WPF.DlrServer.AreaMeasurement[] GetAreaMeasurements(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetAreaMeasurements", ReplyAction="http://tempuri.org/IAuthService/GetAreaMeasurementsResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.AreaMeasurement[]> GetAreaMeasurementsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AreaMeasurement, bool> predicate);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.AreaMeasurement[]> GetAreaMeasurementsAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetCheckingJournals", ReplyAction="http://tempuri.org/IAuthService/GetCheckingJournalsResponse")]
-        DLR.WPF.DlrServer.CheckingJournal[] GetCheckingJournals(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CheckingJournal, bool> predicate);
+        DLR.WPF.DlrServer.CheckingJournal[] GetCheckingJournals(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetCheckingJournals", ReplyAction="http://tempuri.org/IAuthService/GetCheckingJournalsResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.CheckingJournal[]> GetCheckingJournalsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CheckingJournal, bool> predicate);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.CheckingJournal[]> GetCheckingJournalsAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetCitizensCheckPlans", ReplyAction="http://tempuri.org/IAuthService/GetCitizensCheckPlansResponse")]
-        DLR.WPF.DlrServer.CitizensCheckPlan[] GetCitizensCheckPlans(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CitizensCheckPlan, bool> predicate);
+        DLR.WPF.DlrServer.CitizensCheckPlan[] GetCitizensCheckPlans(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetCitizensCheckPlans", ReplyAction="http://tempuri.org/IAuthService/GetCitizensCheckPlansResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.CitizensCheckPlan[]> GetCitizensCheckPlansAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CitizensCheckPlan, bool> predicate);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.CitizensCheckPlan[]> GetCitizensCheckPlansAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetOrdersInspectionUlIp", ReplyAction="http://tempuri.org/IAuthService/GetOrdersInspectionUlIpResponse")]
-        DLR.WPF.DlrServer.OrderInspectionUlIp[] GetOrdersInspectionUlIp(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.OrderInspectionUlIp, bool> predicate);
+        DLR.WPF.DlrServer.OrderInspectionUlIp[] GetOrdersInspectionUlIp(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetOrdersInspectionUlIp", ReplyAction="http://tempuri.org/IAuthService/GetOrdersInspectionUlIpResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.OrderInspectionUlIp[]> GetOrdersInspectionUlIpAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.OrderInspectionUlIp, bool> predicate);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.OrderInspectionUlIp[]> GetOrdersInspectionUlIpAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetPhotoTables", ReplyAction="http://tempuri.org/IAuthService/GetPhotoTablesResponse")]
-        DLR.WPF.DlrServer.PhotoTable[] GetPhotoTables(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.PhotoTable, bool> predicate);
+        DLR.WPF.DlrServer.PhotoTable[] GetPhotoTables(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetPhotoTables", ReplyAction="http://tempuri.org/IAuthService/GetPhotoTablesResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.PhotoTable[]> GetPhotoTablesAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.PhotoTable, bool> predicate);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.PhotoTable[]> GetPhotoTablesAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetProtocols", ReplyAction="http://tempuri.org/IAuthService/GetProtocolsResponse")]
-        DLR.WPF.DlrServer.Protocol[] GetProtocols(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Protocol, bool> predicate);
+        DLR.WPF.DlrServer.Protocol[] GetProtocols(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetProtocols", ReplyAction="http://tempuri.org/IAuthService/GetProtocolsResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.Protocol[]> GetProtocolsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Protocol, bool> predicate);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.Protocol[]> GetProtocolsAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetRegulations", ReplyAction="http://tempuri.org/IAuthService/GetRegulationsResponse")]
-        DLR.WPF.DlrServer.Regulation[] GetRegulations(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Regulation, bool> predicate);
+        DLR.WPF.DlrServer.Regulation[] GetRegulations(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetRegulations", ReplyAction="http://tempuri.org/IAuthService/GetRegulationsResponse")]
-        System.Threading.Tasks.Task<DLR.WPF.DlrServer.Regulation[]> GetRegulationsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Regulation, bool> predicate);
+        System.Threading.Tasks.Task<DLR.WPF.DlrServer.Regulation[]> GetRegulationsAsync(DLR.WPF.DlrServer.Token token, int count, int offset);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetPhotoTablePhotos", ReplyAction="http://tempuri.org/IAuthService/GetPhotoTablePhotosResponse")]
         DLR.WPF.DlrServer.Photo[] GetPhotoTablePhotos(DLR.WPF.DlrServer.Token token, DLR.WPF.DlrServer.PhotoTable photoTable);
@@ -2946,116 +3109,108 @@ namespace DLR.WPF.DlrServer {
             return base.Channel.GetActsAsync(token, count, offset);
         }
         
-        public DLR.WPF.DlrServer.ActBase[] GetSomeActs(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActBase, bool> predicate) {
-            return base.Channel.GetSomeActs(token, predicate);
+        public DLR.WPF.DlrServer.ActCommon[] GetActsCommon(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetActsCommon(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActBase[]> GetSomeActsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActBase, bool> predicate) {
-            return base.Channel.GetSomeActsAsync(token, predicate);
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActCommon[]> GetActsCommonAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetActsCommonAsync(token, count, offset);
         }
         
-        public DLR.WPF.DlrServer.ActCommon[] GetActsCommon(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActCommon, bool> predicate) {
-            return base.Channel.GetActsCommon(token, predicate);
+        public DLR.WPF.DlrServer.ActIndividual[] GetActsIndividual(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetActsIndividual(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActCommon[]> GetActsCommonAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActCommon, bool> predicate) {
-            return base.Channel.GetActsCommonAsync(token, predicate);
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActIndividual[]> GetActsIndividualAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetActsIndividualAsync(token, count, offset);
         }
         
-        public DLR.WPF.DlrServer.ActIndividual[] GetActsIndividual(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActIndividual, bool> predicate) {
-            return base.Channel.GetActsIndividual(token, predicate);
+        public DLR.WPF.DlrServer.ActInpectationFl[] GetActsInpectationFl(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetActsInpectationFl(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActIndividual[]> GetActsIndividualAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActIndividual, bool> predicate) {
-            return base.Channel.GetActsIndividualAsync(token, predicate);
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInpectationFl[]> GetActsInpectationFlAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetActsInpectationFlAsync(token, count, offset);
         }
         
-        public DLR.WPF.DlrServer.ActInpectationFl[] GetActsInpectationFl(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInpectationFl, bool> predicate) {
-            return base.Channel.GetActsInpectationFl(token, predicate);
+        public DLR.WPF.DlrServer.ActInspectationUlIp[] GetActsInspectationUlIp(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetActsInspectationUlIp(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInpectationFl[]> GetActsInpectationFlAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInpectationFl, bool> predicate) {
-            return base.Channel.GetActsInpectationFlAsync(token, predicate);
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInspectationUlIp[]> GetActsInspectationUlIpAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetActsInspectationUlIpAsync(token, count, offset);
         }
         
-        public DLR.WPF.DlrServer.ActInspectationUlIp[] GetActsInspectationUlIp(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspectationUlIp, bool> predicate) {
-            return base.Channel.GetActsInspectationUlIp(token, predicate);
+        public DLR.WPF.DlrServer.ActInspection[] GetActInspection(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetActInspection(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInspectationUlIp[]> GetActsInspectationUlIpAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspectationUlIp, bool> predicate) {
-            return base.Channel.GetActsInspectationUlIpAsync(token, predicate);
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInspection[]> GetActInspectionAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetActInspectionAsync(token, count, offset);
         }
         
-        public DLR.WPF.DlrServer.ActInspection[] GetActInspection(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspection, bool> predicate) {
-            return base.Channel.GetActInspection(token, predicate);
+        public DLR.WPF.DlrServer.AgreementStatement[] GetAgreementStatements(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetAgreementStatements(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.ActInspection[]> GetActInspectionAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.ActInspection, bool> predicate) {
-            return base.Channel.GetActInspectionAsync(token, predicate);
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.AgreementStatement[]> GetAgreementStatementsAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetAgreementStatementsAsync(token, count, offset);
         }
         
-        public DLR.WPF.DlrServer.AgreementStatement[] GetAgreementStatements(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AgreementStatement, bool> predicate) {
-            return base.Channel.GetAgreementStatements(token, predicate);
+        public DLR.WPF.DlrServer.AreaMeasurement[] GetAreaMeasurements(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetAreaMeasurements(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.AgreementStatement[]> GetAgreementStatementsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AgreementStatement, bool> predicate) {
-            return base.Channel.GetAgreementStatementsAsync(token, predicate);
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.AreaMeasurement[]> GetAreaMeasurementsAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetAreaMeasurementsAsync(token, count, offset);
         }
         
-        public DLR.WPF.DlrServer.AreaMeasurement[] GetAreaMeasurements(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AreaMeasurement, bool> predicate) {
-            return base.Channel.GetAreaMeasurements(token, predicate);
+        public DLR.WPF.DlrServer.CheckingJournal[] GetCheckingJournals(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetCheckingJournals(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.AreaMeasurement[]> GetAreaMeasurementsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.AreaMeasurement, bool> predicate) {
-            return base.Channel.GetAreaMeasurementsAsync(token, predicate);
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.CheckingJournal[]> GetCheckingJournalsAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetCheckingJournalsAsync(token, count, offset);
         }
         
-        public DLR.WPF.DlrServer.CheckingJournal[] GetCheckingJournals(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CheckingJournal, bool> predicate) {
-            return base.Channel.GetCheckingJournals(token, predicate);
+        public DLR.WPF.DlrServer.CitizensCheckPlan[] GetCitizensCheckPlans(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetCitizensCheckPlans(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.CheckingJournal[]> GetCheckingJournalsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CheckingJournal, bool> predicate) {
-            return base.Channel.GetCheckingJournalsAsync(token, predicate);
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.CitizensCheckPlan[]> GetCitizensCheckPlansAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetCitizensCheckPlansAsync(token, count, offset);
         }
         
-        public DLR.WPF.DlrServer.CitizensCheckPlan[] GetCitizensCheckPlans(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CitizensCheckPlan, bool> predicate) {
-            return base.Channel.GetCitizensCheckPlans(token, predicate);
+        public DLR.WPF.DlrServer.OrderInspectionUlIp[] GetOrdersInspectionUlIp(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetOrdersInspectionUlIp(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.CitizensCheckPlan[]> GetCitizensCheckPlansAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.CitizensCheckPlan, bool> predicate) {
-            return base.Channel.GetCitizensCheckPlansAsync(token, predicate);
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.OrderInspectionUlIp[]> GetOrdersInspectionUlIpAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetOrdersInspectionUlIpAsync(token, count, offset);
         }
         
-        public DLR.WPF.DlrServer.OrderInspectionUlIp[] GetOrdersInspectionUlIp(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.OrderInspectionUlIp, bool> predicate) {
-            return base.Channel.GetOrdersInspectionUlIp(token, predicate);
+        public DLR.WPF.DlrServer.PhotoTable[] GetPhotoTables(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetPhotoTables(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.OrderInspectionUlIp[]> GetOrdersInspectionUlIpAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.OrderInspectionUlIp, bool> predicate) {
-            return base.Channel.GetOrdersInspectionUlIpAsync(token, predicate);
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.PhotoTable[]> GetPhotoTablesAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetPhotoTablesAsync(token, count, offset);
         }
         
-        public DLR.WPF.DlrServer.PhotoTable[] GetPhotoTables(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.PhotoTable, bool> predicate) {
-            return base.Channel.GetPhotoTables(token, predicate);
+        public DLR.WPF.DlrServer.Protocol[] GetProtocols(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetProtocols(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.PhotoTable[]> GetPhotoTablesAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.PhotoTable, bool> predicate) {
-            return base.Channel.GetPhotoTablesAsync(token, predicate);
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.Protocol[]> GetProtocolsAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetProtocolsAsync(token, count, offset);
         }
         
-        public DLR.WPF.DlrServer.Protocol[] GetProtocols(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Protocol, bool> predicate) {
-            return base.Channel.GetProtocols(token, predicate);
+        public DLR.WPF.DlrServer.Regulation[] GetRegulations(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetRegulations(token, count, offset);
         }
         
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.Protocol[]> GetProtocolsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Protocol, bool> predicate) {
-            return base.Channel.GetProtocolsAsync(token, predicate);
-        }
-        
-        public DLR.WPF.DlrServer.Regulation[] GetRegulations(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Regulation, bool> predicate) {
-            return base.Channel.GetRegulations(token, predicate);
-        }
-        
-        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.Regulation[]> GetRegulationsAsync(DLR.WPF.DlrServer.Token token, System.Func<DLR.WPF.DlrServer.Regulation, bool> predicate) {
-            return base.Channel.GetRegulationsAsync(token, predicate);
+        public System.Threading.Tasks.Task<DLR.WPF.DlrServer.Regulation[]> GetRegulationsAsync(DLR.WPF.DlrServer.Token token, int count, int offset) {
+            return base.Channel.GetRegulationsAsync(token, count, offset);
         }
         
         public DLR.WPF.DlrServer.Photo[] GetPhotoTablePhotos(DLR.WPF.DlrServer.Token token, DLR.WPF.DlrServer.PhotoTable photoTable) {

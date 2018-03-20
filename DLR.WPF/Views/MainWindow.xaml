@@ -28,16 +28,16 @@
             <StackPanel x:Name="LayoutRoot">
                 <StackPanel x:Name="AuthStack" Orientation="Horizontal">
                     <Button Content="Войти" Command="{Binding AuthenticateCommand}" Margin="0 0 10 0"/>
-                    <TextBlock>
+                    <TextBlock x:Name="RegionTxt">
                         <Run Text="Район: "/>
                         <Run Text="{Binding UserRegion}"/> 
                     </TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" IsEnabled="{Binding Authenticated}">
                     <Button Content="Создать новое дело" Command="{Binding CreateNewCommand}"/>
-                    <Label Content="№ общего дела: "/>
-                    <TextBlock Text="123456" VerticalAlignment="Center" Margin="0 0 10 0"/>
-                    <Button Content="Загрузить сторое дело"/>
+                    <Label Content="№ общего дела: " Visibility="Collapsed"/>
+                    <TextBlock x:Name="TxtCommonNum" Visibility="Collapsed"  Text="123456" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                    <Button Content="Загрузить дело из журнала" Command="{Binding OpenJournalCommand}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Тип акта: "/>

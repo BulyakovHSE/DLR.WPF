@@ -5,13 +5,16 @@ using DLR.WPF.DlrServer;
 
 namespace DLR.WPF.Models
 {
-    public class DisplayingJournalAct
+    public class DisplayingJournalAct : IComparable
     {
         [DisplayName("Идентификатор")]
         public int Id => _act.Id;
 
         [DisplayName("Тип")]
         public string ActTypeStr => GetFullActName(GetActType(_act));
+
+        [DisplayName("Регион")]
+        public string ActRegion => GetRegionName(_act.Region);
 
         public DisplayingJournalAct(ActBase act)
         {
@@ -56,6 +59,23 @@ namespace DLR.WPF.Models
             }
         }
 
+        private string GetRegionName(Region region)
+        {
+            switch (region)
+            {
+                case Region.All: return "Центральный";
+                case Region.Dzerzhinsky: return "Дзержинский";
+                case Region.Industrial: return "Индустриальный";
+                case Region.Kirov: return "Кировский";
+                case Region.Leninsky: return "Ленинский";
+                case Region.Motovilikhinsky: return "Мотовилихинский";
+                case Region.NewLyads: return "Новые ляды";
+                case Region.Ordzhonikidzevsky: return "Орджоникидзевский";
+                case Region.Sverdlovsky: return "Свердловский";
+                default: return "";
+            }
+        }
+
         public static explicit operator ActBase(DisplayingJournalAct source)
         {
             return source._act;
@@ -64,6 +84,24 @@ namespace DLR.WPF.Models
         public static explicit operator DisplayingJournalAct(ActBase source)
         {
             return new DisplayingJournalAct(source);
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (obj is DisplayingJournalAct d)
+            {
+                if (GetActType(_act) < GetActType(d._act)) return -1;
+                if (GetActType(_act) > GetActType(d._act))
+                    return 1;
+                return 0;
+            }
+            return 1;
+        }
+
+        public static int CompareTo(DisplayingJournalAct a, DisplayingJournalAct obj, bool reverse)
+        {
+            if (reverse) return -a.CompareTo(obj);
+            return a.CompareTo(obj);
         }
     }
 }

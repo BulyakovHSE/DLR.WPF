@@ -16,6 +16,8 @@
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -27,20 +29,26 @@
                         <TextBlock TextWrapping="Wrap" Text="Тип проверки (плановой/внеплановой, документарной/выездной)" Grid.Row="1" Grid.Column="0"/>
                         <TextBox Text="{Binding CheckType }" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1"/>
 
-                        <TextBlock TextWrapping="Wrap" Text="Номер приказа" Grid.Row="2" Grid.Column="0"/>
-                        <TextBox Text="{Binding OrderNum }" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBlock TextWrapping="Wrap" Text="Дата от" Grid.Row="2" Grid.Column="0"/>
+                        <DatePicker SelectedDate="{Binding OrderDate }" Grid.Row="2" Grid.Column="1"/>
 
-                        <TextBlock TextWrapping="Wrap" Text="Проверка в отношении (наименование юридического лица, фамилия, имя, отчество (последнее – при наличии) индивидуального предпринимателя)" Grid.Row="3" Grid.Column="0"/>
-                        <TextBox Text="{Binding InspectionTarget }" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBlock TextWrapping="Wrap" Text="(должность, фамилия, инициалы руководителя, заместителя руководителя органа государственного контроля (надзора), органа муниципального контроля, издавшего распоряжение или приказ о проведении проверки)" Grid.Row="3" Grid.Column="0"/>
+                        <TextBox Text="{Binding OrderCreatorMakerInfo }" TextWrapping="Wrap" Grid.Row="3" Grid.Column="1"/>
 
-                        <TextBlock TextWrapping="Wrap" Text="Место нахождения (юридического лица (филиалов, представительств, обособленных структурных подразделений), места фактического осуществления деятельности индивидуальным предпринимателем и (или) используемых ими производственных объектов)" Grid.Row="4" Grid.Column="0"/>
-                        <TextBox Text="{Binding TargetPlace }" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBlock TextWrapping="Wrap" Text="Номер приказа" Grid.Row="4" Grid.Column="0"/>
+                        <TextBox Text="{Binding OrderNum }" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
 
-                        <TextBlock TextWrapping="Wrap" Text="Назначить лицом(ами), уполномоченным(и) на проведение проверки: (фамилия, имя, отчество (последнее – при наличии), должность должностного лица (должностных лиц), уполномоченного(ых) на проведение проверки)" Grid.Row="5" Grid.Column="0"/>
-                        <TextBox Text="{Binding CheckerInfo }" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBlock TextWrapping="Wrap" Text="Проверка в отношении (наименование юридического лица, фамилия, имя, отчество (последнее – при наличии) индивидуального предпринимателя)" Grid.Row="5" Grid.Column="0"/>
+                        <TextBox Text="{Binding InspectionTarget }" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap"/>
 
-                        <TextBlock TextWrapping="Wrap" Text="Эксперты (фамилия, имя, отчество (последнее – при наличии), должности привлекаемых к проведению проверки экспертов и(или) наименование экспертной организации с указанием реквизитов свидетельства об аккредитации и наименования органа по аккредитации, выдавшего свидетельство об аккредитации)" Grid.Row="6" Grid.Column="0"/>
-                        <TextBox Text="{Binding ExpertsInfo }" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap"/>
+                        <TextBlock TextWrapping="Wrap" Text="Место нахождения (юридического лица (филиалов, представительств, обособленных структурных подразделений), места фактического осуществления деятельности индивидуальным предпринимателем и (или) используемых ими производственных объектов)" Grid.Row="6" Grid.Column="0"/>
+                        <TextBox Text="{Binding TargetPlace }" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="Назначить лицом(ами), уполномоченным(и) на проведение проверки: (фамилия, имя, отчество (последнее – при наличии), должность должностного лица (должностных лиц), уполномоченного(ых) на проведение проверки)" Grid.Row="7" Grid.Column="0"/>
+                        <TextBox Text="{Binding CheckerInfo }" Grid.Row="7" Grid.Column="1" TextWrapping="Wrap"/>
+
+                        <TextBlock TextWrapping="Wrap" Text="Эксперты (фамилия, имя, отчество (последнее – при наличии), должности привлекаемых к проведению проверки экспертов и(или) наименование экспертной организации с указанием реквизитов свидетельства об аккредитации и наименования органа по аккредитации, выдавшего свидетельство об аккредитации)" Grid.Row="8" Grid.Column="0"/>
+                        <TextBox Text="{Binding ExpertsInfo }" Grid.Row="8" Grid.Column="1" TextWrapping="Wrap"/>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -73,10 +81,10 @@
                         <TextBox Text="{Binding CheckingDuration }" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Приступить с" Grid.Row="4" Grid.Column="0"/>
-                        <DatePicker SelectedDate="{Binding CheckingTimeStart }" Grid.Row="4" Grid.Column="1"/>
+                        <DatePicker SelectedDate="{Binding CheckingDateStart }" Grid.Row="4" Grid.Column="1"/>
 
                         <TextBlock TextWrapping="Wrap" Text="Окончить не позднее" Grid.Row="5" Grid.Column="0"/>
-                        <DatePicker SelectedDate="{Binding CheckingTimeFinish }" Grid.Row="5" Grid.Column="1"/>
+                        <DatePicker SelectedDate="{Binding CheckingDateFinish }" Grid.Row="5" Grid.Column="1"/>
                     </Grid>
                 </StackPanel>
             </Border>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using Catel.Data;
 using Catel.Services;
@@ -55,12 +56,10 @@ namespace DLR.WPF.ViewModels
                     await _messageService.ShowWarningAsync("Неудачная попытка авторизации");
                 }
             }
-            catch
+            catch(Exception e)
             {
                 await _messageService.ShowErrorAsync("Не удалось установить соединение с сервером.");
             }
-
-            
         });
 
         public bool CanAuthenicate()
